@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="WeTalk.app" target="11" />
+      <module name="WeTalk.buildSrc" target="11" />
+      <module name="WeTalk.buildSrc.main" target="11" />
+      <module name="WeTalk.buildSrc.test" target="11" />
+      <module name="WeTalk.core.mvvm.android-library" target="11" />
+      <module name="WeTalk.core.mvvm.android-utils" target="11" />
+      <module name="WeTalk.core.mvvm.res" target="11" />
+      <module name="WeTalk.core.navigation.android-library" target="11" />
+      <module name="WeTalk.core.navigation.androidLibrary" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
