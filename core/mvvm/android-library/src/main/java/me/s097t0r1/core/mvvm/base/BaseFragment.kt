@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 import me.s097t0r1.core.mvvm.res.R
 import me.s097t0r1.core.navigation.base.NavigationGraph
 import me.s097t0r1.core.navigation.base.NavigationProvider
+import me.s097t0r1.core.navigation.router.RouterProvider
 
 abstract class BaseFragment<VM : BaseViewModel<N>, N : NavigationGraph> : Fragment {
 
@@ -23,6 +24,8 @@ abstract class BaseFragment<VM : BaseViewModel<N>, N : NavigationGraph> : Fragme
 
     protected abstract val viewModel: VM
     protected abstract val navigationProvider: NavigationProvider<N>
+
+    private val router by lazy { (parentFragment as RouterProvider).router }
 
     protected abstract fun inject()
 
@@ -61,6 +64,6 @@ abstract class BaseFragment<VM : BaseViewModel<N>, N : NavigationGraph> : Fragme
 
     private suspend fun initNavigationObserver() =
         viewModel.navigation.collect {
-            navigationProvider.navigate(it)
+            navigationProvider.navigate(router, it)
         }
 }

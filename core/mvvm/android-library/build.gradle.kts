@@ -11,6 +11,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.bundles.androidx.compose)
 
-    implementation(projects.core.navigation.androidLibrary)
     implementation(projects.core.mvvm.res)
+    implementation(projects.core.navigation.androidLibrary)
 }
