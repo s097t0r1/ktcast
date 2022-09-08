@@ -5,6 +5,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import me.s097t0r1.common.network.call_adapter.ReactionCallAdapterFactory
 import me.s097t0r1.common.network.service.NetworkServiceFactory
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
@@ -39,6 +40,7 @@ internal abstract class NetworkModule {
         ): Retrofit = Retrofit.Builder().apply {
             baseUrl("https://listen-api-test.listennotes.com/api/v2".toHttpUrl())
             addConverterFactory(MoshiConverterFactory.create(moshi))
+            addCallAdapterFactory(ReactionCallAdapterFactory())
             client(okHttpClient)
         }.build()
     }

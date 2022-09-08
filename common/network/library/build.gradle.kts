@@ -21,4 +21,6 @@ dependencies {
     implementation(libs.squareup.moshi.converter)
 
     implementation(projects.core.di.library)
+    implementation(projects.core.exceptions.library)
+    implementation(projects.core.utils.reaction.library)
 }
