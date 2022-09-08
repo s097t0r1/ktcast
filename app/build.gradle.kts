@@ -15,4 +15,5 @@ dependencies {
     implementation(projects.core.di.library)
 
     implementation(projects.common.network.library)
+    implementation(projects.common.persistence.database.androidLibrary)
 }

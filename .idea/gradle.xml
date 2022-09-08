@@ -15,6 +15,9 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/network" />
             <option value="$PROJECT_DIR$/common/network/library" />
+            <option value="$PROJECT_DIR$/common/persistence" />
+            <option value="$PROJECT_DIR$/common/persistence/database" />
+            <option value="$PROJECT_DIR$/common/persistence/database/android-library" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/di" />
             <option value="$PROJECT_DIR$/core/di/library" />
@@ -27,6 +30,8 @@
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/navigation/android-library" />
             <option value="$PROJECT_DIR$/core/utils" />
+            <option value="$PROJECT_DIR$/core/utils/mapper" />
+            <option value="$PROJECT_DIR$/core/utils/mapper/library" />
             <option value="$PROJECT_DIR$/core/utils/reaction" />
             <option value="$PROJECT_DIR$/core/utils/reaction/library" />
           </set>

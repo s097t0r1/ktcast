@@ -10,16 +10,11 @@ import me.s097t0r1.core.di.base.holder.BaseDependencyHolder0
 internal fun glueNetworkModule() {
 
     NetworkComponentHolder.provider = Provider {
-
-        class NetworkDependenciesHolder(
-            override val block: (BaseDependencyHolder<NetworkDependencies>) -> NetworkDependencies
-        ) : BaseDependencyHolder0<NetworkDependencies>()
-
-        NetworkDependenciesHolder {
-            object : NetworkDependencies {
-                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDepenendencies> =
-                    it
-            }
-        }.dependecies
+         BaseDependencyHolder0.create {
+             object : NetworkDependencies {
+                 override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDepenendencies> = it
+             }
+         }
     }
+
 }

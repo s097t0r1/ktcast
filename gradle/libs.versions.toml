@@ -13,6 +13,7 @@ androidxAppCompat = "1.4.1"
 androidxLifecycle = "2.4.1"
 androidxFragment = "1.5.2"
 androidxCompose = "1.2.1"
+androidxRoom = "2.4.3"
 
 googleMaterial = "1.6.1"
 
@@ -38,6 +39,10 @@ androidx-compose-material = { module = "androidx.compose.material:material", ver
 androidx-compose-animation = { module = "androidx.compose.animation:animation", version.ref = "androidxCompose" }
 androidx-compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidxCompose" }
 
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "androidxRoom"}
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidxRoom" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "androidxRoom" }
+
 google-material = { module = "com.google.android.material:material", version.ref = "googleMaterial" }
 google-dagger = { module = "com.google.dagger:dagger", version.ref = "dagger2" }
 google-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger2" }
@@ -47,6 +52,8 @@ squareup-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okHtt
 squareup-okhttp-logger = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttp" }
 squareup-moshi = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
 squareup-moshi-converter = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+
+jetbrains-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinGradlePlugin"}
 
 [bundles]
 

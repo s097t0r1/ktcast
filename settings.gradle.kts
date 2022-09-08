@@ -35,3 +35,6 @@ include(":core:exceptions:library")
 include(":common:network:library")
 
 include(":core:utils:reaction:library")
+
+include(":common:persistence:database:android-library")
+include(":core:utils:mapper:library")
