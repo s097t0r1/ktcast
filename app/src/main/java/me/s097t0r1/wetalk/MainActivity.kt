@@ -1,6 +1,7 @@
 package me.s097t0r1.wetalk
 
 import android.os.Bundle
+import me.s097t0r1.common.network.di.NetworkComponentHolder
 import me.s097t0r1.core.mvvm.base.BaseContainerActivity
 import me.s097t0r1.core.navigation.message.StartFlowMessage
 import me.s097t0r1.wetalk.ui.main.MainFragment
@@ -15,6 +16,7 @@ class MainActivity : BaseContainerActivity() {
     }
 
     override fun openLaunchScreen() {
+        NetworkComponentHolder.get().serviceFactory
         router.navigate(StartFlowMessage(MainFragment.MainScreen()))
     }
 }

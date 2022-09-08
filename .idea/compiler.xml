@@ -6,6 +6,8 @@
       <module name="WeTalk.buildSrc" target="11" />
       <module name="WeTalk.buildSrc.main" target="11" />
       <module name="WeTalk.buildSrc.test" target="11" />
+      <module name="WeTalk.common.network.main" target="1.8" />
+      <module name="WeTalk.common.network.test" target="1.8" />
       <module name="WeTalk.core.mvvm.android-library" target="11" />
       <module name="WeTalk.core.mvvm.android-utils" target="11" />
       <module name="WeTalk.core.mvvm.res" target="11" />

@@ -3,10 +3,6 @@ plugins {
     id("module-configurator")
 }
 
-moduleConfiguration {
-    isParcelizeEnable = true
-}
-
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -16,4 +12,7 @@ dependencies {
 
     implementation(projects.core.navigation.androidLibrary)
     implementation(projects.core.mvvm.androidLibrary)
+    implementation(projects.core.di.library)
+
+    implementation(projects.common.network.library)
 }

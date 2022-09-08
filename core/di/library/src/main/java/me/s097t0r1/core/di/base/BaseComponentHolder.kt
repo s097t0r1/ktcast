@@ -8,11 +8,11 @@ abstract class BaseComponentHolder<A : BaseFeatureAPI, D : BaseFeatureDepenenden
 
     lateinit var provider: Provider<D>
 
-    abstract fun initComponent(depenendencies: D): C
+    protected abstract fun initComponent(dependencies: D): C
 
     fun get(): A = getComponent()
 
-    internal fun getComponent(): C {
+    protected fun getComponent(): C {
         var component: C? = null
 
         synchronized(this) {
