@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel target="1.7">
       <module name="WeTalk.app" target="11" />
       <module name="WeTalk.buildSrc" target="11" />
       <module name="WeTalk.buildSrc.main" target="11" />
       <module name="WeTalk.buildSrc.test" target="11" />
+      <module name="WeTalk.common.network.library" target="1.8" />
+      <module name="WeTalk.common.network.library.main" target="1.8" />
+      <module name="WeTalk.common.network.library.test" target="1.8" />
       <module name="WeTalk.common.network.main" target="1.8" />
       <module name="WeTalk.common.network.test" target="1.8" />
+      <module name="WeTalk.core.di.library" target="1.8" />
+      <module name="WeTalk.core.di.library.main" target="1.8" />
+      <module name="WeTalk.core.di.library.test" target="1.8" />
+      <module name="WeTalk.core.exceptions.library" target="1.8" />
+      <module name="WeTalk.core.exceptions.library.main" target="1.8" />
+      <module name="WeTalk.core.exceptions.library.test" target="1.8" />
       <module name="WeTalk.core.mvvm.android-library" target="11" />
       <module name="WeTalk.core.mvvm.android-utils" target="11" />
       <module name="WeTalk.core.mvvm.res" target="11" />

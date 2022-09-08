@@ -30,7 +30,8 @@ include(":core:navigation:android-library")
 include(":core:mvvm:android-library")
 include(":core:mvvm:android-utils")
 include(":core:mvvm:res")
-include(":common:network")
-include(":core:exceptions")
+
 include(":core:exceptions:library")
 include(":common:network:library")
+
+include(":core:utils:reaction:library")

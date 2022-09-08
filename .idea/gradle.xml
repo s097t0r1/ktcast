@@ -26,6 +26,9 @@
             <option value="$PROJECT_DIR$/core/mvvm/res" />
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/navigation/android-library" />
+            <option value="$PROJECT_DIR$/core/utils" />
+            <option value="$PROJECT_DIR$/core/utils/reaction" />
+            <option value="$PROJECT_DIR$/core/utils/reaction/library" />
           </set>
         </option>
       </GradleProjectSettings>
