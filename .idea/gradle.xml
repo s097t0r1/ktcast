@@ -34,6 +34,8 @@
             <option value="$PROJECT_DIR$/core/utils/mapper/library" />
             <option value="$PROJECT_DIR$/core/utils/reaction" />
             <option value="$PROJECT_DIR$/core/utils/reaction/library" />
+            <option value="$PROJECT_DIR$/core/utils/viewmodel_factory" />
+            <option value="$PROJECT_DIR$/core/utils/viewmodel_factory/android_library" />
           </set>
         </option>
       </GradleProjectSettings>

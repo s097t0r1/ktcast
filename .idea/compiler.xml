@@ -29,6 +29,7 @@
       <module name="WeTalk.core.utils.mapper.library" target="1.8" />
       <module name="WeTalk.core.utils.mapper.library.main" target="1.8" />
       <module name="WeTalk.core.utils.mapper.library.test" target="1.8" />
+      <module name="WeTalk.core.utils.viewmodel_factory.android_library" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

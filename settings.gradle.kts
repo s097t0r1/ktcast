@@ -34,7 +34,10 @@ include(":core:mvvm:res")
 include(":core:exceptions:library")
 include(":common:network:library")
 
+include(":core:utils:mapper:library")
 include(":core:utils:reaction:library")
+include(":core:utils:viewmodel_factory:android_library")
 
 include(":common:persistence:database:android-library")
-include(":core:utils:mapper:library")
+
+
