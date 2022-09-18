@@ -39,8 +39,7 @@ abstract class BaseContainerFragment : Fragment, NavigationDispatcherHost, Route
 
     protected abstract fun openLaunchScreen()
 
-    protected open fun inject() { /* no-op */
-    }
+    protected open fun inject() { /* no-op */ }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         inject()

@@ -7,6 +7,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="Embedded JDK" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -36,6 +37,12 @@
             <option value="$PROJECT_DIR$/core/utils/reaction/library" />
             <option value="$PROJECT_DIR$/core/utils/viewmodel_factory" />
             <option value="$PROJECT_DIR$/core/utils/viewmodel_factory/android_library" />
+            <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/pre_authorized_zone" />
+            <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash" />
+            <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/api" />
+            <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/impl" />
+            <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/res" />
           </set>
         </option>
       </GradleProjectSettings>

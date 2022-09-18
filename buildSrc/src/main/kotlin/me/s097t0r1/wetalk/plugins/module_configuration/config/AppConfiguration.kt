@@ -8,9 +8,6 @@ internal fun ApplicationExtension.configureApp(
     project: Project,
     configuration: ModuleConfigurationExtension
 ) {
-    when {
-        configuration.isParcelizeEnable -> project.plugins.apply("kotlin-parcelize")
-    }
 
     buildTypes {
         release {
@@ -21,5 +18,9 @@ internal fun ApplicationExtension.configureApp(
                 "proguard-rules.pro"
             )
         }
+    }
+
+    when {
+        configuration.isParcelizeEnable -> project.plugins.apply("kotlin-parcelize")
     }
 }

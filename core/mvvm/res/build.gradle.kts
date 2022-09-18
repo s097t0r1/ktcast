@@ -1,10 +1,7 @@
 plugins {
     id("com.android.library")
+    id("compose-configurator")
     id("module-configurator")
-}
-
-moduleConfiguration {
-    isComposeEnable = true
 }
 
 dependencies {

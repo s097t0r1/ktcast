@@ -2,18 +2,18 @@ package me.s097t0r1.core.di.base
 
 import java.lang.ref.WeakReference
 
-abstract class BaseComponentHolder<A : BaseFeatureAPI, D : BaseFeatureDepenendencies, C : A> {
+abstract class BaseComponentHolder<A : BaseFeatureAPI, D : BaseFeatureDepenendencies> {
 
-    private var weakRef: WeakReference<C>? = null
+    private var weakRef: WeakReference<A>? = null
 
     lateinit var provider: Provider<D>
 
-    protected abstract fun initComponent(dependencies: D): C
+    protected abstract fun initComponent(dependencies: D): A
 
     fun get(): A = getComponent()
 
-    protected fun getComponent(): C {
-        var component: C? = null
+    protected fun getComponent(): A {
+        var component: A? = null
 
         synchronized(this) {
             if (this::provider.isInitialized) {

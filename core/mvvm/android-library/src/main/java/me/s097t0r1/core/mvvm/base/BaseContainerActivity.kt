@@ -36,6 +36,7 @@ abstract class BaseContainerActivity : AppCompatActivity, NavigationDispatcherHo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router.attachDispatcher(dispatcher)
+        openLaunchScreen()
     }
 
     override fun onDestroy() {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
@@ -29,7 +30,8 @@ abstract class BaseFragment<VM : BaseViewModel<N>, N : NavigationGraph> : Fragme
 
     protected abstract fun inject()
 
-    protected abstract fun ComposeView.content()
+    @Composable
+    protected abstract fun Content()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         inject()
@@ -41,10 +43,12 @@ abstract class BaseFragment<VM : BaseViewModel<N>, N : NavigationGraph> : Fragme
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_base, container).apply {
+        return inflater.inflate(R.layout.fragment_base, container, false).apply {
             findViewById<ComposeView>(R.id.cvContent).apply {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-                content()
+                setContent {
+                    this@BaseFragment.Content()
+                }
             }
         }
     }
