@@ -8,6 +8,10 @@
         <entry key="..\:/Users/s097t0r1/AndroidStudioProjects/WeTalk/app/src/main/res/layout/fragment_blank.xml" value="0.2" />
         <entry key="..\:/Users/s097t0r1/AndroidStudioProjects/WeTalk/app/src/main/res/layout/fragment_main.xml" value="0.1" />
         <entry key="..\:/Users/s097t0r1/AndroidStudioProjects/WeTalk/core/mvvm/res/src/main/res/layout/fragment_base.xml" value="0.1" />
+        <entry key="..\:/Users/s097t0r1/AndroidStudioProjects/WeTalk/feature/pre_authorized_zone/splash/res/src/main/res/layout/splash_feature_fragment_splash_container.xml" value="0.19114583333333332" />
+        <entry key="core/mvvm/res/src/main/res/layout/fragment_base.xml" value="0.1" />
+        <entry key="core/mvvm/res/src/main/res/layout/splash_feature_fragment_splash_container.xml" value="0.1" />
+        <entry key="feature/pre_authorized_zone/splash/res/src/main/res/layout/splash_featue_fragment_splash_container.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -4,20 +4,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 import javax.inject.Provider
-import kotlin.reflect.KClass
 
 class ViewModelFactory @Inject constructor(
-    @JvmSuppressWildcards
-    val viewModelMap: Map<KClass<out ViewModel>, Provider<out ViewModel>>
+    private val map: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        var viewModelProvider = viewModelMap[modelClass.kotlin]
+        var viewModelProvider = map[modelClass]
         return if (viewModelProvider == null) {
-            viewModelProvider = viewModelMap.toList()
-                .find { modelClass.isAssignableFrom(it.first.java) }
-                ?.second
+            viewModelProvider = map.toList()
+                .find { modelClass.isAssignableFrom(it.first) }?.second
             requireNotNull(viewModelProvider) {
                 "Provider for $modelClass didn't find"
             }

@@ -40,4 +40,6 @@ include(":core:utils:viewmodel_factory:android_library")
 
 include(":common:persistence:database:android-library")
 
-
+include(":feature:pre_authorized_zone:splash:api")
+include(":feature:pre_authorized_zone:splash:impl")
+include(":feature:pre_authorized_zone:splash:res")
