@@ -12,6 +12,7 @@ androidxCore = "1.7.0"
 androidxAppCompat = "1.4.1"
 androidxLifecycle = "2.4.1"
 androidxFragment = "1.5.2"
+androidxComposeActivity = "1.5.1"
 androidxCompose = "1.2.1"
 androidxRoom = "2.4.3"
 
@@ -35,6 +36,7 @@ androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
 
+androidx-compose-activity = { module = "androidx.activity:activity-compose", version.ref = "androidxComposeActivity"}
 androidx-compose-material = { module = "androidx.compose.material:material", version.ref = "androidxCompose" }
 androidx-compose-animation = { module = "androidx.compose.animation:animation", version.ref = "androidxCompose" }
 androidx-compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidxCompose" }
@@ -57,6 +59,9 @@ jetbrains-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", ver
 
 [bundles]
 
-androidx-compose = ["androidx-compose-material", "androidx-compose-animation", "androidx-compose-tooling"]
+androidx-compose = [
+    "androidx-compose-material", "androidx-compose-animation",
+    "androidx-compose-tooling", "androidx-compose-activity"
+]
 
 [plugins]

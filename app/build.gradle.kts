@@ -16,4 +16,7 @@ dependencies {
 
     implementation(projects.common.network.library)
     implementation(projects.common.persistence.database.androidLibrary)
+
+    implementation(projects.feature.preAuthorizedZone.splash.api)
+    implementation(projects.feature.preAuthorizedZone.splash.impl)
 }

@@ -4,6 +4,7 @@
     package="me.s097t0r1.wetalk">
 
     <application
+        android:name=".WeTalkApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
