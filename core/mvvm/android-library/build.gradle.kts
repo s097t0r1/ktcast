@@ -13,5 +13,7 @@ dependencies {
     implementation(libs.bundles.androidx.compose)
 
     implementation(projects.core.mvvm.res)
+    implementation(projects.core.uiComponents.androidLibrary)
     implementation(projects.core.navigation.androidLibrary)
+
 }
