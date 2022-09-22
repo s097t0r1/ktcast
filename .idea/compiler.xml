@@ -16,6 +16,9 @@
       <module name="ktcast.core.exceptions.library" target="1.8" />
       <module name="ktcast.core.exceptions.library.main" target="1.8" />
       <module name="ktcast.core.exceptions.library.test" target="1.8" />
+      <module name="ktcast.core.mvi.android-library" target="11" />
+      <module name="ktcast.core.mvi.android-utils" target="11" />
+      <module name="ktcast.core.mvi.res" target="11" />
       <module name="ktcast.core.mvvm.android-library" target="11" />
       <module name="ktcast.core.mvvm.android-utils" target="11" />
       <module name="ktcast.core.mvvm.res" target="11" />
@@ -27,8 +30,10 @@
       <module name="ktcast.core.utils.mapper.library.test" target="1.8" />
       <module name="ktcast.core.utils.viewmodel_factory.android_library" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.api" target="11" />
+      <module name="ktcast.feature.pre_authorized_zone.splash.compose-screens" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.impl" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.res" target="11" />
+      <module name="ktcast.feature.pre_authorized_zone.splash.widget" target="11" />
       <module name="WeTalk.app" target="11" />
       <module name="WeTalk.buildSrc" target="11" />
       <module name="WeTalk.buildSrc.main" target="11" />

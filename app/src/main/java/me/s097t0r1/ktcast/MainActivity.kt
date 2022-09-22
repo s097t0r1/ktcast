@@ -1,7 +1,7 @@
 package me.s097t0r1.ktcast
 
 import android.os.Bundle
-import me.s097t0r1.core.mvvm.base.BaseContainerActivity
+import me.s097t0r1.core.mvi.base.BaseContainerActivity
 import me.s097t0r1.core.navigation.message.StartFlowMessage
 import me.s097t0r1.feature.splash.impl.di.SplashComponentHolder
 

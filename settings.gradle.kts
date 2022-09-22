@@ -26,10 +26,10 @@ include(":core:di:library")
 // Navigation
 include(":core:navigation:android-library")
 
-// MVVM
-include(":core:mvvm:android-library")
-include(":core:mvvm:android-utils")
-include(":core:mvvm:res")
+// mvi
+include(":core:mvi:android-library")
+include(":core:mvi:android-utils")
+include(":core:mvi:res")
 
 include(":core:exceptions:library")
 include(":common:network:library")
@@ -43,5 +43,8 @@ include(":common:persistence:database:android-library")
 include(":feature:pre_authorized_zone:splash:api")
 include(":feature:pre_authorized_zone:splash:impl")
 include(":feature:pre_authorized_zone:splash:res")
+include(":feature:pre_authorized_zone:splash:compose-screens")
+
 include(":core:ui-components:android-library")
 include(":core:ui-components:res")
+

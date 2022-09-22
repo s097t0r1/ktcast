@@ -24,6 +24,8 @@ moshi = "1.14.0"
 
 dagger2 = "2.43.2"
 
+orbit = "4.3.2"
+
 [libraries]
 
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -57,11 +59,17 @@ squareup-moshi-converter = { module = "com.squareup.retrofit2:converter-moshi", 
 
 jetbrains-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinGradlePlugin"}
 
+orbit-mvi-core = { module = "org.orbit-mvi:orbit-core", version.ref = "orbit"}
+orbit-mvi-viewmodel = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "orbit" }
+orbit-mvi-compose = { module = "org.orbit-mvi:orbit-compose", version.ref = "orbit" }
+
 [bundles]
 
 androidx-compose = [
     "androidx-compose-material", "androidx-compose-animation",
     "androidx-compose-tooling", "androidx-compose-activity"
 ]
+
+orbit-mvi = ["orbit-mvi-core", "orbit-mvi-viewmodel", "orbit-mvi-compose"]
 
 [plugins]

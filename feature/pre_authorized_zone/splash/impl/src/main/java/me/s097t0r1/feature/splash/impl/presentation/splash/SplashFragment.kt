@@ -1,17 +1,21 @@
 package me.s097t0r1.feature.splash.impl.presentation.splash
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import me.s097t0r1.core.mvvm.base.BaseFragment
+import me.s097t0r1.core.mvi.base.BaseFragment
 import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.feature.splash.impl.di.SplashComponentHolder
+import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashSideEffect
+import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashState
 import me.s097t0r1.feature.splash.impl.presentation.splash.navigation.SplashNavigationGraph
 import me.s097t0r1.feature.splash.impl.presentation.splash.navigation.SplashNavigationProvider
+import me.s097t0r1.ktcast.feature.splash.widget.splash.SplashScreen
 import javax.inject.Inject
 
-internal class SplashFragment : BaseFragment<SplashViewModel, SplashNavigationGraph>() {
+internal class SplashFragment(
+
+) : BaseFragment<SplashViewModel, SplashState, SplashSideEffect, SplashNavigationGraph>() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -26,7 +30,7 @@ internal class SplashFragment : BaseFragment<SplashViewModel, SplashNavigationGr
 
     @Composable
     override fun Content() {
-        Text("Hello world")
+        SplashScreen()
     }
 
 }

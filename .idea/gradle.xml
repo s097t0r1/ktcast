@@ -24,10 +24,10 @@
             <option value="$PROJECT_DIR$/core/di/library" />
             <option value="$PROJECT_DIR$/core/exceptions" />
             <option value="$PROJECT_DIR$/core/exceptions/library" />
-            <option value="$PROJECT_DIR$/core/mvvm" />
-            <option value="$PROJECT_DIR$/core/mvvm/android-library" />
-            <option value="$PROJECT_DIR$/core/mvvm/android-utils" />
-            <option value="$PROJECT_DIR$/core/mvvm/res" />
+            <option value="$PROJECT_DIR$/core/mvi" />
+            <option value="$PROJECT_DIR$/core/mvi/android-library" />
+            <option value="$PROJECT_DIR$/core/mvi/android-utils" />
+            <option value="$PROJECT_DIR$/core/mvi/res" />
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/navigation/android-library" />
             <option value="$PROJECT_DIR$/core/ui-components" />
@@ -44,6 +44,7 @@
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/api" />
+            <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/compose-screens" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/impl" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/res" />
           </set>

@@ -1,6 +1,6 @@
 package me.s097t0r1.feature.splash.impl.presentation
 
-import me.s097t0r1.core.mvvm.base.BaseContainerFragment
+import me.s097t0r1.core.mvi.base.BaseContainerFragment
 import me.s097t0r1.core.navigation.message.ForwardMessage
 import me.s097t0r1.feature.splash.impl.navigation.splashFragmentScreen
 import me.s097t0r1.feature.splash.res.R

@@ -10,12 +10,13 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.google.material)
 
+    implementation(projects.core.mvi.androidLibrary)
     implementation(projects.core.navigation.androidLibrary)
-    implementation(projects.core.mvvm.androidLibrary)
     implementation(projects.core.di.library)
 
     implementation(projects.common.network.library)
     implementation(projects.common.persistence.database.androidLibrary)
+
 
     implementation(projects.feature.preAuthorizedZone.splash.api)
     implementation(projects.feature.preAuthorizedZone.splash.impl)
