@@ -16,10 +16,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun ktcastTheme(
+fun KtCastTheme(
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     colors: KtCastColors = if (isDarkTheme) darkColors() else lightColors(),
-    typography: KtCastTypography = ktcastTheme.typography,
+    typography: KtCastTypography = KtCastTheme.typography,
     Content: @Composable () -> Unit
 ) {
     val remeberedColors = remember { colors.copy() }
@@ -33,7 +33,7 @@ fun ktcastTheme(
     ) { Content() }
 }
 
-object ktcastTheme {
+object KtCastTheme {
 
     val colors: KtCastColors
         @Composable
