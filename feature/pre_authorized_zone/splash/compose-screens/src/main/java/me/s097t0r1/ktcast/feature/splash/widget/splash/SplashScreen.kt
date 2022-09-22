@@ -1,6 +1,8 @@
 package me.s097t0r1.ktcast.feature.splash.widget.splash
 
-import android.window.SplashScreen
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,12 +17,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import me.s097t0r1.core.ui_components.theme.KtCastColors
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
 import me.s097t0r1.ktcast.feature.splash.widget.R
+import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashSideEffect
+import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashUIState
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(
+    state: SplashUIState,
+    effect: SplashSideEffect
+) {
     Surface(
         color = KtCastTheme.colors.backgroundPrimaryColor
     ) {
@@ -34,13 +40,19 @@ fun SplashScreen() {
                     painter = painterResource(id = R.drawable.ic_ktcast_logo),
                     contentDescription = "Logo"
                 )
-                Text(
-                    text = stringResource(id = R.string.splash_feature_app_name),
-                    color = KtCastTheme.colors.textPrimaryColor,
+                AnimatedVisibility(
                     modifier = Modifier.align(Alignment.CenterVertically),
-                    style = KtCastTheme.typography.boldStyle,
-                    fontSize = 24.sp
-                )
+                    visible = state.isAppNameVisible,
+                    enter = expandHorizontally(),
+                    exit = shrinkHorizontally()
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.splash_feature_app_name),
+                        color = KtCastTheme.colors.textPrimaryColor,
+                        style = KtCastTheme.typography.boldStyle,
+                        fontSize = 24.sp
+                    )
+                }
             }
         }
     }
@@ -49,5 +61,5 @@ fun SplashScreen() {
 @Preview
 @Composable
 fun SplashScreenPreview() {
-    KtCastTheme { SplashScreen() }
+    KtCastTheme { SplashScreen(SplashUIState(true), SplashSideEffect()) }
 }

@@ -1,18 +1,31 @@
 package me.s097t0r1.feature.splash.impl.presentation.splash
 
+import kotlinx.coroutines.delay
 import me.s097t0r1.core.mvi.base.BaseViewModel
-import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashSideEffect
-import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashState
 import me.s097t0r1.feature.splash.impl.presentation.splash.navigation.SplashNavigationGraph
+import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashSideEffect
+import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashUIState
 import org.orbitmvi.orbit.Container
+import org.orbitmvi.orbit.syntax.simple.intent
+import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
 class SplashViewModel @Inject constructor(
 
-) : BaseViewModel<SplashState, SplashSideEffect, SplashNavigationGraph>() {
+) : BaseViewModel<SplashUIState, SplashSideEffect, SplashNavigationGraph>() {
 
-    override val container: Container<SplashState, SplashSideEffect> = container(SplashState())
+    override val container: Container<SplashUIState, SplashSideEffect> = container(SplashUIState())
 
+    fun onInitViewModel() = intent {
+        delay(SPLASH_DELAY_MILLIS)
+        reduce {
+            state.copy(isAppNameVisible = true)
+        }
+    }
+
+    companion object {
+        const val SPLASH_DELAY_MILLIS = 2000L
+    }
 
 }
