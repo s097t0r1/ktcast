@@ -2,6 +2,33 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
+      <module name="ktcast.app" target="11" />
+      <module name="ktcast.buildSrc" target="11" />
+      <module name="ktcast.buildSrc.main" target="11" />
+      <module name="ktcast.buildSrc.test" target="11" />
+      <module name="ktcast.common.network.library" target="1.8" />
+      <module name="ktcast.common.network.library.main" target="1.8" />
+      <module name="ktcast.common.network.library.test" target="1.8" />
+      <module name="ktcast.common.persistence.database.android-library" target="11" />
+      <module name="ktcast.core.di.library" target="1.8" />
+      <module name="ktcast.core.di.library.main" target="1.8" />
+      <module name="ktcast.core.di.library.test" target="1.8" />
+      <module name="ktcast.core.exceptions.library" target="1.8" />
+      <module name="ktcast.core.exceptions.library.main" target="1.8" />
+      <module name="ktcast.core.exceptions.library.test" target="1.8" />
+      <module name="ktcast.core.mvvm.android-library" target="11" />
+      <module name="ktcast.core.mvvm.android-utils" target="11" />
+      <module name="ktcast.core.mvvm.res" target="11" />
+      <module name="ktcast.core.navigation.android-library" target="11" />
+      <module name="ktcast.core.ui-components.android-library" target="11" />
+      <module name="ktcast.core.ui-components.res" target="11" />
+      <module name="ktcast.core.utils.mapper.library" target="1.8" />
+      <module name="ktcast.core.utils.mapper.library.main" target="1.8" />
+      <module name="ktcast.core.utils.mapper.library.test" target="1.8" />
+      <module name="ktcast.core.utils.viewmodel_factory.android_library" target="11" />
+      <module name="ktcast.feature.pre_authorized_zone.splash.api" target="11" />
+      <module name="ktcast.feature.pre_authorized_zone.splash.impl" target="11" />
+      <module name="ktcast.feature.pre_authorized_zone.splash.res" target="11" />
       <module name="WeTalk.app" target="11" />
       <module name="WeTalk.buildSrc" target="11" />
       <module name="WeTalk.buildSrc.main" target="11" />
@@ -26,6 +53,8 @@
       <module name="WeTalk.core.navigation.android-library" target="11" />
       <module name="WeTalk.core.navigation.android-utils" target="11" />
       <module name="WeTalk.core.navigation.androidLibrary" target="11" />
+      <module name="WeTalk.core.ui-components.android-library" target="11" />
+      <module name="WeTalk.core.ui-components.res" target="11" />
       <module name="WeTalk.core.utils.mapper.library" target="1.8" />
       <module name="WeTalk.core.utils.mapper.library.main" target="1.8" />
       <module name="WeTalk.core.utils.mapper.library.test" target="1.8" />

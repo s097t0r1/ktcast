@@ -13,13 +13,13 @@ gradlePlugin {
             id = "module-configurator"
             group = "me.s097t0r1"
             implementationClass =
-                "me.s097t0r1.wetalk.plugins.module_configuration.ModuleConfigurationPlugin"
+                "me.s097t0r1.ktcast.plugins.module_configuration.ModuleConfigurationPlugin"
         }
         register("compose-configurator") {
             id = "compose-configurator"
             group = "me.s097t0r1"
             implementationClass =
-                "me.s097t0r1.wetalk.plugins.compose_configuration.ComposeConfigurationPlugin"
+                "me.s097t0r1.ktcast.plugins.compose_configuration.ComposeConfigurationPlugin"
         }
     }
 }

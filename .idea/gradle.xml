@@ -30,6 +30,9 @@
             <option value="$PROJECT_DIR$/core/mvvm/res" />
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/navigation/android-library" />
+            <option value="$PROJECT_DIR$/core/ui-components" />
+            <option value="$PROJECT_DIR$/core/ui-components/android-library" />
+            <option value="$PROJECT_DIR$/core/ui-components/res" />
             <option value="$PROJECT_DIR$/core/utils" />
             <option value="$PROJECT_DIR$/core/utils/mapper" />
             <option value="$PROJECT_DIR$/core/utils/mapper/library" />
