@@ -1,11 +1,9 @@
 package me.s097t0r1.core.mvi.base
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.annotation.LayoutRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
@@ -38,9 +36,12 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
     @Composable
     protected abstract fun Content()
 
+    open fun onInitViewModel(viewModel: VM) { /* no-op */ }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         inject()
         super.onCreate(savedInstanceState)
+        onInitViewModel(viewModel)
     }
 
     override fun onCreateView(
