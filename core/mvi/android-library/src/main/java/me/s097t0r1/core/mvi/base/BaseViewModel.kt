@@ -1,15 +1,15 @@
 package me.s097t0r1.core.mvi.base
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 import me.s097t0r1.core.mvi.base.state.BaseSideEffect
 import me.s097t0r1.core.mvi.base.state.BaseState
 import me.s097t0r1.core.navigation.base.NavigationGraph
-import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
-import org.orbitmvi.orbit.viewmodel.container
 
 abstract class BaseViewModel<S : BaseState, E : BaseSideEffect, N : NavigationGraph>(
 
@@ -21,4 +21,7 @@ abstract class BaseViewModel<S : BaseState, E : BaseSideEffect, N : NavigationGr
     )
     val navigation = _navigation.receiveAsFlow()
 
+    protected fun navigateTo(screen: N): Unit {
+        viewModelScope.launch { _navigation.send(screen) }
+    }
 }

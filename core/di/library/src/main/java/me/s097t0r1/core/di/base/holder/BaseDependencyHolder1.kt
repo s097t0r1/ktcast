@@ -26,4 +26,14 @@ abstract class BaseDependencyHolder1<A1 : BaseFeatureAPI, D : BaseFeatureDepenen
     abstract val block: (A1, BaseDependencyHolder<D>) -> D
 
     val dependecies: D get() = block(a1, this)
+
+    companion object {
+        fun <D : BaseFeatureDepenendencies, A1 : BaseFeatureAPI> create(
+            a1: A1,
+            block: (A1, BaseDependencyHolder<D>) -> D
+        ): D = object : BaseDependencyHolder1<A1, D>(a1 = a1) {
+            override val block: (A1, BaseDependencyHolder<D>) -> D = block
+        }.dependecies
+    }
+
 }

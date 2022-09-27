@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="authorization_feature_app_name">ktcast</string>
+    <string name="authorization_feature_sign_in_title">Episodic series of \ndigital audio.</string>
+    
+    <string name="authorization_feature_email_address_placeholder">E-mail address</string>
+    <string name="authorization_feature_password_placeholder">Password</string>
+
+    <string name="authorization_feature_login_button">Login</string>
+    <string name="authorization_feature_forgot_password">Forgot password?</string>
+
+    <string name="authorization_feature_incorrect_email">Incorrect email</string>
+    <string name="authorization_feature_incorrect_password">Incorrect password</string>
+
+</resources>

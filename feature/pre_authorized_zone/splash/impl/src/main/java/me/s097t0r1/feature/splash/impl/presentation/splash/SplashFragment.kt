@@ -13,6 +13,7 @@ import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashSideEffect
 import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashUIState
 import org.orbitmvi.orbit.compose.collectAsState
 import javax.inject.Inject
+import javax.inject.Provider
 
 internal class SplashFragment(
 
@@ -21,10 +22,13 @@ internal class SplashFragment(
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
+    @Inject
+    lateinit var navigationProviderFactory: Provider<SplashNavigationProvider>
+
     override val viewModel: SplashViewModel by viewModels { viewModelFactory }
 
     override val navigationProvider: NavigationProvider<SplashNavigationGraph> by lazy {
-        SplashNavigationProvider()
+        navigationProviderFactory.get()
     }
 
     override fun inject() = SplashComponentHolder.getDaggerComponent().inject(this)
@@ -35,9 +39,7 @@ internal class SplashFragment(
 
     @Composable
     override fun Content() {
-
         val state = viewModel.collectAsState().value
-
         SplashScreen(state, SplashSideEffect())
 
     }

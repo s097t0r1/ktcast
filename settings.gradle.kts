@@ -48,3 +48,10 @@ include(":feature:pre_authorized_zone:splash:compose-screens")
 include(":core:ui-components:android-library")
 include(":core:ui-components:res")
 
+include(":feature:pre_authorized_zone:authorization:api")
+include(":feature:pre_authorized_zone:authorization:impl")
+include(":feature:pre_authorized_zone:authorization:screens")
+include(":feature:pre_authorized_zone:authorization:res")
+include(":core:utils:validator:android-library")
+
+include(":core:utils:resource-provider:androidLibrary")

@@ -22,6 +22,8 @@ class SplashViewModel @Inject constructor(
         reduce {
             state.copy(isAppNameVisible = true)
         }
+        delay(SPLASH_DELAY_MILLIS)
+        navigateTo(SplashNavigationGraph.SignInScreen)
     }
 
     companion object {

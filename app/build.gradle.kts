@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("module-configurator")
+    id("kotlin-kapt")
 }
 
 dependencies {
@@ -10,9 +11,13 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.google.material)
 
+    implementation(libs.google.dagger)
+    kapt(libs.google.dagger.compiler)
+
     implementation(projects.core.mvi.androidLibrary)
     implementation(projects.core.navigation.androidLibrary)
     implementation(projects.core.di.library)
+    implementation(projects.core.utils.resourceProvider.androidLibrary)
 
     implementation(projects.common.network.library)
     implementation(projects.common.persistence.database.androidLibrary)
@@ -20,4 +25,7 @@ dependencies {
 
     implementation(projects.feature.preAuthorizedZone.splash.api)
     implementation(projects.feature.preAuthorizedZone.splash.impl)
+
+    implementation(projects.feature.preAuthorizedZone.authorization.api)
+    implementation(projects.feature.preAuthorizedZone.authorization.impl)
 }

@@ -21,6 +21,8 @@ dependencies {
     implementation(projects.core.navigation.androidLibrary)
     implementation(projects.core.utils.viewmodelFactory.androidLibrary)
 
+    implementation(projects.feature.preAuthorizedZone.authorization.api)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.fragment.ktx)
