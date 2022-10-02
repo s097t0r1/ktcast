@@ -9,6 +9,10 @@ internal fun ApplicationExtension.configureApp(
     configuration: ModuleConfigurationExtension
 ) {
 
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = configuration.isVectorDrawableSupportEnabled
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true

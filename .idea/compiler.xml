@@ -35,6 +35,7 @@
       <module name="ktcast.feature.pre_authorized_zone.authorization.impl" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.authorization.res" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.authorization.screens" target="11" />
+      <module name="ktcast.feature.pre_authorized_zone.authorization.widget" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.api" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.compose-screens" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.impl" target="11" />

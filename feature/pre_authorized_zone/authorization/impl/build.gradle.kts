@@ -5,6 +5,10 @@ plugins {
     id("kotlin-kapt")
 }
 
+moduleConfiguration {
+    isDesugaringEnabled = true
+}
+
 dependencies {
     implementation(projects.feature.preAuthorizedZone.authorization.api)
     implementation(projects.feature.preAuthorizedZone.authorization.screens)
@@ -14,6 +18,7 @@ dependencies {
     implementation(projects.core.navigation.androidLibrary)
     implementation(projects.core.utils.viewmodelFactory.androidLibrary)
     implementation(projects.core.utils.resourceProvider.androidLibrary)
+    implementation(projects.core.uiComponents.androidLibrary)
     implementation(projects.core.utils.validator.androidLibrary)
 
 
@@ -27,4 +32,6 @@ dependencies {
 
     implementation(libs.google.dagger)
     kapt(libs.google.dagger.compiler)
+
+    implementation(libs.android.desugaring)
 }

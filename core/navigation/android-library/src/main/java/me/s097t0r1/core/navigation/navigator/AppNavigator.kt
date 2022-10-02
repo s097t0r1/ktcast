@@ -1,10 +1,9 @@
 package me.s097t0r1.core.navigation.navigator
 
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.commit
+import androidx.fragment.app.*
 import me.s097t0r1.core.navigation.command.NavigationCommand
 import me.s097t0r1.core.navigation.screen.ActivityScreen
+import me.s097t0r1.core.navigation.screen.DialogFragmentScreen
 import me.s097t0r1.core.navigation.screen.FragmentScreen
 import me.s097t0r1.core.navigation.screen.NavigationScreen
 
@@ -29,11 +28,16 @@ class AppNavigator(
         when (screen) {
             is ActivityScreen -> screen.creator.create(fragmentActivity)
             is FragmentScreen<*> -> fragmentManager.commit {
+                setupFragmentTransaction(screen, this)
                 add(
                     containerId,
                     screen.creator.create(fragmentManager.fragmentFactory),
                     screen.screenKey
                 )
+            }
+            is DialogFragmentScreen<*> -> {
+                screen.creator.create(fragmentManager.fragmentFactory)
+                    .show(fragmentManager, screen.screenKey)
             }
         }
     }
@@ -47,6 +51,7 @@ class AppNavigator(
             }
             is FragmentScreen<*> -> {
                 fragmentManager.commit {
+                    setupFragmentTransaction(screen, this)
                     replace(
                         containerId,
                         screen.creator.create(fragmentManager.fragmentFactory),
@@ -54,7 +59,18 @@ class AppNavigator(
                     )
                 }
             }
+            else -> error("DialogFragment doesn't support 'Replace' command")
         }
+    }
+
+    open fun <T : Fragment> setupFragmentTransaction(
+        fragmentScreen: FragmentScreen<T>,
+        fragmentTransaction: FragmentTransaction,
+    ) {
+        fragmentTransaction.setCustomAnimations(
+            android.R.anim.slide_in_left,
+            android.R.anim.slide_out_right
+        )
     }
 
     private fun backTo(screen: NavigationScreen) = when (screen) {
@@ -68,6 +84,7 @@ class AppNavigator(
             }
             repeat(indexOfScreen) { fragmentManager.popBackStack() }
         }
+        else -> error("DialogFragment doesn't support 'Back' command")
     }
 
     private fun back() {

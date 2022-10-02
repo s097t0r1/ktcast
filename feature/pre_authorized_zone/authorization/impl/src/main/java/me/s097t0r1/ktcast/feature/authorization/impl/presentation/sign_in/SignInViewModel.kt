@@ -49,7 +49,7 @@ internal class SignInViewModel @Inject constructor(
             state.copy(
                 emailField = EmailFieldState(
                     isError = result.isError,
-                    errorMessage = result.errorMsg,
+                    errorMsg = result.errorMsg,
                     value = email
                 )
             )
@@ -60,12 +60,26 @@ internal class SignInViewModel @Inject constructor(
         val validationResult = passwordValidator.validate(newPassword)
         reduce {
             state.copy(
-                passwordFieldState = PasswordFieldState(
+                passwordField = PasswordFieldState(
                     isError = validationResult.isError,
-                    errorMessage = validationResult.errorMsg,
+                    errorMsg = validationResult.errorMsg,
                     value = newPassword
                 )
             )
         }
+    }
+
+    fun onToggleMaskPassword(isEnabled: Boolean) = intent {
+        reduce {
+            state.copy(
+                passwordField = state.passwordField.copy(isMaskEnabled = isEnabled)
+            )
+        }
+    }
+
+    fun onSignUpClicked() = navigateTo(SignInNavigationGraph.SignUpScreen)
+
+    fun onSignInClicked() = intent {
+
     }
 }

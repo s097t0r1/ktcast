@@ -10,4 +10,12 @@ fun LibraryExtension.configureAndroidLibrary(
 ) {
 
     if (configuration.isParcelizeEnable) project.plugins.apply("kotlin-parcelize")
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = configuration.isVectorDrawableSupportEnabled
+    }
+
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = configuration.isDesugaringEnabled
+    }
 }

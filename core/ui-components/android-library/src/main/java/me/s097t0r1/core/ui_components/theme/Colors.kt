@@ -6,184 +6,205 @@ import androidx.compose.ui.graphics.Color
 @Immutable
 class KtCastColors(
 
+    isLight: Boolean,
+
+    // Brand colors
+    primaryColor: Color,
+    secondaryColor: Color,
+
     // Background
     backgroundPrimaryColor: Color,
-    backgroundSecondaryColor: Color,
 
     // Text
     textPrimaryColor: Color,
-    textSecodaryColor: Color,
+    textPlaceholderColor: Color,
 
-    // Icons
-    iconPrimaryColor: Color,
-    iconSecondaryColor: Color,
-    iconSuccessColor: Color,
-    iconNegativeColor: Color,
-    iconAccentColor: Color,
+    buttonPrimaryBackgroundColor: Color,
+    buttonSecondaryBackgroundColor: Color,
+    buttonDisabledBackgroundColor: Color,
+    buttonPrimaryContentColor: Color,
+    buttonSecondaryContentColor: Color,
+    buttonDisabledContentColor: Color,
 
-    buttonPrimaryColor: Color,
-    buttonSecondaryColor: Color,
+    fieldDefaultBackgroundColor: Color,
+    fieldActiveBackgroundColor: Color,
 
-    fieldBasicColor: Color,
-    fieldActiveColor: Color,
-    fieldErrorColor: Color,
-    fieldDisabledColor: Color,
-
+    dividerColor: Color,
 ) {
-    var backgroundPrimaryColor by mutableStateOf(backgroundPrimaryColor, structuralEqualityPolicy())
+
+    var isLight by mutableStateOf(isLight, structuralEqualityPolicy())
         internal set
-    var backgroundSecondaryColor by mutableStateOf(backgroundSecondaryColor, structuralEqualityPolicy())
+
+    var primaryColor by mutableStateOf(primaryColor, structuralEqualityPolicy())
+        internal set
+    var secondaryColor by mutableStateOf(secondaryColor, structuralEqualityPolicy())
+        internal set
+
+    var backgroundPrimaryColor by mutableStateOf(backgroundPrimaryColor, structuralEqualityPolicy())
         internal set
 
     var textPrimaryColor by mutableStateOf(textPrimaryColor, structuralEqualityPolicy())
         internal set
-    var textSecondaryColor by mutableStateOf(textSecodaryColor, structuralEqualityPolicy())
+    var textPlaceholderColor by mutableStateOf(textPlaceholderColor, structuralEqualityPolicy())
         internal set
 
-    var iconPrimaryColor by mutableStateOf(iconPrimaryColor, structuralEqualityPolicy())
+    var buttonPrimaryBackgroundColor by mutableStateOf(buttonPrimaryBackgroundColor, structuralEqualityPolicy())
         internal set
-    var iconSecondaryColor by mutableStateOf(iconSecondaryColor, structuralEqualityPolicy())
+    var buttonSecondaryBackgroundColor by mutableStateOf(buttonSecondaryBackgroundColor, structuralEqualityPolicy())
         internal set
-    var iconSuccessColor by mutableStateOf(iconSuccessColor, structuralEqualityPolicy())
+    var buttonDisabledBackgroundColor by mutableStateOf(buttonDisabledBackgroundColor, structuralEqualityPolicy())
         internal set
-    var iconNegativeColor by mutableStateOf(iconNegativeColor, structuralEqualityPolicy())
+    var buttonPrimaryContentColor by mutableStateOf(buttonPrimaryContentColor, structuralEqualityPolicy())
         internal set
-    var iconAccentColor by mutableStateOf(iconAccentColor, structuralEqualityPolicy())
+    var buttonSecondaryContentColor by mutableStateOf(buttonSecondaryContentColor, structuralEqualityPolicy())
         internal set
-
-    var buttonPrimaryColor by mutableStateOf(buttonPrimaryColor, structuralEqualityPolicy())
-        internal set
-    var buttonSecondaryColor by mutableStateOf(buttonSecondaryColor, structuralEqualityPolicy())
+    var buttonDisabledContentColor by mutableStateOf(buttonDisabledContentColor, structuralEqualityPolicy())
         internal set
 
-    var fieldActiveColor by mutableStateOf(fieldActiveColor, structuralEqualityPolicy())
+    var fieldDefaultBackgroundColor by mutableStateOf(fieldDefaultBackgroundColor, structuralEqualityPolicy())
         internal set
-    var fieldBasicColor by mutableStateOf(fieldBasicColor, structuralEqualityPolicy())
+    var fieldActiveBackgroundColor by mutableStateOf(fieldActiveBackgroundColor, structuralEqualityPolicy())
         internal set
-    var fieldErrorColor by mutableStateOf(fieldErrorColor, structuralEqualityPolicy())
+
+    var dividerColor by mutableStateOf(dividerColor, structuralEqualityPolicy())
         internal set
-    var fieldDisabledColor by mutableStateOf(fieldDisabledColor, structuralEqualityPolicy())
-        internal set
+
+    fun updateFrom(other: KtCastColors) {
+        isLight = other.isLight
+        primaryColor = other.primaryColor
+        secondaryColor = other.secondaryColor
+        backgroundPrimaryColor = other.backgroundPrimaryColor
+        textPrimaryColor = other.textPrimaryColor
+        textPlaceholderColor = other.textPlaceholderColor
+        buttonPrimaryBackgroundColor = other.buttonPrimaryBackgroundColor
+        buttonSecondaryBackgroundColor = other.buttonSecondaryBackgroundColor
+        buttonDisabledBackgroundColor = other.buttonDisabledBackgroundColor
+        buttonPrimaryContentColor = other.buttonPrimaryContentColor
+        buttonSecondaryContentColor = other.buttonSecondaryContentColor
+        buttonDisabledContentColor = other.buttonDisabledContentColor
+    }
 
     fun copy(
+        isLight: Boolean = this.isLight,
+        primaryColor: Color = this.primaryColor,
+        secondaryColor: Color = this.secondaryColor,
         backgroundPrimaryColor: Color = this.backgroundPrimaryColor,
-        backgroundSecondaryColor: Color = this.backgroundSecondaryColor,
         textPrimaryColor: Color = this.textPrimaryColor,
-        textSecodaryColor: Color = this.textSecondaryColor,
-        iconPrimaryColor: Color = this.iconPrimaryColor,
-        iconSecondaryColor: Color = this.iconSecondaryColor,
-        iconSuccessColor: Color = this.iconSuccessColor,
-        iconNegativeColor: Color = this.iconNegativeColor,
-        iconAccentColor: Color = this.iconAccentColor,
-        buttonPrimaryColor: Color = this.buttonPrimaryColor,
-        buttonSecondaryColor: Color = this.buttonSecondaryColor,
-        fieldBasicColor: Color = this.fieldBasicColor,
-        fieldActiveColor: Color = this.fieldActiveColor,
-        fieldDisabledColor: Color = this.fieldDisabledColor,
-        fieldErrorColor: Color = this.fieldErrorColor
+        textPlaceholderColor: Color = this.textPlaceholderColor,
+        buttonPrimaryBackgroundColor: Color = this.buttonPrimaryBackgroundColor,
+        buttonSecondaryBackgroundColor: Color = this.buttonSecondaryBackgroundColor,
+        buttonDisabledBackgroundColor: Color = this.buttonDisabledBackgroundColor,
+        buttonPrimaryContentColor: Color = this.buttonPrimaryContentColor,
+        buttonSecondaryContentColor: Color = this.buttonSecondaryContentColor,
+        buttonDisabledContentColor: Color = this.buttonDisabledContentColor,
+        fieldDefaultBackgroundColor: Color = this.fieldDefaultBackgroundColor,
+        fieldActiveBackgroundColor: Color = this.fieldActiveBackgroundColor,
+        dividerColor: Color = this.dividerColor
     ) = KtCastColors(
+        isLight,
+        primaryColor,
+        secondaryColor,
         backgroundPrimaryColor,
-        backgroundSecondaryColor,
         textPrimaryColor,
-        textSecodaryColor,
-        iconPrimaryColor,
-        iconSecondaryColor,
-        iconSuccessColor,
-        iconNegativeColor,
-        iconAccentColor,
-        buttonPrimaryColor,
-        buttonSecondaryColor,
-        fieldBasicColor,
-        fieldActiveColor,
-        fieldErrorColor,
-        fieldDisabledColor
+        textPlaceholderColor,
+        buttonPrimaryBackgroundColor,
+        buttonSecondaryBackgroundColor,
+        buttonDisabledBackgroundColor,
+        buttonPrimaryContentColor,
+        buttonSecondaryContentColor,
+        buttonDisabledContentColor,
+        fieldDefaultBackgroundColor,
+        fieldActiveBackgroundColor,
+        dividerColor
     )
 }
 
 fun lightColors(
-    backgroundPrimaryColor: Color = Color(0xFF09121C),
-    backgroundSecondaryColor: Color = Color(0xFF19232F),
+    primaryColor: Color = KtCastColorPallete.primaryColor,
+    secondaryColor: Color = KtCastColorPallete.secondaryColor,
 
-    textPrimaryColor: Color = Color(0xFFFFFFFF),
-    textSecodaryColor: Color = Color(0xFF898F97),
+    backgroundPrimaryColor: Color = KtCastColorPallete.otherWhiteColor,
 
-    iconPrimaryColor: Color = Color(0xFF3369FF),
-    iconSecondaryColor: Color = Color(0xFFDADADA),
-    iconSuccessColor: Color = Color(0xFF459221),
-    iconNegativeColor: Color = Color(0xFFFF334B),
-    iconAccentColor: Color = Color(0xFFFF334B),
+    textPrimaryColor: Color = KtCastColorPallete.grayScale900Color,
+    textPlaceholderColor: Color = KtCastColorPallete.grayScale500Color,
 
-    buttonPrimaryColor: Color = Color(0xFF3369FF),
-    buttonSecondaryColor: Color = Color(0xFFFF334B),
+    buttonPrimaryBackgroundColor: Color = KtCastColorPallete.primaryColor,
+    buttonSecondaryBackgroundColor: Color = KtCastColorPallete.primary100Color,
+    buttonDisabledBackgroundColor: Color = KtCastColorPallete.statusDisabledButton,
+    buttonPrimaryContentColor: Color = KtCastColorPallete.otherWhiteColor,
+    buttonSecondaryContentColor: Color = KtCastColorPallete.primaryColor,
+    buttonDisabledContentColor: Color = KtCastColorPallete.otherWhiteColor,
 
-    fieldBasicColor: Color = Color(0xFF898F97),
-    fieldActiveColor: Color = Color(0xFF3369FF),
-    fieldErrorColor: Color = Color(0xFFFF334B),
-    fieldDisabledColor: Color = Color(0xFF656A70)
+    fieldDefaultBackgroundColor: Color = KtCastColorPallete.grayScale50Color,
+    fieldActiveBackgroundColor: Color = KtCastColorPallete.transperentPurpleColor,
 
+    dividerColor: Color = KtCastColorPallete.grayScale200Color
 ) = KtCastColors(
+    isLight = true,
+
+    primaryColor = primaryColor,
+    secondaryColor = secondaryColor,
+
     backgroundPrimaryColor = backgroundPrimaryColor,
-    backgroundSecondaryColor = backgroundSecondaryColor,
 
     textPrimaryColor = textPrimaryColor,
-    textSecodaryColor = textSecodaryColor,
+    textPlaceholderColor = textPlaceholderColor,
 
-    iconPrimaryColor = iconPrimaryColor,
-    iconSecondaryColor = iconSecondaryColor,
-    iconSuccessColor = iconSuccessColor,
-    iconNegativeColor = iconNegativeColor,
-    iconAccentColor = iconAccentColor,
+    buttonPrimaryBackgroundColor = buttonPrimaryBackgroundColor,
+    buttonSecondaryBackgroundColor = buttonSecondaryBackgroundColor,
+    buttonDisabledBackgroundColor = buttonDisabledBackgroundColor,
+    buttonPrimaryContentColor = buttonPrimaryContentColor,
+    buttonSecondaryContentColor = buttonSecondaryContentColor,
+    buttonDisabledContentColor = buttonDisabledContentColor,
 
-    buttonPrimaryColor = buttonPrimaryColor,
-    buttonSecondaryColor = buttonSecondaryColor,
+    fieldDefaultBackgroundColor = fieldDefaultBackgroundColor,
+    fieldActiveBackgroundColor = fieldActiveBackgroundColor,
 
-    fieldBasicColor = fieldBasicColor,
-    fieldActiveColor = fieldActiveColor,
-    fieldDisabledColor = fieldDisabledColor,
-    fieldErrorColor = fieldErrorColor
+    dividerColor = dividerColor,
 )
 
 fun darkColors(
-    backgroundPrimaryColor: Color = Color(0xFF09121C),
-    backgroundSecondaryColor: Color = Color(0xFF19232F),
+    primaryColor: Color = KtCastColorPallete.primaryColor,
+    secondaryColor: Color = KtCastColorPallete.secondaryColor,
 
-    textPrimaryColor: Color = Color(0xFFFFFFFF),
-    textSecodaryColor: Color = Color(0xFF898F97),
+    backgroundPrimaryColor: Color = KtCastColorPallete.dark1Color,
 
-    iconPrimaryColor: Color = Color(0xFF3369FF),
-    iconSecondaryColor: Color = Color(0xFFDADADA),
-    iconSuccessColor: Color = Color(0xFF459221),
-    iconNegativeColor: Color = Color(0xFFFF334B),
-    iconAccentColor: Color = Color(0xFFFF334B),
+    textPrimaryColor: Color = KtCastColorPallete.otherWhiteColor,
+    textPlaceholderColor: Color = KtCastColorPallete.grayScale500Color,
 
-    buttonPrimaryColor: Color = Color(0xFF3369FF),
-    buttonSecondaryColor: Color = Color(0xFFFF334B),
+    buttonPrimaryBackgroundColor: Color = KtCastColorPallete.primaryColor,
+    buttonSecondaryBackgroundColor: Color = KtCastColorPallete.dark3Color,
+    buttonDisabledBackgroundColor: Color = KtCastColorPallete.statusDisabledButton,
+    buttonPrimaryContentColor: Color = KtCastColorPallete.otherWhiteColor,
+    buttonSecondaryContentColor: Color = KtCastColorPallete.otherWhiteColor,
+    buttonDisabledContentColor: Color = KtCastColorPallete.otherWhiteColor,
 
-    fieldBasicColor: Color = Color(0xFF898F97),
-    fieldActiveColor: Color = Color(0xFF3369FF),
-    fieldErrorColor: Color = Color(0xFFFF334B),
-    fieldDisabledColor: Color = Color(0xFF656A70)
+    fieldDefaultBackgroundColor: Color = KtCastColorPallete.dark2Color,
+    fieldActiveBackgroundColor: Color = KtCastColorPallete.transperentPurpleColor,
 
+    dividerColor: Color = KtCastColorPallete.dark3Color
 ) = KtCastColors(
+    isLight = false,
+
+    primaryColor = primaryColor,
+    secondaryColor = secondaryColor,
+
     backgroundPrimaryColor = backgroundPrimaryColor,
-    backgroundSecondaryColor = backgroundSecondaryColor,
 
     textPrimaryColor = textPrimaryColor,
-    textSecodaryColor = textSecodaryColor,
 
-    iconPrimaryColor = iconPrimaryColor,
-    iconSecondaryColor = iconSecondaryColor,
-    iconSuccessColor = iconSuccessColor,
-    iconNegativeColor = iconNegativeColor,
-    iconAccentColor = iconAccentColor,
+    buttonPrimaryBackgroundColor = buttonPrimaryBackgroundColor,
+    buttonSecondaryBackgroundColor = buttonSecondaryBackgroundColor,
+    buttonDisabledBackgroundColor = buttonDisabledBackgroundColor,
+    buttonPrimaryContentColor = buttonPrimaryContentColor,
+    buttonSecondaryContentColor = buttonSecondaryContentColor,
+    buttonDisabledContentColor = buttonDisabledContentColor,
 
-    buttonPrimaryColor = buttonPrimaryColor,
-    buttonSecondaryColor = buttonSecondaryColor,
+    fieldDefaultBackgroundColor = fieldDefaultBackgroundColor,
+    fieldActiveBackgroundColor = fieldActiveBackgroundColor,
+    textPlaceholderColor = textPlaceholderColor,
 
-    fieldBasicColor = fieldBasicColor,
-    fieldActiveColor = fieldActiveColor,
-    fieldDisabledColor = fieldDisabledColor,
-    fieldErrorColor = fieldErrorColor
+    dividerColor = dividerColor,
 )
 
 internal val LocalColors = staticCompositionLocalOf { lightColors() }

@@ -3,167 +3,319 @@ package me.s097t0r1.ktcast.feature.authorization.screens.sign_in
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconToggleButton
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import me.s097t0r1.core.ui_components.components.KtCastCheckbox
 import me.s097t0r1.core.ui_components.components.KtCastOutlinedTextField
+import me.s097t0r1.core.ui_components.components.KtCastPrimaryButton
+import me.s097t0r1.core.ui_components.theme.KtCastColorPallete
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
 import me.s097t0r1.ktcast.feature.authorization.screens.R
+import me.s097t0r1.ktcast.feature.authorization.widget.DividerWithText
+import me.s097t0r1.ktcast.feature.authorization.widget.SocialButton
 
 @Composable
 fun SignInScreen(
     state: SignInUIState,
-    sideEffect: SignInSideEffect,
     onEmailChanged: (String) -> Unit,
-    onPasswordChanged: (String) -> Unit
+    onPasswordChaged: (String) -> Unit,
+    onRememberCheckedChange: (Boolean) -> Unit,
+    onSignInClicked: () -> Unit,
+    onSignUpClicked: () -> Unit,
+    onToggleMaskPassword: (Boolean) -> Unit
 ) {
-    ImageBackground(
-        painter = painterResource(id = R.drawable.ic_authorization_background)
+    Column(
+        modifier = Modifier.padding(horizontal = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(modifier = Modifier.padding(horizontal = 32.dp)) {
-            Logo(modifier = Modifier.padding(top = 52.dp))
-            Text(
-                modifier = Modifier.padding(top = 48.dp),
-                text = stringResource(id = R.string.authorization_feature_sign_in_title),
-                style = KtCastTheme.typography.mediumStyle,
-                color = KtCastTheme.colors.textPrimaryColor,
-                fontSize = 24.sp
+
+        Spacer(modifier = Modifier.height(44.dp))
+
+        Image(
+            modifier = Modifier.size(100.dp),
+            painter = painterResource(id = R.drawable.ic_ktcast_logo),
+            contentDescription = null
+        )
+
+        Spacer(modifier = Modifier.height(44.dp))
+
+        Text(
+            text = stringResource(id = R.string.auth_feature_login_to_your_account),
+            style = KtCastTheme.typography.Heading3.copy(fontWeight = FontWeight.Bold),
+        )
+
+        Spacer(modifier = Modifier.height(44.dp))
+
+        SignInForm(
+            emailFieldState = state.emailField,
+            onEmailChanged = onEmailChanged,
+            passwordFieldState = state.passwordField,
+            onPasswordChaged = onPasswordChaged,
+            isRememberUser = state.isRemeberChecked,
+            onRememberCheckedChange = onRememberCheckedChange,
+            isSignInEnabled = state.isSignInEnabled,
+            onSignInClicked = onSignUpClicked,
+            onToggleMaskPassword = onToggleMaskPassword,
+        )
+
+        Spacer(modifier = Modifier.height(43.dp))
+
+        AlternativeLoginMethods(
+            onGoogleClicked = {},
+            onFacebookClicked = {},
+            onAppleClicked = {}
+        )
+
+        SignUpRecomendation(
+            modifier = Modifier.padding(44.dp),
+            onSignUpClicked = onSignUpClicked
+        )
+    }
+}
+
+@Composable
+fun SignUpRecomendation(
+    modifier: Modifier = Modifier,
+    onSignUpClicked: () -> Unit
+) {
+    val recomendation = buildAnnotatedSignInRecomendation()
+    ClickableText(
+        modifier = modifier,
+        text = recomendation,
+        onClick = {
+            recomendation.getStringAnnotations(it, it).firstOrNull()?.let {
+                onSignUpClicked()
+            }
+        })
+}
+
+@Composable
+private fun buildAnnotatedSignInRecomendation() = buildAnnotatedString {
+    val textSpanStyle = SpanStyle(
+        color = if (KtCastTheme.colors.isLight) {
+            KtCastColorPallete.grayScale500Color
+        } else {
+            KtCastColorPallete.otherWhiteColor
+        },
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    )
+    withStyle(textSpanStyle) {
+        append(stringResource(id = R.string.auth_feature_dont_have_an_account))
+        append(' ')
+    }
+    withStyle(textSpanStyle.copy(color = KtCastTheme.colors.primaryColor)) {
+        pushStringAnnotation(
+            stringResource(id = R.string.auth_feature_sign_up),
+            stringResource(id = R.string.auth_feature_sign_up),
+        )
+        append(stringResource(id = R.string.auth_feature_sign_up))
+        pop()
+    }
+}
+
+@Composable
+private fun AlternativeLoginMethods(
+    onGoogleClicked: () -> Unit,
+    onFacebookClicked: () -> Unit,
+    onAppleClicked: () -> Unit,
+) {
+    DividerWithText(
+        modifier = Modifier.fillMaxWidth(),
+        text = stringResource(id = R.string.auth_feature_or_continue_with)
+    )
+    Spacer(modifier = Modifier.height(30.dp))
+    Row {
+        SocialButton(
+            onClick = onFacebookClicked,
+            contentPadding = PaddingValues(
+                vertical = 18.dp,
+                horizontal = 32.dp
             )
-            SignInForm(
-                state.emailField, onEmailChanged,
-                state.passwordFieldState, onPasswordChanged
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_auth_feature_facebook),
+                contentDescription = null
             )
-            Text(
-                modifier = Modifier
-                    .padding(top = 16.dp)
-                    .align(Alignment.CenterHorizontally),
-                text = stringResource(id = R.string.authorization_feature_forgot_password),
-                textDecoration = TextDecoration.Underline,
-                color = KtCastTheme.colors.textSecondaryColor,
+        }
+        Spacer(modifier = Modifier.width(20.dp))
+        SocialButton(
+            onClick = onGoogleClicked,
+            contentPadding = PaddingValues(
+                vertical = 18.dp,
+                horizontal = 32.dp
+            )
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_auth_feature_google),
+                contentDescription = null
+            )
+        }
+        Spacer(modifier = Modifier.width(20.dp))
+        SocialButton(
+            onClick = onAppleClicked,
+            contentPadding = PaddingValues(
+                vertical = 18.dp,
+                horizontal = 32.dp
+            )
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_auth_feature_apple),
+                contentDescription = null
             )
         }
     }
+
 }
 
 @Composable
 private fun SignInForm(
     emailFieldState: EmailFieldState,
-    onNewEmail: (String) -> Unit,
+    onEmailChanged: (String) -> Unit,
     passwordFieldState: PasswordFieldState,
-    onNewPassword: (String) -> Unit
+    onPasswordChaged: (String) -> Unit,
+    isRememberUser: Boolean,
+    onRememberCheckedChange: (Boolean) -> Unit,
+    isSignInEnabled: Boolean,
+    onSignInClicked: () -> Unit,
+    onToggleMaskPassword: (Boolean) -> Unit
 ) {
-    KtCastOutlinedTextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 72.dp),
-        value = emailFieldState.value,
-        onValueChange = onNewEmail,
-        label = { Text(text = stringResource(id = R.string.authorization_feature_email_address_placeholder)) },
-        leadingIcon = {
-            Icon(
-                modifier = Modifier.padding(horizontal = 24.dp),
-                painter = painterResource(id = R.drawable.ic_authorization_mail),
-                contentDescription = null
-            )
-        },
-        isError = emailFieldState.isError,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
-    )
-    KtCastOutlinedTextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 16.dp),
-        value = passwordFieldState.value,
-        onValueChange = onNewPassword,
-        label = { Text(text = stringResource(id = R.string.authorization_feature_password_placeholder)) },
-        leadingIcon = {
-            Icon(
-                modifier = Modifier.padding(horizontal = 24.dp),
-                painter = painterResource(id = R.drawable.ic_authorization_password),
-                contentDescription = null
-            )
-        },
-        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
-        visualTransformation = PasswordVisualTransformation(),
-        isError = passwordFieldState.isError
-    )
-    Button(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 30.dp)
-            .shadow(
-                elevation = 18.dp,
-                shape = RoundedCornerShape(100.dp),
-                ambientColor = KtCastTheme.colors.buttonPrimaryColor,
-                spotColor = KtCastTheme.colors.buttonPrimaryColor
-            ),
-        onClick = {},
-        shape = RoundedCornerShape(100.dp),
-        colors = ButtonDefaults.buttonColors(
-            backgroundColor = KtCastTheme.colors.buttonPrimaryColor,
-            contentColor = KtCastTheme.colors.textPrimaryColor,
-        ),
-        elevation = null
-    ) {
-        Text(
-            modifier = Modifier.padding(vertical = 8.dp),
-            text = stringResource(id = R.string.authorization_feature_login_button),
+    Column {
+        KtCastOutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = emailFieldState.value,
+            onValueChange = onEmailChanged,
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_auth_feature_mail),
+                    contentDescription = null
+                )
+            },
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
+            placeholder = { Text(text = stringResource(id = R.string.auth_feature_email_address_placeholder)) },
+            singleLine = true
         )
-    }
-}
 
-@Composable
-fun ImageBackground(painter: Painter, Content: @Composable () -> Unit) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            painter = painter,
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.FillBounds
+        Spacer(modifier = Modifier.height(20.dp))
+
+        KtCastOutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = passwordFieldState.value,
+            onValueChange = onPasswordChaged,
+            visualTransformation = if (passwordFieldState.isMaskEnabled) {
+                PasswordVisualTransformation()
+            } else {
+                VisualTransformation.None
+            },
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_auth_feature_lock),
+                    contentDescription = null
+                )
+            },
+            trailingIcon = {
+                IconToggleButton(
+                    checked = passwordFieldState.isMaskEnabled,
+                    onCheckedChange = onToggleMaskPassword
+                ) {
+                    Icon(
+                        painter = painterResource(
+                            if (passwordFieldState.isMaskEnabled) {
+                                R.drawable.ic_auth_feature_hide
+                            } else {
+                                R.drawable.ic_auth_feature_show
+                            }
+                        ),
+                        contentDescription = null
+                    )
+                }
+            },
+            placeholder = { Text(text = stringResource(id = R.string.auth_feature_password_placeholder)) },
+            singleLine = true
         )
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = KtCastTheme.colors.backgroundPrimaryColor.copy(alpha = 0.9f)
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Content()
+            KtCastCheckbox(
+                checked = isRememberUser,
+                onCheckedChange = onRememberCheckedChange
+            )
+            Text(
+                text = stringResource(id = R.string.auth_feature_remeber_me),
+                style = KtCastTheme.typography.BodyMedium.copy(
+                    fontWeight = FontWeight.SemiBold
+                )
+            )
         }
-    }
-}
 
-@Composable
-fun Logo(modifier: Modifier) {
-    Row(modifier) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_ktcast_logo),
-            contentDescription = null
-        )
-        Text(
-            modifier = Modifier
-                .padding(start = 14.dp)
-                .align(Alignment.CenterVertically),
-            text = stringResource(id = R.string.authorization_feature_app_name),
-            style = KtCastTheme.typography.boldStyle,
-            fontSize = 24.sp,
-            color = KtCastTheme.colors.textPrimaryColor
-        )
+        Spacer(modifier = Modifier.height(20.dp))
+
+        KtCastPrimaryButton(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = onSignInClicked,
+            enabled = isSignInEnabled,
+            shape = RoundedCornerShape(100.dp)
+        ) {
+            Text(
+                stringResource(id = R.string.auth_feature_sign_up),
+                style = KtCastTheme.typography.BodyLarge
+                    .copy(fontWeight = FontWeight.Bold)
+            )
+        }
     }
 }
 
 @Preview
 @Composable
-fun SignInPreview() {
-    SignInScreen(state = SignInUIState(), sideEffect = SignInSideEffect(), {}, {})
+private fun SignUpScreenPreview() {
+    SignInScreen(
+        state = SignInUIState(),
+        onEmailChanged = {},
+        onPasswordChaged = {},
+        onRememberCheckedChange = {},
+        onSignUpClicked = {},
+        onSignInClicked = {},
+        onToggleMaskPassword = {}
+    )
+}
+
+@Preview
+@Composable
+private fun SignUpScreenDarkPreview() {
+    KtCastTheme(isDarkTheme = true) {
+        SignInScreen(
+            state = SignInUIState(),
+            onEmailChanged = {},
+            onPasswordChaged = {},
+            onRememberCheckedChange = {},
+            onSignUpClicked = {},
+            onSignInClicked = {},
+            onToggleMaskPassword = {}
+        )
+    }
+
 }

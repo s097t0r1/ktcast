@@ -23,6 +23,7 @@ object Standard {
 
         companion object {
             const val EMAIL_ADDRESS_REGEX = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$"
+            const val FULL_NAME_REGEX = "^[a-zA-Z \\-\\.\']*$"
         }
     }
 }

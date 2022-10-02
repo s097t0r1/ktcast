@@ -22,11 +22,12 @@ fun KtCastTheme(
     typography: KtCastTypography = KtCastTheme.typography,
     Content: @Composable () -> Unit
 ) {
-    val remeberedColors = remember { colors.copy() }
+    val remeberedColors = remember { colors.copy() }.apply { updateFrom(colors) }
     val rippleIndication = rememberRipple()
     CompositionLocalProvider(
         LocalColors provides remeberedColors,
         LocalContentAlpha provides ContentAlpha.high,
+        LocalContentColor provides remeberedColors.textPrimaryColor,
         LocalRippleTheme provides KtCastRippleTheme,
         LocalIndication provides rippleIndication,
         LocalTypography provides typography

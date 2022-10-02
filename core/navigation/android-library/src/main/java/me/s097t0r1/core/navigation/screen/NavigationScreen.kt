@@ -2,6 +2,7 @@ package me.s097t0r1.core.navigation.screen
 
 import android.content.Context
 import android.content.Intent
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 
@@ -44,4 +45,22 @@ open class FragmentScreen<T : Fragment> private constructor(
         screenKey = "ROOT",
         creator = { Fragment() }
     )
+}
+
+open class DialogFragmentScreen<T : DialogFragment> private constructor(
+    val screenKey: String? = null,
+    val creator: Creator<FragmentFactory, T>
+) : NavigationScreen {
+
+    companion object {
+
+        fun <T : DialogFragment> create(
+            screenKey: String? = null,
+            creator: Creator<FragmentFactory, T>
+        ) = DialogFragmentScreen(screenKey, creator)
+
+        inline fun <reified T : DialogFragment> create(
+            creator: Creator<FragmentFactory, T>
+        ) = create(T::class.simpleName, creator)
+    }
 }

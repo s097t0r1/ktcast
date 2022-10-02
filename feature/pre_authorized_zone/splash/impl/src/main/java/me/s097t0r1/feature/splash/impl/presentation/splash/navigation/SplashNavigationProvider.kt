@@ -12,7 +12,7 @@ class SplashNavigationProvider @Inject constructor(
 
     override fun navigate(router: Router, screen: SplashNavigationGraph) {
         when (screen) {
-            is SplashNavigationGraph.SignInScreen -> router.navigate(StartFlowMessage(signInStarter.signIn()))
+            is SplashNavigationGraph.SignInScreen -> router.navigate(StartFlowMessage(signInStarter.start()))
         }
     }
 }

@@ -30,9 +30,12 @@ internal class SignInFragment : BaseFragment<SignInViewModel, SignInUIState, Sig
         val state = viewModel.collectAsState().value
         SignInScreen(
             state = state,
-            sideEffect = SignInSideEffect(),
             onEmailChanged = viewModel::onEmailChanged,
-            onPasswordChanged = viewModel::onPasswordChanged
+            onPasswordChaged = viewModel::onPasswordChanged,
+            onRememberCheckedChange = {},
+            onSignInClicked = viewModel::onSignInClicked,
+            onSignUpClicked = viewModel::onSignUpClicked,
+            onToggleMaskPassword = viewModel::onToggleMaskPassword
         )
     }
 

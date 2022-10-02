@@ -55,3 +55,4 @@ include(":feature:pre_authorized_zone:authorization:res")
 include(":core:utils:validator:android-library")
 
 include(":core:utils:resource-provider:androidLibrary")
+include(":feature:pre_authorized_zone:authorization:widget")

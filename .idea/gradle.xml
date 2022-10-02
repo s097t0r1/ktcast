@@ -51,6 +51,7 @@
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/authorization/impl" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/authorization/res" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/authorization/screens" />
+            <option value="$PROJECT_DIR$/feature/pre_authorized_zone/authorization/widget" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/api" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/splash/compose-screens" />

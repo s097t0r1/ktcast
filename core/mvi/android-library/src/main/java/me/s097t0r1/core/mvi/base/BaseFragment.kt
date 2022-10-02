@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
@@ -54,7 +55,9 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
                 setContent {
                     KtCastTheme {
-                        this@BaseFragment.Content()
+                        Surface(color = KtCastTheme.colors.backgroundPrimaryColor) {
+                            this@BaseFragment.Content()
+                        }
                     }
                 }
             }

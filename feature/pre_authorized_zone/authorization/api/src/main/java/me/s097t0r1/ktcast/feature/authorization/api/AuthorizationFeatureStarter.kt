@@ -4,5 +4,5 @@ import androidx.fragment.app.Fragment
 import me.s097t0r1.core.navigation.screen.FragmentScreen
 
 interface AuthorizationFeatureStarter {
-    fun signIn(): FragmentScreen<Fragment>
+    fun start(): FragmentScreen<Fragment>
 }

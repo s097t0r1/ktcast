@@ -4,8 +4,14 @@ import me.s097t0r1.ktcast.core.utils.validator.operators.AndOperator
 
 class DefaultValidator<T> internal constructor() : Validator<T> {
 
+    private var listener: Validator.Listener? = null
+
     var ruleSet: Set<Pair<Validator.Rule<T>, String>> = emptySet()
     var operator: Validator.Operator = AndOperator()
+
+    override fun setOnValidateListener(listener: Validator.Listener?) {
+        this.listener = listener
+    }
 
     override fun validate(input: T): ValidationResult {
         val results = ruleSet.map { (rule, errorMsg) ->
@@ -14,7 +20,9 @@ class DefaultValidator<T> internal constructor() : Validator<T> {
                 errorMsg = errorMsg
             )
         }
-        return operator.concat(results)
+        return operator.concat(results).also {
+            listener?.onValidate(it)
+        }
     }
 
     class Builder<T>() {
