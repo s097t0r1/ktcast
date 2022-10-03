@@ -15,10 +15,13 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/network" />
-            <option value="$PROJECT_DIR$/common/network/library" />
+            <option value="$PROJECT_DIR$/common/network/androidLibrary" />
+            <option value="$PROJECT_DIR$/common/network/androidUtils" />
             <option value="$PROJECT_DIR$/common/persistence" />
             <option value="$PROJECT_DIR$/common/persistence/database" />
             <option value="$PROJECT_DIR$/common/persistence/database/android-library" />
+            <option value="$PROJECT_DIR$/common/persistence/secure_storage" />
+            <option value="$PROJECT_DIR$/common/persistence/secure_storage/androidLibrary" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/di" />
             <option value="$PROJECT_DIR$/core/di/library" />

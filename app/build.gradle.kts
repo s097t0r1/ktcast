@@ -19,8 +19,9 @@ dependencies {
     implementation(projects.core.di.library)
     implementation(projects.core.utils.resourceProvider.androidLibrary)
 
-    implementation(projects.common.network.library)
+    implementation(projects.common.network.androidLibrary)
     implementation(projects.common.persistence.database.androidLibrary)
+    implementation(projects.common.persistence.secureStorage.androidLibrary)
 
 
     implementation(projects.feature.preAuthorizedZone.splash.api)

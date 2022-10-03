@@ -32,7 +32,8 @@ include(":core:mvi:android-utils")
 include(":core:mvi:res")
 
 include(":core:exceptions:library")
-include(":common:network:library")
+include(":common:network:androidLibrary")
+include(":common:network:androidUtils")
 
 include(":core:utils:mapper:library")
 include(":core:utils:reaction:library")
@@ -56,3 +57,5 @@ include(":core:utils:validator:android-library")
 
 include(":core:utils:resource-provider:androidLibrary")
 include(":feature:pre_authorized_zone:authorization:widget")
+
+include(":common:persistence:secure_storage:androidLibrary")
