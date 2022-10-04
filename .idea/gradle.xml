@@ -47,6 +47,11 @@
             <option value="$PROJECT_DIR$/core/utils/validator/android-library" />
             <option value="$PROJECT_DIR$/core/utils/viewmodel_factory" />
             <option value="$PROJECT_DIR$/core/utils/viewmodel_factory/android_library" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/authorization" />
+            <option value="$PROJECT_DIR$/data/authorization/androidLibrary" />
+            <option value="$PROJECT_DIR$/data/authorization/api" />
+            <option value="$PROJECT_DIR$/data/authorization/impl" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone" />
             <option value="$PROJECT_DIR$/feature/pre_authorized_zone/authorization" />

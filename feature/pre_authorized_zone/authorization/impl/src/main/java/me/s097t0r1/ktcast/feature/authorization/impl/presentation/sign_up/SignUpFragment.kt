@@ -1,6 +1,5 @@
 package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up
 
-//import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpScreen
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -39,7 +38,7 @@ internal class SignUpFragment : BaseFragment<SignUpViewModel, SignUpUIState, Sig
             onEmailChanged = viewModel::onEmailChanged,
             onPasswordChaged = viewModel::onPasswordChanged,
             onRememberCheckedChange = {},
-            onSignUpClicked = {},
+            onSignUpClicked = viewModel::onSignUpClicked,
             onSignedInClicked = {},
             onToggleMaskPassword = viewModel::onToggleMaskPassword
         )

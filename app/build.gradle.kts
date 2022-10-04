@@ -23,10 +23,11 @@ dependencies {
     implementation(projects.common.persistence.database.androidLibrary)
     implementation(projects.common.persistence.secureStorage.androidLibrary)
 
-
+    implementation(projects.feature.preAuthorizedZone.authorization.api)
+    implementation(projects.feature.preAuthorizedZone.authorization.impl)
     implementation(projects.feature.preAuthorizedZone.splash.api)
     implementation(projects.feature.preAuthorizedZone.splash.impl)
 
-    implementation(projects.feature.preAuthorizedZone.authorization.api)
-    implementation(projects.feature.preAuthorizedZone.authorization.impl)
+    implementation(projects.data.authorization.api)
+    implementation(projects.data.authorization.impl)
 }

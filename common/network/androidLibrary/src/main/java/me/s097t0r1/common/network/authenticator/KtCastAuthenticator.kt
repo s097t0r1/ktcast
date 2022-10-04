@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import kotlinx.coroutines.runBlocking
 import me.s097t0r1.common.network.AUTHORIZATION_HEADER_NAME
 import me.s097t0r1.common.network.BEARER_PREFIX
-import me.s097t0r1.common.network.Endpoints
+import me.s097t0r1.common.network.Endpoint
 import me.s097t0r1.common.network.di.NetworkModule
 import me.s097t0r1.common.network.factory.NetworkService
 import me.s097t0r1.common.network.factory.NetworkServiceFactory
@@ -55,7 +55,7 @@ internal class KtCastAuthenticator @Inject constructor(
 
     private interface AuthService : NetworkService {
 
-        @POST(Endpoints.TOKEN_UPDATE)
+        @POST(Endpoint.TOKEN_UPDATE)
         suspend fun tokenUpdate(
             @Header(AUTHORIZATION_HEADER_NAME) token: String
         ): Reaction<TokenUpdateDTO, AppException.NetworkException>

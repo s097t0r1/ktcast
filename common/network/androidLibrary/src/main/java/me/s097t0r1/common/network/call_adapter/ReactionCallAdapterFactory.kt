@@ -32,6 +32,8 @@ internal class ReactionCallAdapterFactory : CallAdapter.Factory() {
             "Reaction must be parameterized like: Reaction<D, AppException.NetworkException>"
         }
 
-        return ReactionCallAdapter<Type>(returnType)
+        return ReactionCallAdapter<Type>(
+            getParameterUpperBound(0, reaction)
+        )
     }
 }

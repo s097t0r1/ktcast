@@ -37,3 +37,27 @@ abstract class BaseDependencyHolder1<A1 : BaseFeatureAPI, D : BaseFeatureDepenen
     }
 
 }
+
+abstract class BaseDependencyHolder2<A1 : BaseFeatureAPI, A2 : BaseFeatureAPI, D : BaseFeatureDepenendencies>(
+    private val a1: A1,
+    private val a2: A2
+) : BaseDependencyHolder<D>() {
+
+    abstract val block: (A1, A2, BaseDependencyHolder<D>) -> D
+
+    val dependecies: D get() = block(a1, a2, this)
+
+    companion object {
+        fun <D : BaseFeatureDepenendencies, A1 : BaseFeatureAPI, A2 : BaseFeatureAPI> create(
+            a1: A1,
+            a2: A2,
+            block: (A1, A2, BaseDependencyHolder<D>) -> D
+        ): D = object : BaseDependencyHolder2<A1, A2, D>(
+            a1 = a1,
+            a2 = a2
+        ) {
+            override val block: (A1, A2, BaseDependencyHolder<D>) -> D = block
+        }.dependecies
+    }
+
+}

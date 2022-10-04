@@ -16,11 +16,14 @@ dependencies {
     implementation(projects.core.di.library)
     implementation(projects.core.mvi.androidLibrary)
     implementation(projects.core.navigation.androidLibrary)
+    implementation(projects.core.exceptions.library)
     implementation(projects.core.utils.viewmodelFactory.androidLibrary)
     implementation(projects.core.utils.resourceProvider.androidLibrary)
     implementation(projects.core.uiComponents.androidLibrary)
     implementation(projects.core.utils.validator.androidLibrary)
+    implementation(projects.core.utils.reaction.library)
 
+    implementation(projects.data.authorization.api)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

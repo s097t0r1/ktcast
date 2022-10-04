@@ -1,16 +1,21 @@
 package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import me.s097t0r1.core.mvi.base.BaseViewModel
+import me.s097t0r1.core.result.Err
+import me.s097t0r1.core.result.Ok
 import me.s097t0r1.ktcast.core.utils.resource_provider.ResourceProvider
 import me.s097t0r1.ktcast.core.utils.validator.DefaultValidator
 import me.s097t0r1.ktcast.core.utils.validator.ext.asFlow
 import me.s097t0r1.ktcast.core.utils.validator.operators.AndOperator
 import me.s097t0r1.ktcast.core.utils.validator.rule.Standard
+import me.s097t0r1.ktcast.feature.authorization.impl.domain.SignUpInteractor
 import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation.SignUpNavigationGraph
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.EmailFieldState
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpSideEffect
@@ -21,6 +26,7 @@ import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
 class SignUpViewModel @Inject constructor(
+    private val interactor: SignUpInteractor,
     private val resourceProvider: ResourceProvider
 ) : BaseViewModel<SignUpUIState, SignUpSideEffect, SignUpNavigationGraph>() {
 
@@ -94,6 +100,21 @@ class SignUpViewModel @Inject constructor(
                 )
             )
         }
+    }
+
+    fun onSignUpClicked() = intent {
+        val signUpReact = interactor.signUp(
+            state.emailField.value,
+            state.passwordField.value
+        )
+        when (signUpReact) {
+            is Ok -> Log.d("$this@SignUpViewModel", "Success")
+            is Err -> Log.d("this@SignUpViewModel", "Error")
+        }
+    }
+
+    private fun signUp(login: String, password: String) = viewModelScope.launch {
+        interactor.signUp(login, password)
     }
 
     companion object {

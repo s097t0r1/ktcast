@@ -39,6 +39,8 @@
       <module name="ktcast.core.utils.resource-provider.androidLibrary" target="11" />
       <module name="ktcast.core.utils.validator.android-library" target="11" />
       <module name="ktcast.core.utils.viewmodel_factory.android_library" target="11" />
+      <module name="ktcast.data.authorization.api" target="11" />
+      <module name="ktcast.data.authorization.impl" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.authorization.api" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.authorization.impl" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.authorization.res" target="11" />

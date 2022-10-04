@@ -5,6 +5,7 @@ import me.s097t0r1.core.result.Err
 import me.s097t0r1.core.result.Ok
 import me.s097t0r1.core.result.Reaction
 import me.s097t0r1.ktcast.common.network.utils.deserialize
+import me.s097t0r1.ktcast.common.network.utils.model.ErrorResponse
 import okhttp3.Request
 import okio.Timeout
 import retrofit2.Call
@@ -82,7 +83,8 @@ internal class ReactionCall<D>(private val delegate: Call<D>) : Call<Reaction<D,
                 code = this.code(),
                 messages = this.errorBody()
                     ?.string()
-                    ?.deserialize<List<String>>() ?: emptyList()
+                    ?.deserialize<ErrorResponse>()
+                    ?.errors ?: emptyList()
             )
             in 500..510 -> AppException.NetworkException.InternalServerException
             else -> AppException.NetworkException.UnknownException

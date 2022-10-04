@@ -23,9 +23,9 @@ enum class Role {
 
 internal class AndroidSecureStorage @Inject constructor(context: Context) : SecureStorage {
 
-    private val masterKey = MasterKey.Builder(context, MasterKey.DEFAULT_MASTER_KEY_ALIAS)
+    private val masterKey = MasterKey.Builder(context)
+        .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
         .build()
-
 
     private val sharedPreferences: SharedPreferences = EncryptedSharedPreferences.create(
         context,
@@ -48,10 +48,12 @@ internal class AndroidSecureStorage @Inject constructor(context: Context) : Secu
         }
 
     companion object {
-        private const val SHARED_PREFS_FILE_NAME = "me.s097t0r1.ktcast.common.secure_storage.storage"
+        private const val SHARED_PREFS_FILE_NAME =
+            "me.s097t0r1.ktcast.common.secure_storage.storage"
 
         private const val ROLE_KEY = "me.s097t0r1.ktcast.common.secure_storage.storage.ROLE"
-        private const val WEB_TOKEN_KEY = "me.s097t0r1.ktcast.common.secure_storage.storage.WEB_TOKEN_KEY"
+        private const val WEB_TOKEN_KEY =
+            "me.s097t0r1.ktcast.common.secure_storage.storage.WEB_TOKEN_KEY"
 
     }
 

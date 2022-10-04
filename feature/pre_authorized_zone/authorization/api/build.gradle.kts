@@ -5,6 +5,8 @@ plugins {
 
 dependencies {
 
+    implementation(projects.data.authorization.api)
+
     implementation(projects.core.di.library)
     implementation(projects.core.navigation.androidLibrary)
     implementation(projects.core.utils.resourceProvider.androidLibrary)

@@ -59,3 +59,6 @@ include(":core:utils:resource-provider:androidLibrary")
 include(":feature:pre_authorized_zone:authorization:widget")
 
 include(":common:persistence:secure_storage:androidLibrary")
+include(":data:authorization:androidLibrary")
+include(":data:authorization:api")
+include(":data:authorization:impl")
