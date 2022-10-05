@@ -1,6 +1,7 @@
 package me.s097t0r1.core.navigation.navigator
 
 import androidx.fragment.app.*
+import androidx.lifecycle.Lifecycle
 import me.s097t0r1.core.navigation.command.NavigationCommand
 import me.s097t0r1.core.navigation.screen.ActivityScreen
 import me.s097t0r1.core.navigation.screen.DialogFragmentScreen
@@ -30,13 +31,19 @@ class AppNavigator(
         when (screen) {
             is ActivityScreen -> screen.creator.create(fragmentActivity)
             is FragmentScreen<*> -> fragmentManager.commit {
-                setupFragmentTransaction(screen, this)
+                val nextFragment = screen.creator.create(fragmentManager.fragmentFactory)
+                setupFragmentTransaction(
+                    screen,
+                    this,
+                    nextFragment,
+                    fragmentManager.findFragmentById(containerId)
+                )
                 val transaction = '+' to screen.screenKey.orEmpty()
                 transactions += transaction
                 addToBackStack(transaction.hashCode().toString())
                 add(
                     containerId,
-                    screen.creator.create(fragmentManager.fragmentFactory),
+                    nextFragment,
                     screen.screenKey
                 )
             }
@@ -56,10 +63,16 @@ class AppNavigator(
             }
             is FragmentScreen<*> -> {
                 fragmentManager.commit {
-                    setupFragmentTransaction(screen, this)
+                    val nextFragment = screen.creator.create(fragmentManager.fragmentFactory)
+                    setupFragmentTransaction(
+                        screen,
+                        this,
+                        nextFragment,
+                        fragmentManager.findFragmentById(containerId)
+                    )
                     replace(
                         containerId,
-                        screen.creator.create(fragmentManager.fragmentFactory),
+                        nextFragment,
                         screen.screenKey
                     )
                 }
@@ -71,6 +84,8 @@ class AppNavigator(
     open fun <T : Fragment> setupFragmentTransaction(
         fragmentScreen: FragmentScreen<T>,
         fragmentTransaction: FragmentTransaction,
+        nextFragment: Fragment,
+        previousFragment: Fragment?
     ) {
         fragmentTransaction.setCustomAnimations(
             android.R.anim.slide_in_left,
@@ -78,6 +93,9 @@ class AppNavigator(
             android.R.anim.slide_in_left,
             android.R.anim.slide_out_right,
         )
+        previousFragment?.let {
+            fragmentTransaction.setMaxLifecycle(it, Lifecycle.State.STARTED)
+        }
     }
 
     private fun backTo(screen: NavigationScreen) = when (screen) {

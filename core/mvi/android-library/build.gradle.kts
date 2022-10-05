@@ -15,6 +15,7 @@ dependencies {
 
     implementation(projects.core.mvi.res)
     implementation(projects.core.uiComponents.androidLibrary)
+    implementation(projects.core.uiComponents.res)
     implementation(projects.core.navigation.androidLibrary)
 
 }

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
@@ -22,7 +24,8 @@ import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.core.navigation.router.RouterProvider
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
 
-abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> : Fragment {
+abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> :
+    Fragment {
 
     constructor() : super()
     constructor(@LayoutRes layoutRes: Int) : super(layoutRes)
@@ -37,7 +40,8 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
     @Composable
     protected abstract fun Content()
 
-    open fun onInitViewModel(viewModel: VM) { /* no-op */ }
+    open fun onInitViewModel(viewModel: VM) { /* no-op */
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         inject()
@@ -67,6 +71,30 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewLifecycleObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as? AppCompatActivity)?.supportActionBar?.let {
+            setupToolbar(it)
+        }
+    }
+
+    protected open fun setupToolbar(actionBar: ActionBar) {
+        if (isBackAvailable()) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setHomeAsUpIndicator(
+                me.s097t0r1.core.ui_components.R.drawable.ic_toolbar_back
+            )
+        } else {
+            actionBar.setDisplayHomeAsUpEnabled(false)
+            actionBar.setHomeAsUpIndicator(null)
+        }
+        actionBar.setDisplayShowTitleEnabled(false)
+    }
+
+    protected open fun isBackAvailable(): Boolean {
+        return parentFragmentManager.backStackEntryCount > 1
     }
 
     private fun initViewLifecycleObservers() {

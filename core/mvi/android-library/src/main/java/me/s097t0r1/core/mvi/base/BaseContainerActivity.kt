@@ -3,6 +3,7 @@ package me.s097t0r1.core.mvi.base
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import me.s097t0r1.core.navigation.dispatcher.NavigationDispatcher
 import me.s097t0r1.core.navigation.dispatcher.NavigationDispatcherHost
 import me.s097t0r1.core.navigation.message.NavigationMessage
@@ -28,6 +29,8 @@ abstract class BaseContainerActivity : AppCompatActivity, NavigationDispatcherHo
         AppNavigator(containerId, this)
     }
 
+    protected abstract fun setupToolbar(): Toolbar
+
     constructor() : super()
     constructor(@LayoutRes layoutRes: Int) : super(layoutRes)
 
@@ -35,6 +38,7 @@ abstract class BaseContainerActivity : AppCompatActivity, NavigationDispatcherHo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setSupportActionBar(setupToolbar())
         router.attachDispatcher(dispatcher)
         openLaunchScreen()
     }
