@@ -13,6 +13,8 @@ class AppNavigator(
     private val fragmentManager: FragmentManager = fragmentActivity.supportFragmentManager
 ) : Navigator {
 
+    private var transactions = listOf<Pair<Char, String>>()
+
     override fun execute(commands: Array<out NavigationCommand>) {
         for (command in commands) {
             when (command) {
@@ -29,6 +31,9 @@ class AppNavigator(
             is ActivityScreen -> screen.creator.create(fragmentActivity)
             is FragmentScreen<*> -> fragmentManager.commit {
                 setupFragmentTransaction(screen, this)
+                val transaction = '+' to screen.screenKey.orEmpty()
+                transactions += transaction
+                addToBackStack(transaction.hashCode().toString())
                 add(
                     containerId,
                     screen.creator.create(fragmentManager.fragmentFactory),
@@ -69,26 +74,28 @@ class AppNavigator(
     ) {
         fragmentTransaction.setCustomAnimations(
             android.R.anim.slide_in_left,
-            android.R.anim.slide_out_right
+            android.R.anim.slide_out_right,
+            android.R.anim.slide_in_left,
+            android.R.anim.slide_out_right,
         )
     }
 
     private fun backTo(screen: NavigationScreen) = when (screen) {
         is ActivityScreen -> throw IllegalArgumentException("Activity doesn't support 'BackTo' command")
         is FragmentScreen<*> -> {
-            val localStack = fragmentManager.fragments
-            val indexOfScreen = if (screen == FragmentScreen.Root) {
-                localStack.reversed().indexOfFirst { it.tag == screen.screenKey }
+            if (screen != FragmentScreen.Root) {
+                val indexOfScreen = transactions.indexOfLast { it.second == screen.screenKey }
+                fragmentManager.popBackStack(transactions[indexOfScreen].hashCode().toString(), 0)
+                transactions = transactions.subList(0, indexOfScreen)
             } else {
-                localStack.size - 1
+                fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
             }
-            repeat(indexOfScreen) { fragmentManager.popBackStack() }
         }
         else -> error("DialogFragment doesn't support 'Back' command")
     }
 
     private fun back() {
-        if (fragmentManager.backStackEntryCount == 0) {
+        if (fragmentManager.backStackEntryCount <= 1) {
             fragmentActivity.finish()
         } else {
             fragmentManager.popBackStack()

@@ -2,6 +2,7 @@ package me.s097t0r1.core.mvi.base
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import me.s097t0r1.core.navigation.dispatcher.FragmentNavigationDispatcher
@@ -49,7 +50,18 @@ abstract class BaseContainerFragment : Fragment, NavigationDispatcherHost, Route
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        addBackHandler()
         openLaunchScreen()
+    }
+
+    private fun addBackHandler() {
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            if (childFragmentManager.backStackEntryCount > 1) {
+                accept(BackMessage)
+            } else {
+                router.navigate(BackMessage)
+            }
+        }
     }
 
     override fun onDestroy() {
