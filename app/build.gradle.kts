@@ -14,9 +14,10 @@ dependencies {
     implementation(libs.google.dagger)
     kapt(libs.google.dagger.compiler)
 
+    implementation(projects.core.di.library)
     implementation(projects.core.mvi.androidLibrary)
     implementation(projects.core.navigation.androidLibrary)
-    implementation(projects.core.di.library)
+    implementation(projects.core.debugHelper.androidLibrary)
     implementation(projects.core.utils.resourceProvider.androidLibrary)
 
     implementation(projects.common.network.androidLibrary)

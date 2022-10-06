@@ -1,5 +1,6 @@
 package me.s097t0r1.common.network.di
 
+import com.pandulapeter.beagle.logOkHttp.BeagleOkHttpLogger
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -9,6 +10,7 @@ import me.s097t0r1.common.network.authenticator.KtCastAuthenticator
 import me.s097t0r1.common.network.call_adapter.ReactionCallAdapterFactory
 import me.s097t0r1.common.network.factory.NetworkServiceFactory
 import me.s097t0r1.common.network.interceptors.ApplicationInterceptor
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -71,6 +73,7 @@ internal object NetworkModule {
     ): OkHttpClient = OkHttpClient.Builder().apply {
         addInterceptor(HttpLoggingInterceptor())
         addInterceptor(ApplicationInterceptor())
+        (BeagleOkHttpLogger.logger as? Interceptor?)?.let(::addInterceptor)
         authenticator(authenticator)
     }.build()
 
@@ -80,6 +83,7 @@ internal object NetworkModule {
     fun provideUnauthorizedOkHttpClient(): OkHttpClient = OkHttpClient.Builder().apply {
         addInterceptor(HttpLoggingInterceptor())
         addInterceptor(ApplicationInterceptor())
+        (BeagleOkHttpLogger.logger as? Interceptor?)?.let(::addInterceptor)
     }.build()
 
     @Provides

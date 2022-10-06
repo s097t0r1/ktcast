@@ -23,6 +23,8 @@
             <option value="$PROJECT_DIR$/common/persistence/secure_storage" />
             <option value="$PROJECT_DIR$/common/persistence/secure_storage/androidLibrary" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/debugHelper" />
+            <option value="$PROJECT_DIR$/core/debugHelper/androidLibrary" />
             <option value="$PROJECT_DIR$/core/di" />
             <option value="$PROJECT_DIR$/core/di/library" />
             <option value="$PROJECT_DIR$/core/exceptions" />

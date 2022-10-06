@@ -18,6 +18,7 @@
       <module name="ktcast.common.network.utils.test" target="1.8" />
       <module name="ktcast.common.persistence.database.android-library" target="11" />
       <module name="ktcast.common.persistence.secure_storage.androidLibrary" target="11" />
+      <module name="ktcast.core.debugHelper.androidLibrary" target="11" />
       <module name="ktcast.core.di.library" target="1.8" />
       <module name="ktcast.core.di.library.main" target="1.8" />
       <module name="ktcast.core.di.library.test" target="1.8" />

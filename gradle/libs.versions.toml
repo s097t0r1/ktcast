@@ -30,6 +30,9 @@ dagger2 = "2.43.2"
 
 orbit = "4.3.2"
 
+beagle = "2.8.3"
+timber = "5.0.1"
+
 [libraries]
 
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -58,6 +61,15 @@ google-material = { module = "com.google.android.material:material", version.ref
 google-dagger = { module = "com.google.dagger:dagger", version.ref = "dagger2" }
 google-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger2" }
 
+pandulapetor-beagle = { module = "io.github.pandulapeter.beagle:ui-drawer", version.ref = "beagle" }
+pandulapetor-beagle-noop = { module = "io.github.pandulapeter.beagle:noop", version.ref = "beagle" }
+
+pandulapetor-beagle-okhttp = { module = "io.github.pandulapeter.beagle:log-okhttp", version.ref = "beagle" }
+pandulapetor-beagle-okhttp-noop = { module = "io.github.pandulapeter.beagle:log-okhttp-noop", version.ref = "beagle" }
+
+pandulapetor-beagle-logger = { module = "io.github.pandulapeter.beagle:log", version.ref = "beagle" }
+pandulapetor-beagle-logger-noop = { module = "io.github.pandulapeter.beagle:log-noop", version.ref = "beagle" }
+
 squareup-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 squareup-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okHttp" }
 squareup-okhttp-logger = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttp" }
@@ -66,6 +78,8 @@ squareup-moshi-converter = { module = "com.squareup.retrofit2:converter-moshi", 
 
 jetbrains-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinGradlePlugin"}
 jetbrains-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutinesAndroid"}
+
+jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 orbit-mvi-core = { module = "org.orbit-mvi:orbit-core", version.ref = "orbit"}
 orbit-mvi-viewmodel = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "orbit" }
