@@ -3,9 +3,9 @@ package me.s097t0r1.ktcast.data.authorization.impl.source.remote
 import me.s097t0r1.common.network.factory.NetworkServiceFactory
 import me.s097t0r1.common.network.factory.create
 import me.s097t0r1.core.exceptions.library.AppException
-import me.s097t0r1.core.result.Reaction
 import me.s097t0r1.ktcast.data.authorization.impl.model.remote.request.TokenRequestDTO
 import me.s097t0r1.ktcast.data.authorization.impl.model.remote.response.TokenResponseDTO
+import me.s097t0r1.ktcast.libraries.reaction.Reaction
 import javax.inject.Inject
 
 internal interface AuthorizationRemoteDataSource {

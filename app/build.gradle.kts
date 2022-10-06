@@ -18,7 +18,7 @@ dependencies {
     implementation(projects.core.mvi.androidLibrary)
     implementation(projects.core.navigation.androidLibrary)
     implementation(projects.core.debugHelper.androidLibrary)
-    implementation(projects.core.utils.resourceProvider.androidLibrary)
+    implementation(projects.libraries.resourceProvider.androidLibrary)
 
     implementation(projects.common.network.androidLibrary)
     implementation(projects.common.persistence.database.androidLibrary)

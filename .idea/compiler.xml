@@ -6,6 +6,7 @@
       <module name="ktcast.buildSrc" target="11" />
       <module name="ktcast.buildSrc.main" target="11" />
       <module name="ktcast.buildSrc.test" target="11" />
+      <module name="ktcast.common.network.android-library" target="11" />
       <module name="ktcast.common.network.androidLibrary" target="11" />
       <module name="ktcast.common.network.androidUtils" target="1.8" />
       <module name="ktcast.common.network.androidUtils.main" target="1.8" />
@@ -17,8 +18,10 @@
       <module name="ktcast.common.network.utils.main" target="1.8" />
       <module name="ktcast.common.network.utils.test" target="1.8" />
       <module name="ktcast.common.persistence.database.android-library" target="11" />
+      <module name="ktcast.common.persistence.secure-storage.android-library" target="11" />
       <module name="ktcast.common.persistence.secure_storage.androidLibrary" target="11" />
-      <module name="ktcast.core.debugHelper.androidLibrary" target="11" />
+      <module name="ktcast.core.debug-helper.android-library" target="11" />
+      <module name="ktcast.core.debugHelper.android-library" target="11" />
       <module name="ktcast.core.di.library" target="1.8" />
       <module name="ktcast.core.di.library.main" target="1.8" />
       <module name="ktcast.core.di.library.test" target="1.8" />
@@ -42,6 +45,17 @@
       <module name="ktcast.core.utils.viewmodel_factory.android_library" target="11" />
       <module name="ktcast.data.authorization.api" target="11" />
       <module name="ktcast.data.authorization.impl" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.authorization.api" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.authorization.impl" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.authorization.res" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.authorization.screen" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.authorization.screens" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.authorization.widget" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.splash.api" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.splash.compose-screens" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.splash.impl" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.splash.res" target="11" />
+      <module name="ktcast.feature.pre-authorized-zone.splash.screen" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.authorization.api" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.authorization.impl" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.authorization.res" target="11" />
@@ -52,6 +66,15 @@
       <module name="ktcast.feature.pre_authorized_zone.splash.impl" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.res" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.widget" target="11" />
+      <module name="ktcast.libraries.mapper.library" target="1.8" />
+      <module name="ktcast.libraries.mapper.library.main" target="1.8" />
+      <module name="ktcast.libraries.mapper.library.test" target="1.8" />
+      <module name="ktcast.libraries.resource-provider.android-library" target="11" />
+      <module name="ktcast.libraries.resource-provider.androidLibrary" target="11" />
+      <module name="ktcast.libraries.validator.android-library" target="11" />
+      <module name="ktcast.libraries.viewmodel-factory.android-library" target="11" />
+      <module name="ktcast.libraries.viewmodel_factory.android-library" target="11" />
+      <module name="ktcast.libraries.viewmodel_factory.android_library" target="11" />
       <module name="WeTalk.app" target="11" />
       <module name="WeTalk.buildSrc" target="11" />
       <module name="WeTalk.buildSrc.main" target="11" />

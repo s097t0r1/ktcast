@@ -20,46 +20,55 @@ rootProject.name = "ktcast"
 
 include(":app")
 
-// DI
+// Core
+
 include(":core:di:library")
 
-// Navigation
 include(":core:navigation:android-library")
 
-// mvi
-include(":core:mvi:android-library")
-include(":core:mvi:android-utils")
-include(":core:mvi:res")
-
 include(":core:exceptions:library")
-include(":common:network:androidLibrary")
-include(":common:network:androidUtils")
-
-include(":core:utils:mapper:library")
-include(":core:utils:reaction:library")
-include(":core:utils:viewmodel_factory:android_library")
-
-include(":common:persistence:database:android-library")
-
-include(":feature:pre_authorized_zone:splash:api")
-include(":feature:pre_authorized_zone:splash:impl")
-include(":feature:pre_authorized_zone:splash:res")
-include(":feature:pre_authorized_zone:splash:compose-screens")
 
 include(":core:ui-components:android-library")
 include(":core:ui-components:res")
 
-include(":feature:pre_authorized_zone:authorization:api")
-include(":feature:pre_authorized_zone:authorization:impl")
-include(":feature:pre_authorized_zone:authorization:screens")
-include(":feature:pre_authorized_zone:authorization:res")
-include(":core:utils:validator:android-library")
+include(":core:mvi:android-library")
+include(":core:mvi:android-utils")
+include(":core:mvi:res")
 
-include(":core:utils:resource-provider:androidLibrary")
-include(":feature:pre_authorized_zone:authorization:widget")
+include(":core:debug-helper:android-library")
 
-include(":common:persistence:secure_storage:androidLibrary")
-include(":data:authorization:androidLibrary")
+// Common
+
+include(":common:network:android-library")
+include(":common:network:utils")
+
+include(":common:persistence:database:android-library")
+
+include(":common:persistence:secure-storage:android-library")
+
+// Libraries
+
+include(":libraries:mapper:library")
+include(":libraries:reaction:library")
+include(":libraries:viewmodel-factory:android-library")
+include(":libraries:resource-provider:android-library")
+include(":libraries:validator:android-library")
+
+// Feature
+
+include(":feature:pre-authorized-zone:splash:api")
+include(":feature:pre-authorized-zone:splash:impl")
+include(":feature:pre-authorized-zone:splash:res")
+include(":feature:pre-authorized-zone:splash:screen")
+
+include(":feature:pre-authorized-zone:authorization:api")
+include(":feature:pre-authorized-zone:authorization:impl")
+include(":feature:pre-authorized-zone:authorization:screen")
+include(":feature:pre-authorized-zone:authorization:res")
+include(":feature:pre-authorized-zone:authorization:widget")
+
+// Data
+
 include(":data:authorization:api")
 include(":data:authorization:impl")
-include(":core:debugHelper:androidLibrary")
+
