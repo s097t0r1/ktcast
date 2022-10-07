@@ -10,6 +10,10 @@ internal val Project.libs
         .getByType<VersionCatalogsExtension>()
         .named("libs")
 
+internal infix fun VersionCatalog.library(alias: String) = findDependency(alias).get()
+
+internal infix fun VersionCatalog.bundle(alias: String) = findBundle(alias).get()
+
 internal fun VersionCatalog.versionOf(name: String) =
     this.findVersion(name).get().requiredVersion
 

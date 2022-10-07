@@ -1,7 +1,7 @@
 package me.s097t0r1.ktcast.data.authorization.impl.model.remote.request
 
 import com.squareup.moshi.Json
-import me.s097t0r1.libraries.mapper.DTO
+import me.s097t0r1.ktcast.libraries.mapper.DTO
 
 class TokenRequestDTO(
     @Json(name = "login")

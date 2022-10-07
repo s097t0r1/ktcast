@@ -1,4 +1,4 @@
-package me.s097t0r1.libraries.mapper
+package me.s097t0r1.ktcast.libraries.mapper
 
 interface Mapper<I : Mappable, O : Mappable> {
     fun map(input: I): O

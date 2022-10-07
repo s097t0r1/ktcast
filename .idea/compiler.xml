@@ -22,7 +22,7 @@
       <module name="ktcast.common.persistence.secure_storage.androidLibrary" target="11" />
       <module name="ktcast.core.debug-helper.android-library" target="11" />
       <module name="ktcast.core.debugHelper.android-library" target="11" />
-      <module name="ktcast.core.di.library" target="1.8" />
+      <module name="ktcast.core.di.library" target="11" />
       <module name="ktcast.core.di.library.main" target="1.8" />
       <module name="ktcast.core.di.library.test" target="1.8" />
       <module name="ktcast.core.exceptions.library" target="1.8" />
@@ -30,6 +30,8 @@
       <module name="ktcast.core.exceptions.library.test" target="1.8" />
       <module name="ktcast.core.mvi.android-library" target="11" />
       <module name="ktcast.core.mvi.android-utils" target="11" />
+      <module name="ktcast.core.mvi.android-utils.main" target="1.8" />
+      <module name="ktcast.core.mvi.android-utils.test" target="1.8" />
       <module name="ktcast.core.mvi.res" target="11" />
       <module name="ktcast.core.mvvm.android-library" target="11" />
       <module name="ktcast.core.mvvm.android-utils" target="11" />
