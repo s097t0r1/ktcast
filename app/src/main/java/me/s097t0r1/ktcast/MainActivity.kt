@@ -47,13 +47,13 @@ class MainActivity : BaseContainerActivity<ActivityMainBinding>(), HostViewModel
 
         Column(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Bottom
+            verticalArrangement = Arrangement.Top
         ) {
 
             AlertSnackBar(
                 alertSnackBarHost,
                 modifier = Modifier
-                    .padding(vertical = 12.dp, horizontal = 12.dp)
+                    .padding(vertical = 16.dp, horizontal = 12.dp)
                     .fillMaxWidth()
                     .height(64.dp)
             )

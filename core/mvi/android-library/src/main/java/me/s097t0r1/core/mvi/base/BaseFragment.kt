@@ -13,10 +13,9 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.collectLatest
+import me.s097t0r1.core.mvi.base.host.HostSideEffect
 import me.s097t0r1.core.mvi.base.host.HostViewModel
 import me.s097t0r1.core.mvi.base.host.HostViewModelOwner
 import me.s097t0r1.core.mvi.base.state.BaseSideEffect
@@ -26,9 +25,9 @@ import me.s097t0r1.core.navigation.base.NavigationGraph
 import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.core.navigation.router.RouterProvider
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
-import me.s097t0r1.ktcast.common.logout.LogoutHandler
 
-abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> : Fragment {
+abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> :
+    Fragment {
 
     constructor() : super()
     constructor(@LayoutRes layoutRes: Int) : super(layoutRes)
@@ -104,22 +103,22 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
     }
 
     private fun initViewLifecycleObservers() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                initNavigationObserver()
-                initLogoutObserver()
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted { initNavigationObserver() }
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted { initSideEffectObserver() }
+    }
+
+    private suspend fun initNavigationObserver() {
+        viewModel.navigation.collectLatest { navigationProvider.navigate(router, it) }
+    }
+
+    private suspend fun initSideEffectObserver() {
+        viewModel.hostSideEffect.collect {
+            when (it) {
+                is HostSideEffect.Alert -> hostViewModel.alert(it.alertType, it.message)
+                is HostSideEffect.Logout -> hostViewModel.logout(it.logoutType)
             }
         }
     }
 
-    private suspend fun initLogoutObserver() {
-        viewModel.logout.collect { isLogout ->
-            hostViewModel.logout(LogoutHandler.LogoutType.SERVER_LOGOUT)
-        }
-    }
 
-    private suspend fun initNavigationObserver() =
-        viewModel.navigation.collect {
-            navigationProvider.navigate(router, it)
-        }
 }
