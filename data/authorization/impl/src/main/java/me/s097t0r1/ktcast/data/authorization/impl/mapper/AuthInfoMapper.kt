@@ -8,7 +8,7 @@ class AuthInfoMapper : Mapper<TokenResponseDTO, AuthInfo> {
     override fun map(input: TokenResponseDTO): AuthInfo {
         return AuthInfo(
             token = input.authToken,
-            role = input.role
+            role = input.role.uppercase()
         )
     }
 }

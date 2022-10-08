@@ -30,10 +30,13 @@ class FeatureImplConventionPlugin : Plugin<Project> {
             implementation(project(":core:mvi:android-library"))
             implementation(project(":core:navigation:android-library"))
             implementation(project(":core:ui-components:android-library"))
+            implementation(project(":core:dialog:android-library"))
             implementation(project(":libraries:viewmodel-factory:android-library"))
             implementation(project(":libraries:resource-provider:android-library"))
             implementation(project(":libraries:validator:android-library"))
             implementation(project(":libraries:reaction:library"))
+            implementation(project(":libraries:mapper:library"))
+
 
             implementation(libs library "androidx.core.ktx")
             implementation(libs library "androidx.appcompat")

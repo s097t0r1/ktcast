@@ -37,6 +37,8 @@ include(":core:mvi:res")
 
 include(":core:debug-helper:android-library")
 
+include(":core:dialog:android-library")
+
 // Common
 
 include(":common:network:android-library")
@@ -46,6 +48,7 @@ include(":common:persistence:database:android-library")
 
 include(":common:persistence:secure-storage:android-library")
 
+include(":common:logout:android-library")
 // Libraries
 
 include(":libraries:mapper:library")

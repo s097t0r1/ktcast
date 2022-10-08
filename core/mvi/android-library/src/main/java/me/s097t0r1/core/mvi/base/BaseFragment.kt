@@ -12,10 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
+import me.s097t0r1.core.mvi.base.host.HostViewModel
+import me.s097t0r1.core.mvi.base.host.HostViewModelOwner
 import me.s097t0r1.core.mvi.base.state.BaseSideEffect
 import me.s097t0r1.core.mvi.base.state.BaseState
 import me.s097t0r1.core.mvi.res.R
@@ -23,15 +26,19 @@ import me.s097t0r1.core.navigation.base.NavigationGraph
 import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.core.navigation.router.RouterProvider
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
+import me.s097t0r1.ktcast.common.logout.LogoutHandler
 
-abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> :
-    Fragment {
+abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> : Fragment {
 
     constructor() : super()
     constructor(@LayoutRes layoutRes: Int) : super(layoutRes)
 
     protected abstract val viewModel: VM
     protected abstract val navigationProvider: NavigationProvider<N>
+
+    private val hostViewModel: HostViewModel by activityViewModels(
+        factoryProducer = { (requireActivity() as HostViewModelOwner).viewModelFactory }
+    )
 
     private val router by lazy { (parentFragment as RouterProvider).router }
 
@@ -40,8 +47,7 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
     @Composable
     protected abstract fun Content()
 
-    open fun onInitViewModel(viewModel: VM) { /* no-op */
-    }
+    open fun onInitViewModel(viewModel: VM) { /* no-op */ }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         inject()
@@ -101,7 +107,14 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 initNavigationObserver()
+                initLogoutObserver()
             }
+        }
+    }
+
+    private suspend fun initLogoutObserver() {
+        viewModel.logout.collect { isLogout ->
+            hostViewModel.logout(LogoutHandler.LogoutType.SERVER_LOGOUT)
         }
     }
 

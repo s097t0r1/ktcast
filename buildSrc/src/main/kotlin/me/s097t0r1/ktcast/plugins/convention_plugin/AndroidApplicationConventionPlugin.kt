@@ -59,6 +59,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
         compileSdk = project.libs.versionOf("compileSdk").toInt()
 
+        buildFeatures {
+            viewBinding = true
+        }
+
         defaultConfig {
             targetSdk = project.libs.versionOf("targetSdk").toInt()
             minSdk = project.libs.versionOf("minSdk").toInt()

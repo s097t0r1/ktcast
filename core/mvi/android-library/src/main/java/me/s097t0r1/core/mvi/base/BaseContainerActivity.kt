@@ -1,17 +1,26 @@
 package me.s097t0r1.core.mvi.base
 
 import android.os.Bundle
-import androidx.annotation.LayoutRes
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidViewBinding
+import androidx.viewbinding.ViewBinding
 import me.s097t0r1.core.navigation.dispatcher.NavigationDispatcher
 import me.s097t0r1.core.navigation.dispatcher.NavigationDispatcherHost
 import me.s097t0r1.core.navigation.message.NavigationMessage
 import me.s097t0r1.core.navigation.navigator.AppNavigator
 import me.s097t0r1.core.navigation.router.AppRouter
 import me.s097t0r1.core.navigation.router.Router
+import me.s097t0r1.core.ui_components.theme.KtCastTheme
 
-abstract class BaseContainerActivity : AppCompatActivity, NavigationDispatcherHost {
+abstract class BaseContainerActivity<V : ViewBinding> : AppCompatActivity(),
+    NavigationDispatcherHost {
+
+    protected lateinit var binding: V
 
     abstract val containerId: Int
 
@@ -31,16 +40,34 @@ abstract class BaseContainerActivity : AppCompatActivity, NavigationDispatcherHo
 
     protected abstract fun setupToolbar(): Toolbar
 
-    constructor() : super()
-    constructor(@LayoutRes layoutRes: Int) : super(layoutRes)
-
     abstract fun openLaunchScreen()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    abstract fun onCreateViewBinding(
+        inflater: LayoutInflater,
+        parent: ViewGroup,
+        attachToParent: Boolean
+    ): V
+
+    open fun onViewCreated(binding: V) {
         setSupportActionBar(setupToolbar())
         router.attachDispatcher(dispatcher)
         openLaunchScreen()
+    }
+
+    @Composable
+    abstract fun Content()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            KtCastTheme {
+                AndroidViewBinding(factory = ::onCreateViewBinding) {
+                    binding = this
+                    onViewCreated(binding)
+                }
+                Content()
+            }
+        }
     }
 
     override fun onDestroy() {

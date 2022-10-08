@@ -39,7 +39,7 @@ internal class SignUpFragment : BaseFragment<SignUpViewModel, SignUpUIState, Sig
             onPasswordChaged = viewModel::onPasswordChanged,
             onRememberCheckedChange = {},
             onSignUpClicked = viewModel::onSignUpClicked,
-            onSignedInClicked = {},
+            onSignedInClicked = viewModel::onSignInClicked,
             onToggleMaskPassword = viewModel::onToggleMaskPassword
         )
     }

@@ -13,6 +13,8 @@ interface SecureStorage {
     var role: Role?
     var webToken: String?
 
+    fun clear()
+
 }
 
 enum class Role {
@@ -46,6 +48,10 @@ internal class AndroidSecureStorage @Inject constructor(context: Context) : Secu
         set(value) = sharedPreferences.edit {
             putString(WEB_TOKEN_KEY, value)
         }
+
+    override fun clear() {
+        sharedPreferences.edit { clear() }
+    }
 
     companion object {
         private const val SHARED_PREFS_FILE_NAME =

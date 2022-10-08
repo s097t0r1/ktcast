@@ -7,10 +7,14 @@ sealed class AppException : Throwable() {
         class HttpException(
             val code: Int,
             val messages: List<String>
-        ) : NetworkException()
+        ) : NetworkException() {
+            companion object {
+                const val UNATHORIZED_CODE = 401
+            }
+        }
         object InternalServerException : NetworkException()
         object UnknownException : NetworkException()
     }
 
-    open class Local(override val message: String? = null) : AppException()
+    open class LocalException(override val message: String? = null) : AppException()
 }

@@ -3,7 +3,7 @@ package me.s097t0r1.ktcast.feature.authorization.impl.presentation.lets_you_in.n
 import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.core.navigation.message.ForwardMessage
 import me.s097t0r1.core.navigation.router.Router
-import me.s097t0r1.ktcast.feature.authorization.impl.navigation.signInScreen
+import me.s097t0r1.ktcast.feature.authorization.impl.navigation.SignInScreen
 import me.s097t0r1.ktcast.feature.authorization.impl.navigation.signUpScreen
 
 class LetsYouInNavigationProvider : NavigationProvider<LetsYouInNavigationGraph> {
@@ -16,7 +16,7 @@ class LetsYouInNavigationProvider : NavigationProvider<LetsYouInNavigationGraph>
     }
 
     private fun navigateToSignedIn(router: Router, screen: LetsYouInNavigationGraph.SignIn) {
-        router.navigate(ForwardMessage(signInScreen()))
+        router.navigate(ForwardMessage(SignInScreen()))
     }
 
     private fun navigateToSignedUp(router: Router, screen: LetsYouInNavigationGraph.SignUp) {

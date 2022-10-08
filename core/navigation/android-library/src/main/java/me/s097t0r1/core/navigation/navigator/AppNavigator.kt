@@ -88,13 +88,13 @@ class AppNavigator(
         previousFragment: Fragment?
     ) {
         fragmentTransaction.setCustomAnimations(
-            android.R.anim.slide_in_left,
-            android.R.anim.slide_out_right,
-            android.R.anim.slide_in_left,
-            android.R.anim.slide_out_right,
+            android.R.animator.fade_in,
+            android.R.animator.fade_out,
+            android.R.animator.fade_in,
+            android.R.animator.fade_out
         )
         previousFragment?.let {
-            fragmentTransaction.setMaxLifecycle(it, Lifecycle.State.STARTED)
+            fragmentTransaction.setMaxLifecycle(previousFragment, Lifecycle.State.STARTED)
         }
     }
 
@@ -106,7 +106,11 @@ class AppNavigator(
                 fragmentManager.popBackStack(transactions[indexOfScreen].hashCode().toString(), 0)
                 transactions = transactions.subList(0, indexOfScreen)
             } else {
-                fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                fragmentManager.popBackStack(
+                    transactions.firstOrNull().hashCode().toString(),
+                    FragmentManager.POP_BACK_STACK_INCLUSIVE
+                )
+                transactions = emptyList()
             }
         }
         else -> error("DialogFragment doesn't support 'Back' command")

@@ -3,5 +3,6 @@ package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navig
 import me.s097t0r1.core.navigation.base.NavigationGraph
 
 sealed class SignUpNavigationGraph : NavigationGraph {
-    object DatePickerDialog : SignUpNavigationGraph()
+    object FillProfileScreen : SignUpNavigationGraph()
+    object SignInScreen : SignUpNavigationGraph()
 }

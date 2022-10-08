@@ -6,3 +6,6 @@ interface Mapper<I : Mappable, O : Mappable> {
 
 inline fun <reified T : Mapper<*, *>> createMapper(vararg args: Any) =
     T::class.java.constructors.first().newInstance(args) as T
+
+inline fun <reified T : Mapper<*, *>> createMapper() =
+    T::class.java.constructors.first().newInstance() as T

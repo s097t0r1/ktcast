@@ -1,20 +1,17 @@
 package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import me.s097t0r1.core.mvi.base.BaseViewModel
 import me.s097t0r1.ktcast.feature.authorization.impl.domain.SignUpInteractor
 import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation.SignUpNavigationGraph
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.EmailFieldState
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpSideEffect
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpUIState
-import me.s097t0r1.ktcast.libraries.reaction.Err
-import me.s097t0r1.ktcast.libraries.reaction.Ok
+import me.s097t0r1.ktcast.libraries.reaction.fold
 import me.s097t0r1.ktcast.libraries.resource_provider.ResourceProvider
 import me.s097t0r1.ktcast.libraries.validator.DefaultValidator
 import me.s097t0r1.ktcast.libraries.validator.ext.asFlow
@@ -103,19 +100,16 @@ class SignUpViewModel @Inject constructor(
     }
 
     fun onSignUpClicked() = intent {
-        val signUpReact = interactor.signUp(
+        interactor.signUp(
             state.emailField.value,
             state.passwordField.value
+        ).fold(
+            onSuccess = { navigateTo(SignUpNavigationGraph.FillProfileScreen) },
+            onFailure = ::handleException
         )
-        when (signUpReact) {
-            is Ok -> Log.d("$this@SignUpViewModel", "Success")
-            is Err -> Log.d("this@SignUpViewModel", "Error")
-        }
     }
 
-    private fun signUp(login: String, password: String) = viewModelScope.launch {
-        interactor.signUp(login, password)
-    }
+    fun onSignInClicked() = navigateTo(SignUpNavigationGraph.SignInScreen)
 
     companion object {
         private val PASSWORD_REGEX = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$")

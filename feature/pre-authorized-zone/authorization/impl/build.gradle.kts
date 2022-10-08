@@ -8,5 +8,5 @@ dependencies {
 
     implementation(projects.data.authorization.api)
 
-    implementation(libs.android.desugaring)
+    implementation(projects.common.persistence.secureStorage.androidLibrary)
 }

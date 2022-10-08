@@ -6,6 +6,12 @@
       <module name="ktcast.buildSrc" target="11" />
       <module name="ktcast.buildSrc.main" target="11" />
       <module name="ktcast.buildSrc.test" target="11" />
+      <module name="ktcast.common.logout.android-library" target="1.8" />
+      <module name="ktcast.common.logout.android-library.main" target="1.8" />
+      <module name="ktcast.common.logout.android-library.test" target="1.8" />
+      <module name="ktcast.common.logout.androidLibrary" target="1.8" />
+      <module name="ktcast.common.logout.androidLibrary.main" target="1.8" />
+      <module name="ktcast.common.logout.androidLibrary.test" target="1.8" />
       <module name="ktcast.common.network.android-library" target="11" />
       <module name="ktcast.common.network.androidLibrary" target="11" />
       <module name="ktcast.common.network.androidUtils" target="1.8" />
@@ -25,6 +31,7 @@
       <module name="ktcast.core.di.library" target="11" />
       <module name="ktcast.core.di.library.main" target="1.8" />
       <module name="ktcast.core.di.library.test" target="1.8" />
+      <module name="ktcast.core.dialog.android-library" target="11" />
       <module name="ktcast.core.exceptions.library" target="1.8" />
       <module name="ktcast.core.exceptions.library.main" target="1.8" />
       <module name="ktcast.core.exceptions.library.test" target="1.8" />

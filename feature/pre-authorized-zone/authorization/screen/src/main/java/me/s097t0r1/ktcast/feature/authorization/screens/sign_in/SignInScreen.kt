@@ -72,7 +72,7 @@ fun SignInScreen(
             isRememberUser = state.isRemeberChecked,
             onRememberCheckedChange = onRememberCheckedChange,
             isSignInEnabled = state.isSignInEnabled,
-            onSignInClicked = onSignUpClicked,
+            onSignInClicked = onSignInClicked,
             onToggleMaskPassword = onToggleMaskPassword,
         )
 
@@ -281,7 +281,7 @@ private fun SignInForm(
             shape = RoundedCornerShape(100.dp)
         ) {
             Text(
-                stringResource(id = R.string.auth_feature_sign_up),
+                stringResource(id = R.string.auth_feature_sign_in),
                 style = KtCastTheme.typography.BodyLarge
                     .copy(fontWeight = FontWeight.Bold)
             )

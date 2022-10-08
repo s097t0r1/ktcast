@@ -22,6 +22,9 @@ dependencies {
     implementation(projects.libraries.viewmodelFactory.androidLibrary)
 
     implementation(projects.feature.preAuthorizedZone.authorization.api)
+    implementation(projects.common.persistence.secureStorage.androidLibrary)
+
+    implementation(projects.data.authorization.api)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

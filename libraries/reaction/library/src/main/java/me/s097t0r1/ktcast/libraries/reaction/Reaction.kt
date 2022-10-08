@@ -43,3 +43,32 @@ inline fun <T> catchReaction(block: () -> T): Reaction<T, Throwable> {
         Err.of(e)
     }
 }
+
+inline fun <T, E> Reaction<T, E>.subscribe(
+    onSuccess: (value: T) -> Unit,
+    onFailure: (exception: E) -> Unit
+) {
+    return when (this) {
+        is Ok -> onSuccess(value)
+        is Err -> onFailure(err)
+    }
+}
+
+inline fun <T, E, R> Reaction<T, E>.fold(
+    onSuccess: (value: T) -> R,
+    onFailure: (exception: E) -> R
+): R {
+    return when (this) {
+        is Ok -> onSuccess(value)
+        is Err -> onFailure(err)
+    }
+}
+
+inline fun <T1, T2, E1> Reaction<T1, E1>.andThen(
+    block: (T1) -> Reaction<T2, E1>,
+): Reaction<T2, E1> {
+    return when (this) {
+        is Ok -> block(this.value)
+        is Err -> Err.of(err)
+    }
+}

@@ -25,6 +25,10 @@ internal class SignInFragment : BaseFragment<SignInViewModel, SignInUIState, Sig
 
     override fun inject() = AuthorizationComponentHolder.getDaggerComponent().inject(this)
 
+    override fun onInitViewModel(viewModel: SignInViewModel) {
+        viewModel.onInitViewModel()
+    }
+
     @Composable
     override fun Content() {
         val state = viewModel.collectAsState().value
