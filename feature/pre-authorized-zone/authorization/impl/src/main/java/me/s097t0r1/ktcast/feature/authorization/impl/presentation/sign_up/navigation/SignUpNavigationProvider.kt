@@ -2,6 +2,7 @@ package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navig
 
 import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.core.navigation.message.ForwardMessage
+import me.s097t0r1.core.navigation.message.ReplaceMessage
 import me.s097t0r1.core.navigation.router.Router
 import me.s097t0r1.ktcast.feature.authorization.impl.navigation.SignInScreen
 
@@ -15,7 +16,7 @@ class SignUpNavigationProvider : NavigationProvider<SignUpNavigationGraph> {
     }
 
     private fun showSignIn(router: Router, screen: SignUpNavigationGraph.SignInScreen) {
-        router.navigate(ForwardMessage(SignInScreen()))
+        router.navigate(ReplaceMessage(SignInScreen()))
     }
 
     private fun showFillProfile(

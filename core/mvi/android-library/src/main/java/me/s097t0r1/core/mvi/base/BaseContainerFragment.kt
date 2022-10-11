@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import me.s097t0r1.core.navigation.dispatcher.FragmentNavigationDispatcher
 import me.s097t0r1.core.navigation.dispatcher.NavigationDispatcher
 import me.s097t0r1.core.navigation.dispatcher.NavigationDispatcherHost
-import me.s097t0r1.core.navigation.message.*
+import me.s097t0r1.core.navigation.message.BackMessage
+import me.s097t0r1.core.navigation.message.ForwardMessage
+import me.s097t0r1.core.navigation.message.NavigationMessage
+import me.s097t0r1.core.navigation.message.ReplaceMessage
 import me.s097t0r1.core.navigation.navigator.AppNavigator
 import me.s097t0r1.core.navigation.navigator.Navigator
 import me.s097t0r1.core.navigation.router.AppRouter
@@ -24,7 +27,7 @@ abstract class BaseContainerFragment : Fragment, NavigationDispatcherHost, Route
         object : FragmentNavigationDispatcher(this) {
             override fun isSupportMessage(navigationMessage: NavigationMessage): Boolean {
                 return navigationMessage is ForwardMessage || navigationMessage is BackMessage ||
-                        navigationMessage is StartFlowMessage || navigationMessage is FinishFlowMessage
+                        navigationMessage is ReplaceMessage
             }
         }
     }

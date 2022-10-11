@@ -2,7 +2,7 @@ package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_in
 
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import me.s097t0r1.core.mvi.base.BaseViewModel
@@ -12,6 +12,7 @@ import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_in.naviga
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_in.EmailFieldState
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_in.SignInSideEffect
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_in.SignInUIState
+import me.s097t0r1.ktcast.libraries.reaction.fold
 import me.s097t0r1.ktcast.libraries.resource_provider.ResourceProvider
 import me.s097t0r1.ktcast.libraries.validator.DefaultValidator
 import me.s097t0r1.ktcast.libraries.validator.Validator
@@ -64,7 +65,7 @@ internal class SignInViewModel @Inject constructor(
         emailValidator.asFlow(),
         passwordValidator.asFlow()
     ) { arr -> arr.all { !it.isError } }
-        .distinctUntilChanged()
+        .debounce(100L)
         .onEach { intent { reduce { state.copy(isSignInEnabled = it) } } }
         .launchIn(viewModelScope)
 
@@ -106,6 +107,13 @@ internal class SignInViewModel @Inject constructor(
     fun onSignUpClicked() = navigateTo(SignInNavigationGraph.SignUpScreen)
 
     fun onSignInClicked() = intent {
-
+        interactor.signIn(state.emailField.value, state.passwordField.value)
+            .fold(
+                onSuccess = { navigateTo(SignInNavigationGraph.HomeScreen) },
+                onFailure = {
+                    reduce { state.copy(isSignInEnabled = false) }
+                    onError(it)
+                }
+            )
     }
 }

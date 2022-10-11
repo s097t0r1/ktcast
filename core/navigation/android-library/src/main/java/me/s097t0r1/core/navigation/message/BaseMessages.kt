@@ -20,6 +20,24 @@ object BackMessage : NavigationMessage() {
     }
 }
 
+class ReplaceMessage(
+    private val screen: NavigationScreen,
+    private val clearContainer: Boolean = false
+) : NavigationMessage() {
+
+    override fun convertToCommands(): Array<out NavigationCommand> {
+        return if (clearContainer) {
+            arrayOf(
+                NavigationCommand.BackTo(FragmentScreen.Root),
+                NavigationCommand.Replace(screen)
+            )
+        } else {
+            arrayOf(NavigationCommand.Replace(screen))
+        }
+    }
+
+}
+
 class StartFlowMessage(
     private val screen: NavigationScreen
 ) : NavigationMessage() {

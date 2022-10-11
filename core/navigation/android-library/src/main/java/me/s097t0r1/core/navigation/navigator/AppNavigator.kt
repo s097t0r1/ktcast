@@ -2,6 +2,7 @@ package me.s097t0r1.core.navigation.navigator
 
 import androidx.fragment.app.*
 import androidx.lifecycle.Lifecycle
+import me.s097t0r1.core.navigation.R
 import me.s097t0r1.core.navigation.command.NavigationCommand
 import me.s097t0r1.core.navigation.screen.ActivityScreen
 import me.s097t0r1.core.navigation.screen.DialogFragmentScreen
@@ -64,17 +65,21 @@ class AppNavigator(
             is FragmentScreen<*> -> {
                 fragmentManager.commit {
                     val nextFragment = screen.creator.create(fragmentManager.fragmentFactory)
+
+                    if (transactions.isNotEmpty()) {
+                        transactions = transactions.subList(0, transactions.lastIndex)
+                    }
+
+                    transactions += '+' to screen.screenKey.toString()
+
                     setupFragmentTransaction(
                         screen,
                         this,
                         nextFragment,
-                        fragmentManager.findFragmentById(containerId)
+                        null
                     )
-                    replace(
-                        containerId,
-                        nextFragment,
-                        screen.screenKey
-                    )
+                    replace(containerId, nextFragment, screen.screenKey.toString())
+                    addToBackStack(transactions.last().hashCode().toString())
                 }
             }
             else -> error("DialogFragment doesn't support 'Replace' command")
@@ -88,10 +93,10 @@ class AppNavigator(
         previousFragment: Fragment?
     ) {
         fragmentTransaction.setCustomAnimations(
-            android.R.animator.fade_in,
-            android.R.animator.fade_out,
-            android.R.animator.fade_in,
-            android.R.animator.fade_out
+            R.animator.slide_in,
+            R.animator.slide_out,
+            R.animator.slide_in,
+            R.animator.slide_out
         )
         previousFragment?.let {
             fragmentTransaction.setMaxLifecycle(previousFragment, Lifecycle.State.STARTED)
@@ -118,9 +123,18 @@ class AppNavigator(
 
     private fun back() {
         if (fragmentManager.backStackEntryCount <= 1) {
+            transactions = emptyList()
             fragmentActivity.finish()
         } else {
-            fragmentManager.popBackStack()
+            if (transactions.size > 1) {
+                transactions = transactions.subList(0, transactions.lastIndex)
+            } else {
+                transactions = emptyList()
+            }
+            fragmentManager.popBackStack(
+                transactions.lastOrNull().hashCode().toString(),
+                0
+            )
         }
     }
 

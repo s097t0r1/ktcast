@@ -34,7 +34,7 @@ abstract class BaseViewModel<S : BaseState, E : BaseSideEffect, N : NavigationGr
     )
     val hostSideEffect = _hostSideEffect.asSharedFlow()
 
-    fun handleException(exception: AppException) {
+    fun onError(exception: AppException) {
         when (exception) {
             is AppException.NetworkException -> {
                 when (exception) {

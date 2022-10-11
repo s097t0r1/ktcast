@@ -105,7 +105,7 @@ class SignUpViewModel @Inject constructor(
             state.passwordField.value
         ).fold(
             onSuccess = { navigateTo(SignUpNavigationGraph.FillProfileScreen) },
-            onFailure = ::handleException
+            onFailure = ::onError
         )
     }
 
