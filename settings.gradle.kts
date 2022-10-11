@@ -75,3 +75,4 @@ include(":feature:pre-authorized-zone:authorization:widget")
 include(":data:authorization:api")
 include(":data:authorization:impl")
 
+include(":libraries:utils:core:android_library")

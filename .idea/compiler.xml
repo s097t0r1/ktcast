@@ -6,7 +6,7 @@
       <module name="ktcast.buildSrc" target="11" />
       <module name="ktcast.buildSrc.main" target="11" />
       <module name="ktcast.buildSrc.test" target="11" />
-      <module name="ktcast.common.logout.android-library" target="1.8" />
+      <module name="ktcast.common.logout.android-library" target="11" />
       <module name="ktcast.common.logout.android-library.main" target="1.8" />
       <module name="ktcast.common.logout.android-library.test" target="1.8" />
       <module name="ktcast.common.logout.androidLibrary" target="1.8" />
@@ -80,6 +80,9 @@
       <module name="ktcast.libraries.mapper.library.test" target="1.8" />
       <module name="ktcast.libraries.resource-provider.android-library" target="11" />
       <module name="ktcast.libraries.resource-provider.androidLibrary" target="11" />
+      <module name="ktcast.libraries.utils.core.android-library.main" target="1.8" />
+      <module name="ktcast.libraries.utils.core.android-library.test" target="1.8" />
+      <module name="ktcast.libraries.utils.core.android_library" target="11" />
       <module name="ktcast.libraries.validator.android-library" target="11" />
       <module name="ktcast.libraries.viewmodel-factory.android-library" target="11" />
       <module name="ktcast.libraries.viewmodel_factory.android-library" target="11" />

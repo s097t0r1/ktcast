@@ -44,7 +44,7 @@ gradlePlugin {
             id = "ktcast-android-library"
             group = "me.s097t0r1"
             implementationClass =
-                "me.s097t0r1.ktcast.plugins.convention_plugin.LibraryConventionPlugin"
+                "me.s097t0r1.ktcast.plugins.convention_plugin.AndroidLibraryConventionPlugin"
         }
         register("me.s097t0r1.ktcast.android-application") {
             id = "ktcast-android-application"
