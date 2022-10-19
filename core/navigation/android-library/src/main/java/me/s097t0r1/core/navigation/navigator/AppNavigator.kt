@@ -78,7 +78,7 @@ class AppNavigator(
                         nextFragment,
                         null
                     )
-                    replace(containerId, nextFragment, screen.screenKey.toString())
+                    add(containerId, nextFragment, screen.screenKey.toString())
                     addToBackStack(transactions.last().hashCode().toString())
                 }
             }
@@ -92,6 +92,7 @@ class AppNavigator(
         nextFragment: Fragment,
         previousFragment: Fragment?
     ) {
+        fragmentTransaction.setReorderingAllowed(true)
         fragmentTransaction.setCustomAnimations(
             R.animator.slide_in,
             R.animator.slide_out,
