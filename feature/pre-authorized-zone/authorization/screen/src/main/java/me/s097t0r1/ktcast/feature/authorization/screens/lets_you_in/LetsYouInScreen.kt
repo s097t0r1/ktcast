@@ -26,11 +26,12 @@ import me.s097t0r1.ktcast.feature.authorization.widget.SocialButton
 
 @Composable
 fun LetsYouInScreen(
+    modifier: Modifier = Modifier,
     onSignUpClicked: () -> Unit,
     onSignInClicked: () -> Unit
 ) {
     Column(
-        modifier = Modifier.padding(horizontal = 24.dp),
+        modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(30.dp))
@@ -62,6 +63,7 @@ fun LetsYouInScreen(
         SignUpRecomendation(
             onSignUpClicked = onSignUpClicked
         )
+        Spacer(modifier = Modifier.height(48.dp))
     }
 }
 
@@ -153,6 +155,6 @@ private fun buildAnnotatedSignUpRecomendation() = buildAnnotatedString {
 @Composable
 fun LetsYouInPreview() {
     KtCastTheme(isDarkTheme = true) {
-        LetsYouInScreen({}, {})
+        LetsYouInScreen(Modifier, {}, {})
     }
 }

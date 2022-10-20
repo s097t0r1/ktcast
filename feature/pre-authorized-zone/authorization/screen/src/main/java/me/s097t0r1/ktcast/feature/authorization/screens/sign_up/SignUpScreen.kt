@@ -34,6 +34,7 @@ import me.s097t0r1.ktcast.feature.authorization.widget.SocialButton
 
 @Composable
 fun SignUpScreen(
+    modifier: Modifier = Modifier,
     state: SignUpUIState,
     onEmailChanged: (String) -> Unit,
     onPasswordChaged: (String) -> Unit,
@@ -43,7 +44,7 @@ fun SignUpScreen(
     onToggleMaskPassword: (Boolean) -> Unit
 ) {
     Column(
-        modifier = Modifier.padding(horizontal = 24.dp),
+        modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 

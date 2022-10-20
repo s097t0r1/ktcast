@@ -26,8 +26,7 @@ import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.core.navigation.router.RouterProvider
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
 
-abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> :
-    Fragment {
+abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> : Fragment {
 
     constructor() : super()
     constructor(@LayoutRes layoutRes: Int) : super(layoutRes)
@@ -87,15 +86,17 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
 
     protected open fun setupToolbar(actionBar: ActionBar) {
         if (isBackAvailable()) {
+            actionBar.show()
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.setHomeAsUpIndicator(
                 me.s097t0r1.core.ui_components.R.drawable.ic_toolbar_back
             )
+            actionBar.setDisplayShowTitleEnabled(false)
         } else {
+            actionBar.hide()
             actionBar.setDisplayHomeAsUpEnabled(false)
             actionBar.setHomeAsUpIndicator(null)
         }
-        actionBar.setDisplayShowTitleEnabled(false)
     }
 
     protected open fun isBackAvailable(): Boolean {

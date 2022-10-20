@@ -1,6 +1,11 @@
 package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import me.s097t0r1.core.mvi.base.BaseFragment
@@ -34,6 +39,9 @@ internal class SignUpFragment : BaseFragment<SignUpViewModel, SignUpUIState, Sig
     @Composable
     override fun Content() {
         SignUpScreen(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 24.dp),
             state = viewModel.collectAsState().value,
             onEmailChanged = viewModel::onEmailChanged,
             onPasswordChaged = viewModel::onPasswordChanged,
