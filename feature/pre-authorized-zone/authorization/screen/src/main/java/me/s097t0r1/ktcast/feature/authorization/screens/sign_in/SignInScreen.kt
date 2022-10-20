@@ -37,7 +37,7 @@ fun SignInScreen(
     modifier: Modifier = Modifier,
     state: SignInUIState,
     onEmailChanged: (String) -> Unit,
-    onPasswordChaged: (String) -> Unit,
+    onPasswordChanged: (String) -> Unit,
     onRememberCheckedChange: (Boolean) -> Unit,
     onSignInClicked: () -> Unit,
     onSignUpClicked: () -> Unit,
@@ -69,7 +69,7 @@ fun SignInScreen(
             emailFieldState = state.emailField,
             onEmailChanged = onEmailChanged,
             passwordFieldState = state.passwordField,
-            onPasswordChaged = onPasswordChaged,
+            onPasswordChaged = onPasswordChanged,
             isRememberUser = state.isRemeberChecked,
             onRememberCheckedChange = onRememberCheckedChange,
             isSignInEnabled = state.isSignInEnabled,
@@ -203,6 +203,8 @@ private fun SignInForm(
         KtCastOutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
             value = emailFieldState.value,
+            isError = emailFieldState.isError,
+            errorText = emailFieldState.errorMsg,
             onValueChange = onEmailChanged,
             leadingIcon = {
                 Icon(
@@ -220,6 +222,8 @@ private fun SignInForm(
         KtCastOutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
             value = passwordFieldState.value,
+            isError = passwordFieldState.isError,
+            errorText = passwordFieldState.errorMsg,
             onValueChange = onPasswordChaged,
             visualTransformation = if (passwordFieldState.isMaskEnabled) {
                 PasswordVisualTransformation()
@@ -296,7 +300,7 @@ private fun SignUpScreenPreview() {
     SignInScreen(
         state = SignInUIState(),
         onEmailChanged = {},
-        onPasswordChaged = {},
+        onPasswordChanged = {},
         onRememberCheckedChange = {},
         onSignUpClicked = {},
         onSignInClicked = {},
@@ -311,7 +315,7 @@ private fun SignUpScreenDarkPreview() {
         SignInScreen(
             state = SignInUIState(),
             onEmailChanged = {},
-            onPasswordChaged = {},
+            onPasswordChanged = {},
             onRememberCheckedChange = {},
             onSignUpClicked = {},
             onSignInClicked = {},

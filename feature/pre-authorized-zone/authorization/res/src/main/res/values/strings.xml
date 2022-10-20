@@ -19,7 +19,7 @@
     <string name="auth_feature_email_address_placeholder">Email</string>
     <string name="auth_feature_password_placeholder">Password</string>
 
-    <string name="authorization_feature_incorrect_email">Incorrect email</string>
+    <string name="auth_feature_incorrect_email">Incorrect email</string>
     <string name="authorization_feature_incorrect_password">Incorrect password</string>
 
     <string name="authorization_feature_login_button">Login</string>
@@ -34,5 +34,8 @@
     <string name="auth_feature_create_your_account">Create Your Account</string>
     <string name="auth_feature_login_to_your_account">Login to Your Account</string>
     <string name="auth_feature_remeber_me">Remember me</string>
+
+    <string name="auth_feature_invalid_email_format">Invalid email address. Valid e-mail can contain only latin letters, numbers, \'@\' and \'.\'</string>
+    <string name="auth_feature_invalid_password_format">Your password must be at least 8 characters long, contain at least one number and have a mixture of uppercase and lowercase letters.</string>
 
 </resources>

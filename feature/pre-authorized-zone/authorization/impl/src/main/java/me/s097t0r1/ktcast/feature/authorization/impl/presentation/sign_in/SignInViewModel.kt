@@ -1,6 +1,7 @@
 package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_in
 
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
@@ -26,7 +27,7 @@ import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
 internal class SignInViewModel @Inject constructor(
-    private val resourceProvider: ResourceProvider,
+    resourceProvider: ResourceProvider,
     private val interactor: SignInInteractor
 ) : BaseViewModel<SignInUIState, SignInSideEffect, SignInNavigationGraph>() {
 
@@ -34,11 +35,7 @@ internal class SignInViewModel @Inject constructor(
 
     private val emailValidator: Validator<String> = DefaultValidator.Builder<String>()
         .addRule(
-            resourceProvider.getString(R.string.authorization_feature_incorrect_email),
-            Standard.LengthRule(minLength = 6)
-        )
-        .addRule(
-            resourceProvider.getString(R.string.authorization_feature_incorrect_email),
+            resourceProvider.getString(R.string.auth_feature_incorrect_email),
             Standard.RegexRule(
                 Regex(
                     Standard.RegexRule.EMAIL_ADDRESS_REGEX,
@@ -61,6 +58,7 @@ internal class SignInViewModel @Inject constructor(
         combineValidators()
     }
 
+    @OptIn(FlowPreview::class)
     private fun combineValidators() = combine(
         emailValidator.asFlow(),
         passwordValidator.asFlow()

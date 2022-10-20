@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import me.s097t0r1.core.mvi.base.BaseViewModel
+import me.s097t0r1.ktcast.feature.authorization.impl.R
 import me.s097t0r1.ktcast.feature.authorization.impl.domain.SignUpInteractor
 import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation.SignUpNavigationGraph
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.EmailFieldState
@@ -24,14 +25,14 @@ import javax.inject.Inject
 
 class SignUpViewModel @Inject constructor(
     private val interactor: SignUpInteractor,
-    private val resourceProvider: ResourceProvider
+    resourceProvider: ResourceProvider
 ) : BaseViewModel<SignUpUIState, SignUpSideEffect, SignUpNavigationGraph>() {
 
     override val container = container<SignUpUIState, SignUpSideEffect>(SignUpUIState())
 
     private val emailValidator = DefaultValidator.Builder<String>()
         .addRule(
-            "Stab",
+            resourceProvider.getString(R.string.auth_feature_invalid_email_format),
             Standard.RegexRule(
                 Regex(
                     Standard.RegexRule.EMAIL_ADDRESS_REGEX,
@@ -43,7 +44,7 @@ class SignUpViewModel @Inject constructor(
         .build()
 
     private val passwordValidator = DefaultValidator.Builder<String>()
-        .addRule("Stab", Standard.RegexRule(PASSWORD_REGEX))
+        .addRule(resourceProvider.getString(R.string.auth_feature_invalid_password_format), Standard.RegexRule(PASSWORD_REGEX))
         .setOperator(AndOperator())
         .build()
 
@@ -112,6 +113,6 @@ class SignUpViewModel @Inject constructor(
     fun onSignInClicked() = navigateTo(SignUpNavigationGraph.SignInScreen)
 
     companion object {
-        private val PASSWORD_REGEX = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$")
+        private val PASSWORD_REGEX = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")
     }
 }

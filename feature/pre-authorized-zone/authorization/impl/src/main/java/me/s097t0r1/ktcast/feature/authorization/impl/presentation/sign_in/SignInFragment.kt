@@ -43,16 +43,12 @@ internal class SignInFragment : BaseFragment<SignInViewModel, SignInUIState, Sig
                 .padding(horizontal = 24.dp),
             state = state,
             onEmailChanged = viewModel::onEmailChanged,
-            onPasswordChaged = viewModel::onPasswordChanged,
+            onPasswordChanged = viewModel::onPasswordChanged,
             onRememberCheckedChange = {},
             onSignInClicked = viewModel::onSignInClicked,
             onSignUpClicked = viewModel::onSignUpClicked,
             onToggleMaskPassword = viewModel::onToggleMaskPassword
         )
-    }
-
-    companion object {
-        fun newInstance() = SignInFragment()
     }
 
 }

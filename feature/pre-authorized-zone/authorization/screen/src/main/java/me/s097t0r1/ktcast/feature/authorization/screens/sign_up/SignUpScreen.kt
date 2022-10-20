@@ -203,6 +203,8 @@ private fun SignUpForm(
         KtCastOutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
             value = emailFieldState.value,
+            isError = emailFieldState.isError,
+            errorText = emailFieldState.errorMsg,
             onValueChange = onEmailChanged,
             leadingIcon = {
                 Icon(
@@ -220,6 +222,8 @@ private fun SignUpForm(
         KtCastOutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
             value = passwordFieldState.value,
+            isError = passwordFieldState.isError,
+            errorText = passwordFieldState.errorMsg,
             onValueChange = onPasswordChaged,
             visualTransformation = if (passwordFieldState.isMaskEnabled) {
                 PasswordVisualTransformation()
