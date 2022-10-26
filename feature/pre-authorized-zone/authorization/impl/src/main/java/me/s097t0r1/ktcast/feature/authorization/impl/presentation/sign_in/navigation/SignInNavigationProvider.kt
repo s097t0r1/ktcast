@@ -9,7 +9,7 @@ import me.s097t0r1.ktcast.feature.authorization.impl.navigation.SignUpScreen
 internal class SignInNavigationProvider : NavigationProvider<SignInNavigationGraph> {
 
     override fun navigate(router: Router, screen: SignInNavigationGraph) {
-        when(screen) {
+        when (screen) {
             is SignInNavigationGraph.SignUpScreen -> navigateToSignUp(router, screen)
             is SignInNavigationGraph.HomeScreen -> navigateToHome(router, screen)
         }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="KtlintProjectConfiguration">
+    <androidMode>true</androidMode>
+    <treatAsErrors>false</treatAsErrors>
+    <disabledRules>
+      <list>
+        <option value="package-name" />
+        <option value="package-name" />
+        <option value="no-wildcard-imports" />
+        <option value="no-wildcard-imports" />
+      </list>
+    </disabledRules>
+  </component>
+</project>

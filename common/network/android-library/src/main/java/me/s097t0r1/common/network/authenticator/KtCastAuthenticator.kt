@@ -59,7 +59,6 @@ internal class KtCastAuthenticator @Inject constructor(
         suspend fun tokenUpdate(
             @Header(AUTHORIZATION_HEADER_NAME) token: String
         ): Reaction<TokenUpdateDTO, AppException.NetworkException>
-
     }
 
     private class TokenUpdateDTO(
@@ -68,5 +67,4 @@ internal class KtCastAuthenticator @Inject constructor(
         @Json(name = "auth_token")
         val authToken: String
     )
-
 }

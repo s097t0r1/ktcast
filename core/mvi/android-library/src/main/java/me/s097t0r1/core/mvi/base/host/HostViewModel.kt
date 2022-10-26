@@ -9,5 +9,4 @@ abstract class HostViewModel : ViewModel() {
     abstract fun alert(alertType: AlertSnackBarHost.AlertType, message: String)
 
     abstract fun logout(logoutType: LogoutHandler.LogoutType)
-
 }

@@ -17,9 +17,8 @@ import me.s097t0r1.core.ui_components.components.AlertSnackBarHost
 import me.s097t0r1.ktcast.common.logout.LogoutHandler
 import org.orbitmvi.orbit.ContainerHost
 
-abstract class BaseViewModel<S : BaseState, E : BaseSideEffect, N : NavigationGraph>(
-
-) : ContainerHost<S, E>, ViewModel() {
+abstract class BaseViewModel<S : BaseState, E : BaseSideEffect, N : NavigationGraph> :
+    ContainerHost<S, E>, ViewModel() {
 
     private val _navigation: Channel<N> = Channel(
         capacity = 1,
@@ -59,8 +58,7 @@ abstract class BaseViewModel<S : BaseState, E : BaseSideEffect, N : NavigationGr
         viewModelScope.launch { _navigation.send(screen) }
     }
 
-    protected fun alert(alertType: AlertSnackBarHost.AlertType, message: String) {
+    private fun alert(alertType: AlertSnackBarHost.AlertType, message: String) {
         _hostSideEffect.tryEmit(HostSideEffect.Alert(alertType, message))
     }
-
 }

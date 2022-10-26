@@ -18,9 +18,7 @@ import me.s097t0r1.ktcast.feature.authorization.screens.lets_you_in.LetsYouInSid
 import me.s097t0r1.ktcast.feature.authorization.screens.lets_you_in.LetsYouInUIState
 import javax.inject.Inject
 
-internal class LetsYouInFragment(
-
-) : BaseFragment<LetsYouInViewModel, LetsYouInUIState, LetsYouInSideEffect, LetsYouInNavigationGraph>() {
+internal class LetsYouInFragment() : BaseFragment<LetsYouInViewModel, LetsYouInUIState, LetsYouInSideEffect, LetsYouInNavigationGraph>() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -43,6 +41,4 @@ internal class LetsYouInFragment(
             onSignInClicked = viewModel::onSignedInClicked
         )
     }
-
-
 }

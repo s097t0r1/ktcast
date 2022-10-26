@@ -34,14 +34,14 @@ import me.s097t0r1.ktcast.feature.authorization.widget.SocialButton
 
 @Composable
 fun SignInScreen(
-    modifier: Modifier = Modifier,
     state: SignInUIState,
-    onEmailChanged: (String) -> Unit,
-    onPasswordChanged: (String) -> Unit,
+    onEmailChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
     onRememberCheckedChange: (Boolean) -> Unit,
-    onSignInClicked: () -> Unit,
-    onSignUpClicked: () -> Unit,
-    onToggleMaskPassword: (Boolean) -> Unit
+    onSignInClick: () -> Unit,
+    onSignUpClick: () -> Unit,
+    onToggleMaskPassword: (Boolean) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier,
@@ -60,20 +60,20 @@ fun SignInScreen(
 
         Text(
             text = stringResource(id = R.string.auth_feature_login_to_your_account),
-            style = KtCastTheme.typography.Heading3.copy(fontWeight = FontWeight.Bold),
+            style = KtCastTheme.typography.heading3.copy(fontWeight = FontWeight.Bold),
         )
 
         Spacer(modifier = Modifier.height(44.dp))
 
         SignInForm(
             emailFieldState = state.emailField,
-            onEmailChanged = onEmailChanged,
+            onEmailChanged = onEmailChange,
             passwordFieldState = state.passwordField,
-            onPasswordChaged = onPasswordChanged,
+            onPasswordChaged = onPasswordChange,
             isRememberUser = state.isRemeberChecked,
             onRememberCheckedChange = onRememberCheckedChange,
             isSignInEnabled = state.isSignInEnabled,
-            onSignInClicked = onSignInClicked,
+            onSignInClicked = onSignInClick,
             onToggleMaskPassword = onToggleMaskPassword,
         )
 
@@ -85,15 +85,15 @@ fun SignInScreen(
             onAppleClicked = {}
         )
 
-        SignUpRecomendation(
+        SignUpRecommendation(
             modifier = Modifier.padding(44.dp),
-            onSignUpClicked = onSignUpClicked
+            onSignUpClicked = onSignUpClick
         )
     }
 }
 
 @Composable
-fun SignUpRecomendation(
+fun SignUpRecommendation(
     modifier: Modifier = Modifier,
     onSignUpClicked: () -> Unit
 ) {
@@ -105,7 +105,8 @@ fun SignUpRecomendation(
             recomendation.getStringAnnotations(it, it).firstOrNull()?.let {
                 onSignUpClicked()
             }
-        })
+        }
+    )
 }
 
 @Composable
@@ -184,7 +185,6 @@ private fun AlternativeLoginMethods(
             )
         }
     }
-
 }
 
 @Composable
@@ -271,7 +271,7 @@ private fun SignInForm(
             )
             Text(
                 text = stringResource(id = R.string.auth_feature_remeber_me),
-                style = KtCastTheme.typography.BodyMedium.copy(
+                style = KtCastTheme.typography.bodyMedium.copy(
                     fontWeight = FontWeight.SemiBold
                 )
             )
@@ -287,7 +287,7 @@ private fun SignInForm(
         ) {
             Text(
                 stringResource(id = R.string.auth_feature_sign_in),
-                style = KtCastTheme.typography.BodyLarge
+                style = KtCastTheme.typography.bodyLarge
                     .copy(fontWeight = FontWeight.Bold)
             )
         }
@@ -299,11 +299,11 @@ private fun SignInForm(
 private fun SignUpScreenPreview() {
     SignInScreen(
         state = SignInUIState(),
-        onEmailChanged = {},
-        onPasswordChanged = {},
+        onEmailChange = {},
+        onPasswordChange = {},
         onRememberCheckedChange = {},
-        onSignUpClicked = {},
-        onSignInClicked = {},
+        onSignUpClick = {},
+        onSignInClick = {},
         onToggleMaskPassword = {}
     )
 }
@@ -314,13 +314,12 @@ private fun SignUpScreenDarkPreview() {
     KtCastTheme(isDarkTheme = true) {
         SignInScreen(
             state = SignInUIState(),
-            onEmailChanged = {},
-            onPasswordChanged = {},
+            onEmailChange = {},
+            onPasswordChange = {},
             onRememberCheckedChange = {},
-            onSignUpClicked = {},
-            onSignInClicked = {},
+            onSignUpClick = {},
+            onSignInClick = {},
             onToggleMaskPassword = {}
         )
     }
-
 }

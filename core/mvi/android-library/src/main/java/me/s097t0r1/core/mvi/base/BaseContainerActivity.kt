@@ -17,7 +17,8 @@ import me.s097t0r1.core.navigation.router.AppRouter
 import me.s097t0r1.core.navigation.router.Router
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
 
-abstract class BaseContainerActivity<V : ViewBinding> : AppCompatActivity(),
+abstract class BaseContainerActivity<V : ViewBinding> :
+    AppCompatActivity(),
     NavigationDispatcherHost {
 
     protected lateinit var binding: V
@@ -78,5 +79,4 @@ abstract class BaseContainerActivity<V : ViewBinding> : AppCompatActivity(),
     override fun accept(navigationMessage: NavigationMessage) {
         navigator.execute(navigationMessage.convertToCommands())
     }
-
 }

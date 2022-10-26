@@ -20,18 +20,18 @@ fun KtCastTheme(
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     colors: KtCastColors = if (isDarkTheme) darkColors() else lightColors(),
     typography: KtCastTypography = KtCastTheme.typography,
-    Content: @Composable () -> Unit
+    content: @Composable () -> Unit
 ) {
-    val remeberedColors = remember { colors.copy() }.apply { updateFrom(colors) }
+    val rememberedColors = remember { colors.copy() }.apply { updateFrom(colors) }
     val rippleIndication = rememberRipple()
     CompositionLocalProvider(
-        LocalColors provides remeberedColors,
+        LocalColors provides rememberedColors,
         LocalContentAlpha provides ContentAlpha.high,
-        LocalContentColor provides remeberedColors.textPrimaryColor,
+        LocalContentColor provides rememberedColors.textPrimaryColor,
         LocalRippleTheme provides KtCastRippleTheme,
         LocalIndication provides rippleIndication,
         LocalTypography provides typography
-    ) { Content() }
+    ) { content() }
 }
 
 object KtCastTheme {
@@ -45,7 +45,6 @@ object KtCastTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalTypography.current
-
 }
 
 object KtCastRippleTheme : RippleTheme {
@@ -58,8 +57,7 @@ object KtCastRippleTheme : RippleTheme {
 
     @Composable
     override fun rippleAlpha(): RippleAlpha = RippleTheme.defaultRippleAlpha(
-         contentColor = LocalContentColor.current,
+        contentColor = LocalContentColor.current,
         lightTheme = !isSystemInDarkTheme()
     )
-
 }

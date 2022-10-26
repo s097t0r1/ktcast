@@ -15,7 +15,6 @@ abstract class BaseDependencyHolder0<D : BaseFeatureDepenendencies> : BaseDepend
             object : BaseDependencyHolder0<D>() {
                 override val block: (BaseDependencyHolder<D>) -> D = block
             }.dependecies
-
     }
 }
 
@@ -35,7 +34,6 @@ abstract class BaseDependencyHolder1<A1 : BaseFeatureAPI, D : BaseFeatureDepenen
             override val block: (A1, BaseDependencyHolder<D>) -> D = block
         }.dependecies
     }
-
 }
 
 abstract class BaseDependencyHolder2<A1 : BaseFeatureAPI, A2 : BaseFeatureAPI, D : BaseFeatureDepenendencies>(
@@ -59,5 +57,4 @@ abstract class BaseDependencyHolder2<A1 : BaseFeatureAPI, A2 : BaseFeatureAPI, D
             override val block: (A1, A2, BaseDependencyHolder<D>) -> D = block
         }.dependecies
     }
-
 }

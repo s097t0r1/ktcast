@@ -1,0 +1,20 @@
+name: Pull request
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - 'dev'
+  jobs:
+    Static analysis:
+      name: Run static analys on code
+      runs-on: ubuntu-20.04
+
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-java@v3
+          with:
+            - distribution: 'adopt-hotspot'
+            - '11'
+        - name: Run Detekt
+          run: ./gradlew detekt

@@ -19,7 +19,7 @@ import me.s097t0r1.ktcast.libraries.validator.DefaultValidator
 import me.s097t0r1.ktcast.libraries.validator.Validator
 import me.s097t0r1.ktcast.libraries.validator.ext.asFlow
 import me.s097t0r1.ktcast.libraries.validator.operators.AndOperator
-import me.s097t0r1.ktcast.libraries.validator.rule.Standard
+import me.s097t0r1.ktcast.libraries.validator.rule.Rules
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.reduce
@@ -36,9 +36,9 @@ internal class SignInViewModel @Inject constructor(
     private val emailValidator: Validator<String> = DefaultValidator.Builder<String>()
         .addRule(
             resourceProvider.getString(R.string.auth_feature_incorrect_email),
-            Standard.RegexRule(
+            Rules.RegexRule(
                 Regex(
-                    Standard.RegexRule.EMAIL_ADDRESS_REGEX,
+                    Rules.RegexRule.EMAIL_ADDRESS_REGEX,
                     RegexOption.IGNORE_CASE
                 )
             )
@@ -49,7 +49,7 @@ internal class SignInViewModel @Inject constructor(
     private val passwordValidator: Validator<String> = DefaultValidator.Builder<String>()
         .addRule(
             resourceProvider.getString(R.string.authorization_feature_incorrect_password),
-            Standard.LengthRule(minLength = 1)
+            Rules.LengthRule(minLength = 1)
         )
         .setOperator(AndOperator())
         .build()
@@ -63,10 +63,9 @@ internal class SignInViewModel @Inject constructor(
         emailValidator.asFlow(),
         passwordValidator.asFlow()
     ) { arr -> arr.all { !it.isError } }
-        .debounce(100L)
+        .debounce(DEBOUNCE_VALIDATOR_MILLIS)
         .onEach { intent { reduce { state.copy(isSignInEnabled = it) } } }
         .launchIn(viewModelScope)
-
 
     fun onEmailChanged(email: String) = intent {
         val result = emailValidator.validate(email)
@@ -113,5 +112,9 @@ internal class SignInViewModel @Inject constructor(
                     onError(it)
                 }
             )
+    }
+
+    companion object {
+        const val DEBOUNCE_VALIDATOR_MILLIS = 100L
     }
 }

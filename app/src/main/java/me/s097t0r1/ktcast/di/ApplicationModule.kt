@@ -8,15 +8,11 @@ import me.s097t0r1.ktcast.libraries.resource_provider.ResourceProvider
 import javax.inject.Singleton
 
 @Module
-abstract class ApplicationModule {
+object ApplicationModule {
 
-    companion object {
-
-        @Provides
-        @Singleton
-        fun provideResourceProvider(
-            context: Context
-        ): ResourceProvider = AndroidResourceProvider(context)
-
-    }
+    @Provides
+    @Singleton
+    fun provideResourceProvider(
+        context: Context
+    ): ResourceProvider = AndroidResourceProvider(context)
 }

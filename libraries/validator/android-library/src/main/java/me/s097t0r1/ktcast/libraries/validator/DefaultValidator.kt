@@ -48,6 +48,5 @@ class DefaultValidator<T> internal constructor() : Validator<T> {
             ruleSet.clear()
             operator = null
         }
-
     }
 }

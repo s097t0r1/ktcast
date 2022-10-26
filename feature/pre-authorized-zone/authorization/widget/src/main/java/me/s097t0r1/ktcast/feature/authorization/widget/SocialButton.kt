@@ -50,7 +50,7 @@ fun SocialButton(
             } else {
                 KtCastColorPallete.dark2Color
             },
-            contentColor = if(KtCastTheme.colors.isLight) {
+            contentColor = if (KtCastTheme.colors.isLight) {
                 KtCastColorPallete.grayScale900Color
             } else {
                 KtCastColorPallete.otherWhiteColor
@@ -58,7 +58,7 @@ fun SocialButton(
         ),
     ) {
         CompositionLocalProvider(
-            LocalTextStyle provides KtCastTheme.typography.BodyLarge.copy(
+            LocalTextStyle provides KtCastTheme.typography.bodyLarge.copy(
                 fontWeight = FontWeight.SemiBold
             )
         ) {

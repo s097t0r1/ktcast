@@ -27,7 +27,7 @@ abstract class BaseContainerFragment : Fragment, NavigationDispatcherHost, Route
         object : FragmentNavigationDispatcher(this) {
             override fun isSupportMessage(navigationMessage: NavigationMessage): Boolean {
                 return navigationMessage is ForwardMessage || navigationMessage is BackMessage ||
-                        navigationMessage is ReplaceMessage
+                    navigationMessage is ReplaceMessage
             }
         }
     }

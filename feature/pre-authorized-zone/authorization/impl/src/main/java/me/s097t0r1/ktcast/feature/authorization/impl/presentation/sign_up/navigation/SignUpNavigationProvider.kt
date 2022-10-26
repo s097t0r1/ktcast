@@ -23,5 +23,4 @@ class SignUpNavigationProvider : NavigationProvider<SignUpNavigationGraph> {
         router: Router,
         screen: SignUpNavigationGraph.FillProfileScreen
     ) = router.navigate(ForwardMessage(TODO()))
-
 }

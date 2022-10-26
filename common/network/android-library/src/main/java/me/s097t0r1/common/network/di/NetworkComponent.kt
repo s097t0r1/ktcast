@@ -22,5 +22,4 @@ internal interface NetworkComponent : NetworkAPI {
     interface Factory {
         fun create(dependencies: NetworkDependencies): NetworkComponent
     }
-
 }

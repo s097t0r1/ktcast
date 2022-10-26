@@ -79,20 +79,20 @@ internal class ReactionCall<D>(private val delegate: Call<D>) : Call<Reaction<D,
 
     private fun Response<*>.toAppException(): AppException.NetworkException {
         return when (this.code()) {
-            in 400..410 -> AppException.NetworkException.HttpException(
+            in HTTP_ERROR_CODE_RANGE -> AppException.NetworkException.HttpException(
                 code = this.code(),
                 messages = this.errorBody()
                     ?.string()
                     ?.deserialize<ErrorResponse>()
                     ?.errors ?: emptyList()
             )
-            in 500..510 -> AppException.NetworkException.InternalServerException
+            in INTERNAL_SERVER_ERROR_CODE_RANGE -> AppException.NetworkException.InternalServerException
             else -> AppException.NetworkException.UnknownException
         }
     }
 
     private fun Throwable.toAppException(): AppException.NetworkException {
-        return when(this) {
+        return when (this) {
             is UnknownHostException, is ConnectException ->
                 AppException.NetworkException.NoInternetConnectionException
 
@@ -102,4 +102,8 @@ internal class ReactionCall<D>(private val delegate: Call<D>) : Call<Reaction<D,
         }
     }
 
+    companion object {
+        val HTTP_ERROR_CODE_RANGE = 400..410
+        val INTERNAL_SERVER_ERROR_CODE_RANGE = 500..510
+    }
 }

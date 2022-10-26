@@ -17,7 +17,6 @@ import me.s097t0r1.core.ui_components.theme.KtCastTheme
 
 class ProgressDialogFragment : BaseDialogFragment() {
 
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return super.onCreateDialog(savedInstanceState).apply {
             setCanceledOnTouchOutside(false)
@@ -25,7 +24,6 @@ class ProgressDialogFragment : BaseDialogFragment() {
         }
     }
 
-    @Preview
     @Composable
     override fun Content() {
         Surface(
@@ -36,5 +34,11 @@ class ProgressDialogFragment : BaseDialogFragment() {
         ) {
             Box { KtCastCircularProgressBar(modifier = Modifier.align(Alignment.Center)) }
         }
+    }
+
+    @Preview
+    @Composable
+    private fun ContentPreview() {
+        Content()
     }
 }

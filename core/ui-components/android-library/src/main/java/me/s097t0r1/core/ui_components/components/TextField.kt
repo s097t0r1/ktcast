@@ -65,7 +65,6 @@ fun KtCastOutlinedTextField(
         disabledBackgroundColor = KtCastTheme.colors.fieldDefaultBackgroundColor.copy(alpha = 0.7f)
     )
 ) {
-
     val isFocused by interactionSource.collectIsFocusedAsState()
 
     val currentTextColor = textStyle.color.takeOrElse {
@@ -100,7 +99,7 @@ fun KtCastOutlinedTextField(
         keyboardOptions = keyboardOptions,
         singleLine = singleLine,
         maxLines = maxLines,
-        interactionSource = interactionSource,
+        interactionSource = interactionSource
     ) { innerTextField ->
 
         TextFieldDefaults.OutlinedTextFieldDecorationBox(
@@ -131,7 +130,7 @@ fun KtCastOutlinedTextField(
                     colors = colors,
                     shape = shape,
                     interactionSource = interactionSource,
-                    focusedBorderThickness = KtCastFocusedBorderThickness,
+                    focusedBorderThickness = KtCastFocusedBorderThickness
                 )
             }
         )
@@ -298,7 +297,7 @@ class KtCastTextFieldColors(
         disabledPlaceholderColor: Color = this.disabledPlaceholderColor,
         defaultBackgroundColor: Color = this.defaultBackgroundColor,
         focusedBackgroundColor: Color = this.focusedBackgroundColor,
-        disabledBackgroundColor: Color = this.disabledBackgroundColor,
+        disabledBackgroundColor: Color = this.disabledBackgroundColor
     ) = KtCastTextFieldColors(
         defaultTextColor,
         disabledTextColor,
@@ -361,7 +360,6 @@ class KtCastTextFieldColors(
 @Composable
 fun OutlineTextFieldPreview() {
     KtCastTheme {
-
         val (value, onValueChanged) = remember { mutableStateOf("") }
 
         Column {

@@ -2,7 +2,7 @@ package me.s097t0r1.ktcast.libraries.validator.rule
 
 import me.s097t0r1.ktcast.libraries.validator.Validator
 
-object Standard {
+object Rules {
 
     class LengthRule(
         private val minLength: Int = Int.MIN_VALUE,

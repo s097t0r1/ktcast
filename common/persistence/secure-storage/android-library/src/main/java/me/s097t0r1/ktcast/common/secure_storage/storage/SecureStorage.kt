@@ -7,14 +7,12 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import javax.inject.Inject
 
-
 interface SecureStorage {
 
     var role: Role?
     var webToken: String?
 
     fun clear()
-
 }
 
 enum class Role {
@@ -60,7 +58,5 @@ internal class AndroidSecureStorage @Inject constructor(context: Context) : Secu
         private const val ROLE_KEY = "me.s097t0r1.ktcast.common.secure_storage.storage.ROLE"
         private const val WEB_TOKEN_KEY =
             "me.s097t0r1.ktcast.common.secure_storage.storage.WEB_TOKEN_KEY"
-
     }
-
 }

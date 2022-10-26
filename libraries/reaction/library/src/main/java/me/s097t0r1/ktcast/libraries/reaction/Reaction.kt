@@ -8,7 +8,6 @@ sealed class Reaction<out V, out E> {
 
     abstract operator fun component1(): V?
     abstract operator fun component2(): E?
-
 }
 
 class Ok<out V> private constructor(val value: V) : Reaction<V, Nothing>() {

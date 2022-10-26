@@ -34,5 +34,5 @@ object KtCastColorPallete {
     val otherWhiteColor = Color(0xFFFFFFFF)
     val otherBlackColor = Color(0xFF000000)
 
-    val transperentPurpleColor = Color(0x149610FF)
+    val transparentPurpleColor = Color(0x149610FF)
 }

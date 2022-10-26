@@ -15,10 +15,11 @@ fun glueAuthModule() {
         BaseDependencyHolder2.create(
             a1 = NetworkComponentHolder.get(),
             a2 = DatabaseComponentHolder.get()
-        ) { networkAPI, databaseAPI, baseDependencyHolder ->
+        ) { networkAPI, _, baseDependencyHolder ->
             object : AuthorizationDataDependencies {
                 override val networkServiceFactory: NetworkServiceFactory = networkAPI.unauthorizedServiceFactory
-                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDepenendencies> = baseDependencyHolder
+                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDepenendencies> =
+                    baseDependencyHolder
             }
         }
     }

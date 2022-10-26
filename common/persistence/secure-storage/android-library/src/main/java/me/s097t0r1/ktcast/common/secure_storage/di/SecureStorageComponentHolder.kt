@@ -6,5 +6,4 @@ object SecureStorageComponentHolder : BaseComponentHolder<SecureStorageAPI, Secu
 
     override fun initComponent(dependencies: SecureStorageDependencies): SecureStorageAPI =
         DaggerSecureStorageComponent.factory().create(dependencies)
-
 }
