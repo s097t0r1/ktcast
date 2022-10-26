@@ -13,9 +13,6 @@ buildscript {
     }
 }
 
-val reportMerge by tasks.registering(io.gitlab.arturbosch.detekt.report.ReportMergeTask::class) {
-    output.set(rootProject.buildDir.resolve("reports/detekt/merge.xml"))
-}
 
 allprojects {
 
@@ -29,6 +26,11 @@ allprojects {
 }
 
 fun Project.configureDetekt() {
+
+    val reportMerge by tasks.registering(io.gitlab.arturbosch.detekt.report.ReportMergeTask::class) {
+        output.set(rootProject.buildDir.resolve("reports/detekt/merge.xml"))
+    }
+
     apply(plugin = "io.gitlab.arturbosch.detekt")
     detekt {
         source = files("src/main/java", "src/main/kotlin")
