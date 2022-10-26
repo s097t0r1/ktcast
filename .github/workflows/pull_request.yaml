@@ -20,6 +20,6 @@ on:
         - name: Run detekt
           run: ./gradlew detekt
         - name: Sarif
-            uses: github/codeql-action/upload-sarif@v2
-            with:
-              sarif_file: build/detekt.sarif
+          uses: github/codeql-action/upload-sarif@v2
+          with:
+            sarif_file: build/detekt.sarif
