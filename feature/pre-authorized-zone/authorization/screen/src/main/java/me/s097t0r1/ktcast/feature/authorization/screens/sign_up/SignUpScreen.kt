@@ -47,7 +47,6 @@ fun SignUpScreen(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Spacer(modifier = Modifier.height(44.dp))
 
         Image(
@@ -60,7 +59,7 @@ fun SignUpScreen(
 
         Text(
             text = stringResource(id = R.string.auth_feature_create_your_account),
-            style = KtCastTheme.typography.Heading3.copy(fontWeight = FontWeight.Bold),
+            style = KtCastTheme.typography.heading3.copy(fontWeight = FontWeight.Bold)
         )
 
         Spacer(modifier = Modifier.height(44.dp))
@@ -74,7 +73,7 @@ fun SignUpScreen(
             onRememberCheckedChange = onRememberCheckedChange,
             isSignUpEnabled = state.isSignUpEnabled,
             onSignUpClicked = onSignUpClicked,
-            onToggleMaskPassword = onToggleMaskPassword,
+            onToggleMaskPassword = onToggleMaskPassword
         )
 
         Spacer(modifier = Modifier.height(43.dp))
@@ -105,7 +104,8 @@ fun SignInRecomendation(
             recomendation.getStringAnnotations(it, it).firstOrNull()?.let {
                 onSignInClicked()
             }
-        })
+        }
+    )
 }
 
 @Composable
@@ -126,7 +126,7 @@ private fun buildAnnotatedSignInRecomendation() = buildAnnotatedString {
     withStyle(textSpanStyle.copy(color = KtCastTheme.colors.primaryColor)) {
         pushStringAnnotation(
             stringResource(id = R.string.auth_feature_sign_in),
-            stringResource(id = R.string.auth_feature_sign_in),
+            stringResource(id = R.string.auth_feature_sign_in)
         )
         append(stringResource(id = R.string.auth_feature_sign_in))
         pop()
@@ -137,7 +137,7 @@ private fun buildAnnotatedSignInRecomendation() = buildAnnotatedString {
 private fun AlternativeRegistrationMethods(
     onGoogleClicked: () -> Unit,
     onFacebookClicked: () -> Unit,
-    onAppleClicked: () -> Unit,
+    onAppleClicked: () -> Unit
 ) {
     DividerWithText(
         modifier = Modifier.fillMaxWidth(),
@@ -184,7 +184,6 @@ private fun AlternativeRegistrationMethods(
             )
         }
     }
-
 }
 
 @Composable
@@ -213,7 +212,11 @@ private fun SignUpForm(
                 )
             },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
-            placeholder = { Text(text = stringResource(id = R.string.auth_feature_email_address_placeholder)) },
+            placeholder = {
+                Text(
+                    text = stringResource(id = R.string.auth_feature_email_address_placeholder)
+                )
+            },
             singleLine = true
         )
 
@@ -254,7 +257,11 @@ private fun SignUpForm(
                     )
                 }
             },
-            placeholder = { Text(text = stringResource(id = R.string.auth_feature_password_placeholder)) },
+            placeholder = {
+                Text(
+                    text = stringResource(id = R.string.auth_feature_password_placeholder)
+                )
+            },
             singleLine = true
         )
 
@@ -271,7 +278,7 @@ private fun SignUpForm(
             )
             Text(
                 text = stringResource(id = R.string.auth_feature_remeber_me),
-                style = KtCastTheme.typography.BodyMedium.copy(
+                style = KtCastTheme.typography.bodyMedium.copy(
                     fontWeight = FontWeight.SemiBold
                 )
             )
@@ -287,7 +294,7 @@ private fun SignUpForm(
         ) {
             Text(
                 stringResource(id = R.string.auth_feature_sign_up),
-                style = KtCastTheme.typography.BodyLarge
+                style = KtCastTheme.typography.bodyLarge
                     .copy(fontWeight = FontWeight.Bold)
             )
         }
@@ -322,5 +329,4 @@ private fun SignUpScreenDarkPreview() {
             onToggleMaskPassword = {}
         )
     }
-
 }

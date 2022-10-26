@@ -10,5 +10,4 @@ interface AuthorizationRepository {
     suspend fun signIn(params: SignInParams): Reaction<AuthInfo, AppException>
 
     suspend fun signUp(params: SignInParams): Reaction<Unit, AppException>
-
 }

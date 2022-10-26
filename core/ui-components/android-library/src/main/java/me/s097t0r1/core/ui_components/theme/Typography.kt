@@ -11,43 +11,44 @@ import androidx.compose.ui.unit.sp
 import me.s097t0r1.core.ui_components.R
 
 @Immutable
+@Suppress("LongParameterList")
 class KtCastTypography(
 
-    val Heading1: TextStyle = TextStyle(
+    val heading1: TextStyle = TextStyle(
         fontFamily = Urbanist,
         fontWeight = FontWeight.Bold,
         fontSize = 48.sp
     ),
-    val Heading2: TextStyle = Heading1.copy(
+    val heading2: TextStyle = heading1.copy(
         fontSize = 40.sp
     ),
-    val Heading3: TextStyle = Heading1.copy(
+    val heading3: TextStyle = heading1.copy(
         fontSize = 32.sp
     ),
-    val Heading4: TextStyle = Heading1.copy(
+    val heading4: TextStyle = heading1.copy(
         fontSize = 24.sp
     ),
-    val Heading5: TextStyle = Heading1.copy(
+    val heading5: TextStyle = heading1.copy(
         fontSize = 24.sp
     ),
-    val Heading6: TextStyle = Heading1.copy(
+    val heading6: TextStyle = heading1.copy(
         fontSize = 18.sp
     ),
 
-    val BodyXLarge: TextStyle = TextStyle(
+    val bodyXLarge: TextStyle = TextStyle(
         fontFamily = Urbanist,
         fontSize = 18.sp
     ),
-    val BodyLarge: TextStyle = BodyXLarge.copy(
+    val bodyLarge: TextStyle = bodyXLarge.copy(
         fontSize = 16.sp
     ),
-    val BodyMedium: TextStyle = BodyXLarge.copy(
+    val bodyMedium: TextStyle = bodyXLarge.copy(
         fontSize = 14.sp
     ),
-    val BodySmall: TextStyle = BodyXLarge.copy(
+    val bodySmall: TextStyle = bodyXLarge.copy(
         fontSize = 12.sp
     ),
-    val BodyXSmall: TextStyle = BodyXLarge.copy(
+    val bodyXSmall: TextStyle = bodyXLarge.copy(
         fontSize = 10.sp
     ),
 

@@ -14,5 +14,4 @@ internal interface AuthorizationDataComponent : AuthorizationDataAPI {
     interface Factory {
         fun create(dependencies: AuthorizationDataDependencies): AuthorizationDataComponent
     }
-
 }

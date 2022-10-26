@@ -24,5 +24,4 @@ internal interface AuthorizationComponent : AuthorizationFeatureAPI {
     interface Factory {
         fun create(dependencies: AuthorizationFeatureDependencies): AuthorizationComponent
     }
-
 }

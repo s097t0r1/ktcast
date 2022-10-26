@@ -17,7 +17,7 @@ import me.s097t0r1.ktcast.libraries.resource_provider.ResourceProvider
 import me.s097t0r1.ktcast.libraries.validator.DefaultValidator
 import me.s097t0r1.ktcast.libraries.validator.ext.asFlow
 import me.s097t0r1.ktcast.libraries.validator.operators.AndOperator
-import me.s097t0r1.ktcast.libraries.validator.rule.Standard
+import me.s097t0r1.ktcast.libraries.validator.rule.Rules
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
@@ -33,9 +33,9 @@ class SignUpViewModel @Inject constructor(
     private val emailValidator = DefaultValidator.Builder<String>()
         .addRule(
             resourceProvider.getString(R.string.auth_feature_invalid_email_format),
-            Standard.RegexRule(
+            Rules.RegexRule(
                 Regex(
-                    Standard.RegexRule.EMAIL_ADDRESS_REGEX,
+                    Rules.RegexRule.EMAIL_ADDRESS_REGEX,
                     RegexOption.IGNORE_CASE
                 )
             )
@@ -44,7 +44,7 @@ class SignUpViewModel @Inject constructor(
         .build()
 
     private val passwordValidator = DefaultValidator.Builder<String>()
-        .addRule(resourceProvider.getString(R.string.auth_feature_invalid_password_format), Standard.RegexRule(PASSWORD_REGEX))
+        .addRule(resourceProvider.getString(R.string.auth_feature_invalid_password_format), Rules.RegexRule(PASSWORD_REGEX))
         .setOperator(AndOperator())
         .build()
 

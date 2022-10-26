@@ -8,11 +8,10 @@ import me.s097t0r1.feature.splash.impl.presentation.splash.SplashViewModel
 import me.s097t0r1.ktcast.libraries.factory.ViewModelKey
 
 @Module
-internal abstract class ViewModelModule {
+internal interface ViewModelModule {
 
     @Binds
     @IntoMap
     @ViewModelKey(SplashViewModel::class)
-    abstract fun bindsViewModel(splashViewModel: SplashViewModel): ViewModel
-
+    fun bindsViewModel(splashViewModel: SplashViewModel): ViewModel
 }

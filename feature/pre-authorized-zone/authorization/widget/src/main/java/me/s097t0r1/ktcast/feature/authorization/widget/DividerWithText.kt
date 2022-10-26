@@ -35,7 +35,7 @@ fun DividerWithText(
             } else {
                 KtCastColorPallete.otherWhiteColor
             },
-            style = KtCastTheme.typography.BodyXLarge.copy(fontWeight = FontWeight.SemiBold)
+            style = KtCastTheme.typography.bodyXLarge.copy(fontWeight = FontWeight.SemiBold)
         )
         Divider(
             modifier = Modifier

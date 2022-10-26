@@ -8,5 +8,4 @@ object Endpoint {
     const val AUTH_TOKEN = "Auth/Token"
     const val TOKEN_UPDATE = "Token/Update"
     const val USERS = "Users"
-
 }

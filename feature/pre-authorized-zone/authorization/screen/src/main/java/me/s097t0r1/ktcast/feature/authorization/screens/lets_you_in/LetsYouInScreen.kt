@@ -42,7 +42,7 @@ fun LetsYouInScreen(
         Spacer(modifier = Modifier.height(30.dp))
         Text(
             text = stringResource(R.string.auth_feature_lets_you_in),
-            style = KtCastTheme.typography.Heading1
+            style = KtCastTheme.typography.heading1
         )
         Spacer(modifier = Modifier.height(30.dp))
         SignInButtons()

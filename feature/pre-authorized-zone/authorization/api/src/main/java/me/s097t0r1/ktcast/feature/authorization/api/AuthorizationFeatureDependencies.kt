@@ -5,7 +5,7 @@ import me.s097t0r1.ktcast.common.secure_storage.storage.SecureStorage
 import me.s097t0r1.ktcast.data.authorization.api.repository.AuthorizationRepository
 import me.s097t0r1.ktcast.libraries.resource_provider.ResourceProvider
 
-interface AuthorizationFeatureDependencies : BaseFeatureDepenendencies{
+interface AuthorizationFeatureDependencies : BaseFeatureDepenendencies {
     val resourceProvider: ResourceProvider
     val authorizationRepository: AuthorizationRepository
     val secureStorage: SecureStorage

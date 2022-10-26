@@ -27,7 +27,5 @@ internal interface AuthorizationRemoteDataSource {
         override suspend fun signUp(tokenRequestDTO: TokenRequestDTO): Reaction<Unit, AppException> {
             return service.signUp(tokenRequestDTO)
         }
-
     }
-
 }

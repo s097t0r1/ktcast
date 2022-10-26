@@ -35,7 +35,6 @@ class ReplaceMessage(
             arrayOf(NavigationCommand.Replace(screen))
         }
     }
-
 }
 
 class StartFlowMessage(

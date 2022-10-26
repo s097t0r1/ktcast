@@ -12,7 +12,6 @@ interface NetworkServiceFactory {
 
         override fun <T : NetworkService> create(serviceClass: Class<T>): T =
             retrofit.create(serviceClass)
-
     }
 }
 

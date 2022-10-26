@@ -8,9 +8,7 @@ import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
-class LetsYouInViewModel @Inject constructor(
-
-): BaseViewModel<LetsYouInUIState, LetsYouInSideEffect, LetsYouInNavigationGraph>() {
+class LetsYouInViewModel @Inject constructor() : BaseViewModel<LetsYouInUIState, LetsYouInSideEffect, LetsYouInNavigationGraph>() {
 
     override val container: Container<LetsYouInUIState, LetsYouInSideEffect> = container(LetsYouInUIState())
 

@@ -24,6 +24,4 @@ class KtCastApplication : Application() {
     companion object {
         lateinit var INSTANCE: KtCastApplication
     }
-
-
 }

@@ -26,7 +26,8 @@ import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.core.navigation.router.RouterProvider
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
 
-abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> : Fragment {
+abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : BaseSideEffect, N : NavigationGraph> :
+    Fragment {
 
     constructor() : super()
     constructor(@LayoutRes layoutRes: Int) : super(layoutRes)
@@ -120,6 +121,4 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
             }
         }
     }
-
-
 }

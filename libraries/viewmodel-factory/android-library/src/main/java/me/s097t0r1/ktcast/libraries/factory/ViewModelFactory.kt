@@ -23,5 +23,4 @@ class ViewModelFactory @Inject constructor(
             viewModelProvider.get() as? T ?: error("Cannot create viewmodel with $modelClass")
         }
     }
-
 }

@@ -19,7 +19,7 @@ import me.s097t0r1.ktcast.feature.authorization.screens.sign_in.SignInUIState
 import org.orbitmvi.orbit.compose.collectAsState
 import javax.inject.Inject
 
-internal class SignInFragment : BaseFragment<SignInViewModel, SignInUIState, SignInSideEffect, SignInNavigationGraph>(){
+internal class SignInFragment : BaseFragment<SignInViewModel, SignInUIState, SignInSideEffect, SignInNavigationGraph>() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -42,13 +42,12 @@ internal class SignInFragment : BaseFragment<SignInViewModel, SignInUIState, Sig
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 24.dp),
             state = state,
-            onEmailChanged = viewModel::onEmailChanged,
-            onPasswordChanged = viewModel::onPasswordChanged,
+            onEmailChange = viewModel::onEmailChanged,
+            onPasswordChange = viewModel::onPasswordChanged,
             onRememberCheckedChange = {},
-            onSignInClicked = viewModel::onSignInClicked,
-            onSignUpClicked = viewModel::onSignUpClicked,
+            onSignInClick = viewModel::onSignInClicked,
+            onSignUpClick = viewModel::onSignUpClicked,
             onToggleMaskPassword = viewModel::onToggleMaskPassword
         )
     }
-
 }

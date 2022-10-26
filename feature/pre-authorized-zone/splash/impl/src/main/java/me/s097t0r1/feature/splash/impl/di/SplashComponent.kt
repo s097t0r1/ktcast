@@ -18,5 +18,4 @@ internal interface SplashComponent : SplashFeatureAPI {
     interface Factory {
         fun create(dependencies: SplashFeatureDependencies): SplashComponent
     }
-
 }

@@ -99,5 +99,4 @@ class MainActivity : BaseContainerActivity<ActivityMainBinding>(), HostViewModel
     ): ActivityMainBinding {
         return ActivityMainBinding.inflate(inflater, parent, attachToParent)
     }
-
 }
