@@ -6,20 +6,20 @@ on:
       - 'main'
       - 'dev'
       - 'test'
-  jobs:
-    Static analysis:
-      name: Run static analyses on code
-      runs-on: ubuntu-latest
+jobs:
+  Static analysis:
+    name: Run static analyses on code
+    runs-on: ubuntu-latest
 
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-java@v3
-          with:
-            - distribution: 'adopt-hotspot'
-            - '11'
-        - name: Run detekt
-          run: ./gradlew detekt
-        - name: Sarif
-          uses: github/codeql-action/upload-sarif@v2
-          with:
-            sarif_file: build/detekt.sarif
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          - distribution: 'adopt-hotspot'
+          - '11'
+      - name: Run detekt
+        run: ./gradlew detekt
+      - name: Sarif
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: build/detekt.sarif
