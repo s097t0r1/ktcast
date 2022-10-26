@@ -1,5 +1,3 @@
-import io.gitlab.arturbosch.detekt.Detekt
-
 plugins {
     alias(libs.plugins.detekt)
 }
@@ -14,6 +12,11 @@ buildscript {
         classpath(libs.android.gradle.plugin)
     }
 }
+
+val reportMerge by tasks.registering(io.gitlab.arturbosch.detekt.report.ReportMergeTask::class) {
+    output.set(rootProject.buildDir.resolve("reports/detekt/merge.xml"))
+}
+
 allprojects {
 
     repositories {
@@ -21,12 +24,17 @@ allprojects {
         mavenCentral()
     }
 
-    apply(plugin = "io.gitlab.arturbosch.detekt")
+    configureDetekt()
 
+}
+
+fun Project.configureDetekt() {
+    apply(plugin = "io.gitlab.arturbosch.detekt")
     detekt {
         source = files("src/main/java", "src/main/kotlin")
         parallel = true
         buildUponDefaultConfig = true
+        basePath = projectDir.path
         config = files(
             rootProject.file("config/detekt.yml"),
             rootProject.file("config/detekt-compose.yml")
@@ -37,14 +45,13 @@ allprojects {
             detektPlugins(rootProject.libs.arturbosch.detekt.formatting)
         }
 
-        tasks.withType<Detekt> {
-            autoCorrect = true
-            reports {
-                html.required.set(true)
-                html.outputLocation.set(rootProject.file("build/reports/detekt.html"))
+    }
 
-                txt.required.set(true)
-                txt.outputLocation.set(rootProject.file("build/reports/detekt.html"))
+    plugins.withType(io.gitlab.arturbosch.detekt.DetektPlugin::class) {
+        tasks.withType(io.gitlab.arturbosch.detekt.Detekt::class) detekt@{
+            finalizedBy(reportMerge)
+            reportMerge.configure {
+                input.from(this@detekt.xmlReportFile)
             }
         }
     }
