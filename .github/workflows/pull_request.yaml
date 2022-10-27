@@ -24,7 +24,6 @@ jobs:
           distribution: 'adopt-hotspot'
           java-version: '11'
       - name: Run detekt
-      feature/ci_cd
         run: ./gradlew detekt reportMerge --continue
       - name: Sarif
         uses: github/codeql-action/upload-sarif@v2
