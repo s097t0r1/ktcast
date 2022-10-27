@@ -15,9 +15,8 @@ import org.orbitmvi.orbit.compose.collectAsState
 import javax.inject.Inject
 import javax.inject.Provider
 
-internal class SplashFragment(
-
-) : BaseFragment<SplashViewModel, SplashUIState, SplashSideEffect, SplashNavigationGraph>() {
+internal class SplashFragment :
+    BaseFragment<SplashViewModel, SplashUIState, SplashSideEffect, SplashNavigationGraph>() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -41,7 +40,5 @@ internal class SplashFragment(
     override fun Content() {
         val state = viewModel.collectAsState().value
         SplashScreen(state, SplashSideEffect())
-
     }
-
 }

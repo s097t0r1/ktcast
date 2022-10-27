@@ -62,7 +62,7 @@ fun AlertSnackBar(
                 Spacer(modifier = Modifier.width(6.dp))
                 Text(
                     text = currentAlertState.message,
-                    style = KtCastTheme.typography.BodyMedium.copy(fontWeight = FontWeight.Normal)
+                    style = KtCastTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Normal)
                 )
             }
         }
@@ -98,5 +98,4 @@ class AlertSnackBarHost {
         WARNING(KtCastColorPallete.statusWarningColor),
         ERROR(KtCastColorPallete.statusErrorColor)
     }
-
 }

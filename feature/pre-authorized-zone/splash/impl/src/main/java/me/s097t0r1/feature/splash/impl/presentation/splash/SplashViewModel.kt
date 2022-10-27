@@ -11,9 +11,7 @@ import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
-class SplashViewModel @Inject constructor(
-
-) : BaseViewModel<SplashUIState, SplashSideEffect, SplashNavigationGraph>() {
+class SplashViewModel @Inject constructor() : BaseViewModel<SplashUIState, SplashSideEffect, SplashNavigationGraph>() {
 
     override val container: Container<SplashUIState, SplashSideEffect> = container(SplashUIState())
 
@@ -29,5 +27,4 @@ class SplashViewModel @Inject constructor(
     companion object {
         const val SPLASH_DELAY_MILLIS = 2000L
     }
-
 }

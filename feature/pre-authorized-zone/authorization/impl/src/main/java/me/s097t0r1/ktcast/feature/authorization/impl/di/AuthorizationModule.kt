@@ -41,6 +41,5 @@ internal abstract class AuthorizationModule {
                     return FragmentScreen.create { AuthorizationContainerFragment() }
                 }
             }
-
     }
 }

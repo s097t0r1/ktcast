@@ -25,7 +25,6 @@ class FragmentArgumentsExtractorDelegate<T>(
         if (thisRef.arguments == null) thisRef.arguments = Bundle()
         thisRef.requireArguments().put(key, valueClazz)
     }
-
 }
 
 inline fun <reified T> extras(key: String, defaultValue: T) =
@@ -44,7 +43,6 @@ class ActivityExtrasExtractorDelegate<T>(
     override fun setValue(thisRef: Activity, property: KProperty<*>, value: T) {
         thisRef.intent.putExtras(Bundle().apply { put(key, valueClazz) })
     }
-
 }
 
 private inline fun <reified T> Bundle.put(key: String, value: T) {

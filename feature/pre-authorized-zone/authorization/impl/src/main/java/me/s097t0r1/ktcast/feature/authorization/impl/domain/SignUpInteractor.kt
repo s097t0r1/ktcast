@@ -33,5 +33,4 @@ class SignUpInteractor @Inject constructor(
             onFailure = { Err.of(it) }
         )
     }
-
 }

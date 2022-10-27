@@ -10,6 +10,7 @@ import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
 internal class ReactionCallAdapterFactory : CallAdapter.Factory() {
+
     override fun get(
         returnType: Type,
         annotations: Array<out Annotation>,
@@ -17,17 +18,17 @@ internal class ReactionCallAdapterFactory : CallAdapter.Factory() {
     ): CallAdapter<*, *>? {
         if (getRawType(returnType) != Call::class.java) return null
         check(
-            returnType is ParameterizedType
-                    && getParameterUpperBound(0, returnType).rawType == Reaction::class.java
+            returnType is ParameterizedType &&
+                getParameterUpperBound(0, returnType).rawType == Reaction::class.java
         ) {
             "Call must be parametrized like: Call<Reaction<Data>>"
         }
 
         val reaction = getParameterUpperBound(0, returnType)
-        check(reaction is ParameterizedType
-                    && getParameterUpperBound(1, reaction)
-                .rawType
-                .isAssignableFrom(AppException.NetworkException::class.java)
+        check(
+            reaction is ParameterizedType &&
+                getParameterUpperBound(1, reaction).rawType
+                    .isAssignableFrom(AppException.NetworkException::class.java)
         ) {
             "Reaction must be parameterized like: Reaction<D, AppException.NetworkException>"
         }

@@ -20,7 +20,8 @@ fun glueAuthFeature() {
             a2 = SecureStorageComponentHolder.get()
         ) { authDataAPI, secureStorageAPI, dependencyHolder ->
             object : AuthorizationFeatureDependencies {
-                override val resourceProvider: ResourceProvider = KtCastApplication.INSTANCE.component.getResourceProvider()
+                override val resourceProvider: ResourceProvider =
+                    KtCastApplication.INSTANCE.component.getResourceProvider()
                 override val authorizationRepository: AuthorizationRepository = authDataAPI.repository
                 override val secureStorage: SecureStorage = secureStorageAPI.storage
                 override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDepenendencies> = dependencyHolder

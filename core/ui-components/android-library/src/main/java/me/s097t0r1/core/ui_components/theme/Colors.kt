@@ -136,7 +136,7 @@ fun lightColors(
     buttonDisabledContentColor: Color = KtCastColorPallete.otherWhiteColor,
 
     fieldDefaultBackgroundColor: Color = KtCastColorPallete.grayScale50Color,
-    fieldActiveBackgroundColor: Color = KtCastColorPallete.transperentPurpleColor,
+    fieldActiveBackgroundColor: Color = KtCastColorPallete.transparentPurpleColor,
 
     dividerColor: Color = KtCastColorPallete.grayScale200Color
 ) = KtCastColors(
@@ -180,7 +180,7 @@ fun darkColors(
     buttonDisabledContentColor: Color = KtCastColorPallete.otherWhiteColor,
 
     fieldDefaultBackgroundColor: Color = KtCastColorPallete.dark2Color,
-    fieldActiveBackgroundColor: Color = KtCastColorPallete.transperentPurpleColor,
+    fieldActiveBackgroundColor: Color = KtCastColorPallete.transparentPurpleColor,
 
     dividerColor: Color = KtCastColorPallete.dark3Color
 ) = KtCastColors(

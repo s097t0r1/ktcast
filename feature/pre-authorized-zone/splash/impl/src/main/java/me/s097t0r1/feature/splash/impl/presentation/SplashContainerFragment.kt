@@ -10,5 +10,4 @@ internal class SplashContainerFragment : BaseContainerFragment(R.layout.splash_f
     override val containerId: Int = R.id.fcvContainer
 
     override fun openLaunchScreen() = router.navigate(ForwardMessage(splashFragmentScreen()))
-
 }

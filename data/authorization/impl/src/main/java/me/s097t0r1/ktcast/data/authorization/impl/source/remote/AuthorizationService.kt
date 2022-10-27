@@ -16,5 +16,4 @@ internal interface AuthorizationService : NetworkService {
 
     @POST(Endpoint.USERS)
     suspend fun signUp(@Body requestDTO: TokenRequestDTO): Reaction<Unit, AppException>
-
 }

@@ -23,5 +23,4 @@ class SignInInteractor @Inject constructor(
                 Ok.of(Unit)
             }
     }
-
 }

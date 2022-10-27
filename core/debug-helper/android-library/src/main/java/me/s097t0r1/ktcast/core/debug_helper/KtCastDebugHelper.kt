@@ -86,7 +86,5 @@ object KtCastDebugHelper {
         fun wtf(message: String) = Timber.wtf(message)
         fun wtf(t: Throwable, message: String) = Timber.wtf(t, message)
         fun wtf(t: Throwable) = Timber.wtf(t)
-
     }
-
 }

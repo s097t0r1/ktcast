@@ -45,7 +45,7 @@ fun SplashScreen(
                 Text(
                     text = stringResource(id = R.string.splash_feature_app_name),
                     color = KtCastTheme.colors.textPrimaryColor,
-                    style = KtCastTheme.typography.Heading1,
+                    style = KtCastTheme.typography.heading1,
                 )
             }
         }

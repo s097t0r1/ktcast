@@ -7,14 +7,9 @@ import me.s097t0r1.feature.splash.api.SplashFeatureStarter
 import me.s097t0r1.feature.splash.impl.presentation.SplashContainerFragment
 
 @Module
-internal abstract class SplashModule {
+internal object SplashModule {
 
-
-    companion object {
-
-        @Provides
-        fun provideSplashStarter(): SplashFeatureStarter =
-            SplashFeatureStarter { FragmentScreen.create { SplashContainerFragment() } }
-
-    }
+    @Provides
+    fun provideSplashStarter(): SplashFeatureStarter =
+        SplashFeatureStarter { FragmentScreen.create { SplashContainerFragment() } }
 }

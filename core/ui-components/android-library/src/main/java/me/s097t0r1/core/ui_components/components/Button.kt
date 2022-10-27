@@ -43,7 +43,7 @@ fun KtCastPrimaryButton(
         colors = colors,
         contentPadding = contentPadding,
     ) {
-        ProvideTextStyle(KtCastTheme.typography.BodyLarge.copy(fontWeight = FontWeight.Bold)) {
+        ProvideTextStyle(KtCastTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold)) {
             content()
         }
     }
@@ -79,7 +79,7 @@ fun KtCastSecondaryButton(
         contentPadding = contentPadding,
     ) {
         ProvideTextStyle(
-            KtCastTheme.typography.BodyLarge
+            KtCastTheme.typography.bodyLarge
                 .copy(fontWeight = FontWeight.Bold)
         ) { content() }
     }
