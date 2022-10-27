@@ -24,6 +24,7 @@ jobs:
         run: ./gradlew detekt
       - name: Sarif
         uses: github/codeql-action/upload-sarif@v2
+        run: ls
         if: success() || failure()
         with:
-          sarif_file: build/reports/merge.xml
+          sarif_file: build/detekt.sarif
