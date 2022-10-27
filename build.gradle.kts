@@ -35,6 +35,7 @@ fun Project.configureDetekt() {
     detekt {
         source = files("src/main/java", "src/main/kotlin")
         parallel = true
+        ignoreFailures = true
         buildUponDefaultConfig = true
         basePath = projectDir.path
         config = files(
