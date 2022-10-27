@@ -37,7 +37,7 @@ fun Project.configureDetekt() {
         parallel = true
         ignoreFailures = true
         buildUponDefaultConfig = true
-        basePath = projectDir.path
+        basePath = rootDir.path
         config = files(
             rootProject.file("config/detekt.yml"),
             rootProject.file("config/detekt-compose.yml")
