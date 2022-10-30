@@ -1,0 +1,41 @@
+build:
+  maxIssues: 32
+
+naming:
+  FunctionNaming:
+    active: true
+    functionPattern: '[a-zA-Z][a-zA-Z0-9]*'
+  TopLevelPropertyNaming:
+    active: true
+    constantPattern: '[A-Z][A-Za-z0-9_]*'
+  PackageNaming:
+    active: true
+    packagePattern: '[a-z]+(\.[a-z][a-z0-9_]*)*'
+
+formatting:
+  NoWildcardImports:
+    active: false
+
+complexity:
+  LongParameterList:
+    ignoreAnnotated:
+      - 'Composable'
+  LongMethod:
+    ignoreAnnotated:
+      - 'Composable'
+  TooManyFunctions:
+    active: false
+
+style:
+  UnusedPrivateMember:
+    ignoreAnnotated:
+      - 'Preview'
+  MagicNumber:
+    ignorePropertyDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+  WildcardImport:
+    active: false
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+
