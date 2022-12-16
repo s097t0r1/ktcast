@@ -8,7 +8,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import me.s097t0r1.core.ui_components.R
 
 @Immutable
 class KtCastTypography(
@@ -54,10 +53,10 @@ class KtCastTypography(
 )
 
 internal val Urbanist = FontFamily(
-    Font(R.font.urbanist_regular, FontWeight.Normal, FontStyle.Normal),
-    Font(R.font.urbanist_medium, FontWeight.Medium, FontStyle.Normal),
-    Font(R.font.urbanist_semibold, FontWeight.SemiBold, FontStyle.Normal),
-    Font(R.font.urbanist_bold, FontWeight.Bold, FontStyle.Normal)
+    Font(me.s097t0r1.core.ui_components.res.R.font.urbanist_regular, FontWeight.Normal, FontStyle.Normal),
+    Font(me.s097t0r1.core.ui_components.res.R.font.urbanist_medium, FontWeight.Medium, FontStyle.Normal),
+    Font(me.s097t0r1.core.ui_components.res.R.font.urbanist_semibold, FontWeight.SemiBold, FontStyle.Normal),
+    Font(me.s097t0r1.core.ui_components.res.R.font.urbanist_bold, FontWeight.Bold, FontStyle.Normal)
 )
 
 internal val LocalTypography = staticCompositionLocalOf { KtCastTypography() }

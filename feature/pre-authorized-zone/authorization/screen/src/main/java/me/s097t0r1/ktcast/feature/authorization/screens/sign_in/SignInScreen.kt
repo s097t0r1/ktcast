@@ -1,7 +1,16 @@
 package me.s097t0r1.ktcast.feature.authorization.screens.sign_in
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
@@ -28,7 +37,6 @@ import me.s097t0r1.core.ui_components.components.KtCastOutlinedTextField
 import me.s097t0r1.core.ui_components.components.KtCastPrimaryButton
 import me.s097t0r1.core.ui_components.theme.KtCastColorPallete
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
-import me.s097t0r1.ktcast.feature.authorization.screens.R
 import me.s097t0r1.ktcast.feature.authorization.widget.DividerWithText
 import me.s097t0r1.ktcast.feature.authorization.widget.SocialButton
 
@@ -52,14 +60,14 @@ fun SignInScreen(
 
         Image(
             modifier = Modifier.size(100.dp),
-            painter = painterResource(id = R.drawable.ic_ktcast_logo),
+            painter = painterResource(id = me.s097t0r1.core.ui_components.res.R.drawable.ic_ktcast_logo),
             contentDescription = null
         )
 
         Spacer(modifier = Modifier.height(44.dp))
 
         Text(
-            text = stringResource(id = R.string.auth_feature_login_to_your_account),
+            text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_login_to_your_account),
             style = KtCastTheme.typography.Heading3.copy(fontWeight = FontWeight.Bold),
         )
 
@@ -120,15 +128,15 @@ private fun buildAnnotatedSignInRecomendation() = buildAnnotatedString {
         fontSize = 14.sp
     )
     withStyle(textSpanStyle) {
-        append(stringResource(id = R.string.auth_feature_dont_have_an_account))
+        append(stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_dont_have_an_account))
         append(' ')
     }
     withStyle(textSpanStyle.copy(color = KtCastTheme.colors.primaryColor)) {
         pushStringAnnotation(
-            stringResource(id = R.string.auth_feature_sign_up),
-            stringResource(id = R.string.auth_feature_sign_up),
+            stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_sign_up),
+            stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_sign_up),
         )
-        append(stringResource(id = R.string.auth_feature_sign_up))
+        append(stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_sign_up))
         pop()
     }
 }
@@ -141,7 +149,7 @@ private fun AlternativeLoginMethods(
 ) {
     DividerWithText(
         modifier = Modifier.fillMaxWidth(),
-        text = stringResource(id = R.string.auth_feature_or_continue_with)
+        text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_or_continue_with)
     )
     Spacer(modifier = Modifier.height(30.dp))
     Row {
@@ -153,7 +161,7 @@ private fun AlternativeLoginMethods(
             )
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_auth_feature_facebook),
+                painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_facebook),
                 contentDescription = null
             )
         }
@@ -166,7 +174,7 @@ private fun AlternativeLoginMethods(
             )
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_auth_feature_google),
+                painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_google),
                 contentDescription = null
             )
         }
@@ -179,7 +187,7 @@ private fun AlternativeLoginMethods(
             )
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_auth_feature_apple),
+                painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_apple),
                 contentDescription = null
             )
         }
@@ -208,12 +216,12 @@ private fun SignInForm(
             onValueChange = onEmailChanged,
             leadingIcon = {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_auth_feature_mail),
+                    painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_mail),
                     contentDescription = null
                 )
             },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
-            placeholder = { Text(text = stringResource(id = R.string.auth_feature_email_address_placeholder)) },
+            placeholder = { Text(text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_email_address_placeholder)) },
             singleLine = true
         )
 
@@ -233,7 +241,7 @@ private fun SignInForm(
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
             leadingIcon = {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_auth_feature_lock),
+                    painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_lock),
                     contentDescription = null
                 )
             },
@@ -245,16 +253,16 @@ private fun SignInForm(
                     Icon(
                         painter = painterResource(
                             if (passwordFieldState.isMaskEnabled) {
-                                R.drawable.ic_auth_feature_hide
+                                me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_hide
                             } else {
-                                R.drawable.ic_auth_feature_show
+                                me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_show
                             }
                         ),
                         contentDescription = null
                     )
                 }
             },
-            placeholder = { Text(text = stringResource(id = R.string.auth_feature_password_placeholder)) },
+            placeholder = { Text(text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_password_placeholder)) },
             singleLine = true
         )
 
@@ -270,7 +278,7 @@ private fun SignInForm(
                 onCheckedChange = onRememberCheckedChange
             )
             Text(
-                text = stringResource(id = R.string.auth_feature_remeber_me),
+                text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_remeber_me),
                 style = KtCastTheme.typography.BodyMedium.copy(
                     fontWeight = FontWeight.SemiBold
                 )
@@ -286,7 +294,7 @@ private fun SignInForm(
             shape = RoundedCornerShape(100.dp)
         ) {
             Text(
-                stringResource(id = R.string.auth_feature_sign_in),
+                stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_sign_in),
                 style = KtCastTheme.typography.BodyLarge
                     .copy(fontWeight = FontWeight.Bold)
             )

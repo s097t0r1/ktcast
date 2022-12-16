@@ -1,13 +1,13 @@
 package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_in
 
 import androidx.lifecycle.viewModelScope
+import javax.inject.Inject
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import me.s097t0r1.core.mvi.base.BaseViewModel
-import me.s097t0r1.ktcast.feature.authorization.impl.R
 import me.s097t0r1.ktcast.feature.authorization.impl.domain.SignInInteractor
 import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_in.navigation.SignInNavigationGraph
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_in.EmailFieldState
@@ -24,7 +24,6 @@ import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
-import javax.inject.Inject
 
 internal class SignInViewModel @Inject constructor(
     resourceProvider: ResourceProvider,
@@ -35,7 +34,7 @@ internal class SignInViewModel @Inject constructor(
 
     private val emailValidator: Validator<String> = DefaultValidator.Builder<String>()
         .addRule(
-            resourceProvider.getString(R.string.auth_feature_incorrect_email),
+            resourceProvider.getString(me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_incorrect_email),
             Standard.RegexRule(
                 Regex(
                     Standard.RegexRule.EMAIL_ADDRESS_REGEX,
@@ -48,7 +47,7 @@ internal class SignInViewModel @Inject constructor(
 
     private val passwordValidator: Validator<String> = DefaultValidator.Builder<String>()
         .addRule(
-            resourceProvider.getString(R.string.authorization_feature_incorrect_password),
+            resourceProvider.getString(me.s097t0r1.ktcast.feature.authorization.res.R.string.authorization_feature_incorrect_password),
             Standard.LengthRule(minLength = 1)
         )
         .setOperator(AndOperator())

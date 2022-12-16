@@ -3,6 +3,12 @@ plugins {
     id("module-configurator")
 }
 
+android {
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
 dependencies {
 
     debugImplementation(libs.pandulapetor.beagle)

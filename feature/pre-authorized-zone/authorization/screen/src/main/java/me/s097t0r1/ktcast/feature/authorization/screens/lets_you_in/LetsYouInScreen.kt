@@ -1,7 +1,13 @@
 package me.s097t0r1.ktcast.feature.authorization.screens.lets_you_in
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Text
@@ -20,7 +26,6 @@ import androidx.compose.ui.unit.sp
 import me.s097t0r1.core.ui_components.components.KtCastPrimaryButton
 import me.s097t0r1.core.ui_components.theme.KtCastColorPallete
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
-import me.s097t0r1.ktcast.feature.authorization.screens.R
 import me.s097t0r1.ktcast.feature.authorization.widget.DividerWithText
 import me.s097t0r1.ktcast.feature.authorization.widget.SocialButton
 
@@ -36,19 +41,19 @@ fun LetsYouInScreen(
     ) {
         Spacer(modifier = Modifier.height(30.dp))
         Image(
-            painter = painterResource(id = R.drawable.ic_auth_feature_lets_you_in_logo),
+            painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_lets_you_in_logo),
             contentDescription = null
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
-            text = stringResource(R.string.auth_feature_lets_you_in),
+            text = stringResource(me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_lets_you_in),
             style = KtCastTheme.typography.Heading1
         )
         Spacer(modifier = Modifier.height(30.dp))
         SignInButtons()
         DividerWithText(
             modifier = Modifier.padding(vertical = 32.dp),
-            text = stringResource(id = R.string.auth_feature_or_divider)
+            text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_or_divider)
         )
         KtCastPrimaryButton(
             modifier = Modifier.fillMaxWidth(),
@@ -56,7 +61,7 @@ fun LetsYouInScreen(
             shape = RoundedCornerShape(100.dp)
         ) {
             Text(
-                text = stringResource(id = R.string.auth_feature_sign_in_with_password)
+                text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_sign_in_with_password)
             )
         }
         Spacer(modifier = Modifier.height(30.dp))
@@ -75,12 +80,12 @@ private fun SignInButtons() {
         contentPadding = PaddingValues(vertical = 19.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_auth_feature_facebook),
+            painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_facebook),
             contentDescription = null
         )
         Spacer(modifier = Modifier.width(12.dp))
         Text(
-            text = stringResource(id = R.string.auth_feature_continue_with_facebook)
+            text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_continue_with_facebook)
         )
     }
     Spacer(Modifier.height(19.dp))
@@ -90,12 +95,12 @@ private fun SignInButtons() {
         contentPadding = PaddingValues(vertical = 19.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_auth_feature_google),
+            painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_google),
             contentDescription = null
         )
         Spacer(modifier = Modifier.width(12.dp))
         Text(
-            text = stringResource(id = R.string.auth_feature_continue_with_google)
+            text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_continue_with_google)
         )
     }
     Spacer(Modifier.height(19.dp))
@@ -105,12 +110,12 @@ private fun SignInButtons() {
         contentPadding = PaddingValues(vertical = 19.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_auth_feature_apple),
+            painter = painterResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.drawable.ic_auth_feature_apple),
             contentDescription = null
         )
         Spacer(modifier = Modifier.width(12.dp))
         Text(
-            text = stringResource(id = R.string.auth_feature_continue_with_apple)
+            text = stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_continue_with_apple)
         )
     }
 }
@@ -141,12 +146,12 @@ private fun buildAnnotatedSignUpRecomendation() = buildAnnotatedString {
         fontSize = 14.sp
     )
     withStyle(textSpanStyle) {
-        append(stringResource(id = R.string.auth_feature_dont_have_an_account))
+        append(stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_dont_have_an_account))
         append(' ')
     }
     withStyle(textSpanStyle.copy(color = KtCastTheme.colors.primaryColor)) {
         pushStringAnnotation("SignUp", "SignUp")
-        append(stringResource(id = R.string.auth_feature_sign_up))
+        append(stringResource(id = me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_sign_up))
         pop()
     }
 }
