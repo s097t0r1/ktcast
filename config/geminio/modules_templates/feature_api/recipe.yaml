@@ -1,0 +1,75 @@
+requiredParams:
+  name: KtCast API Module
+  description: Create API Module
+
+# optional
+optionalParams:
+  revision: 1
+  category: fragment
+  formFactor: mobile
+  constraints:
+    - kotlin
+  screens:
+    - new_module
+  minApi: 24
+  minBuildApi: 32
+
+# required only for modules templates
+predefinedFeatures:
+  - enableModuleCreationParams:
+      defaultPackageNamePrefix: me.s097t0r1.ktcast
+
+widgets:
+  - booleanParameter:
+      id: includeStarter
+      name: Include starter for feature
+      help: Generate starter interface
+      default: false
+
+globals:
+  - booleanParameter:
+      id: includeStarter
+      value: ${includeStarter}
+
+recipe:
+  - mkDirs:
+      - ${srcOut}:
+          - api
+  - instantiateAndOpen:
+      from: root/src/main/java/package/BlankFeatureApi.kt.ftl
+      to: ${srcOut}/api/${__formattedModuleName}FeatureAPI.kt
+  - instantiate:
+     from: root/build.gradle.ftl
+     to: ${rootOut}/build.gradle
+  - instantiate:
+      from: root/.gitignore.ftl
+      to: ${rootOut}/.gitignore
+  - instantiate:
+      from: root/src/main/AndroidManifest.xml.ftl
+      to: ${rootOut}/src/main/AndroidManifest.xml
+  # - instantiate:
+  #     from: root/res/layout/fragment_blank.xml.ftl
+  #     to: ${resOut}/layout/${fragmentName}.xml
+  # - open:
+  #     file: ${resOut}/layout/${fragmentName}.xml
+  # - predicate:
+  #     validIf: ${includeModule}
+  #     commands:
+  #       - instantiate:
+  #           from: root/src/app_package/BlankModule.kt.ftl
+  #           to: ${srcOut}/di/${moduleName}.kt
+  #       - open:
+  #           file: ${srcOut}/di/${moduleName}.kt
+  #     elseCommands:
+  #       - instantiateAndOpen:
+  #           from: root/src/app_package/AnotherModule.kt.ftl
+  #           to: ${srcOut}/di/${moduleName}.kt
+#  - addDependencies:
+#      - implementation: Libs.jetpack.compose
+#      - kapt: Libs.di.toothpick
+#      - compileOnly: com.github.stephanenicolas.toothpick:toothpick:3.1.0
+#      - testImplementation: :shared-core-test
+#      - androidTestImplementation: Libs.uiTests.kaspresso
+#  - addGradlePlugins:
+#      - kotlinx.serialization
+#      - kotlin-kapt
