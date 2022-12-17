@@ -1,7 +1,10 @@
 package me.s097t0r1.core.navigation.navigator
 
-import androidx.fragment.app.*
-import androidx.lifecycle.Lifecycle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.commit
 import me.s097t0r1.core.navigation.R
 import me.s097t0r1.core.navigation.command.NavigationCommand
 import me.s097t0r1.core.navigation.screen.ActivityScreen
@@ -42,7 +45,7 @@ class AppNavigator(
                 val transaction = '+' to screen.screenKey.orEmpty()
                 transactions += transaction
                 addToBackStack(transaction.hashCode().toString())
-                add(
+                replace(
                     containerId,
                     nextFragment,
                     screen.screenKey
@@ -78,7 +81,7 @@ class AppNavigator(
                         nextFragment,
                         null
                     )
-                    add(containerId, nextFragment, screen.screenKey.toString())
+                    replace(containerId, nextFragment, screen.screenKey.toString())
                     addToBackStack(transactions.last().hashCode().toString())
                 }
             }
@@ -99,9 +102,6 @@ class AppNavigator(
             R.animator.slide_in,
             R.animator.slide_out
         )
-        previousFragment?.let {
-            fragmentTransaction.setMaxLifecycle(previousFragment, Lifecycle.State.STARTED)
-        }
     }
 
     private fun backTo(screen: NavigationScreen) = when (screen) {
@@ -127,10 +127,10 @@ class AppNavigator(
             transactions = emptyList()
             fragmentActivity.finish()
         } else {
-            if (transactions.size > 1) {
-                transactions = transactions.subList(0, transactions.lastIndex)
+            transactions = if (transactions.size > 1) {
+                transactions.subList(0, transactions.lastIndex)
             } else {
-                transactions = emptyList()
+                emptyList()
             }
             fragmentManager.popBackStack(
                 transactions.lastOrNull().hashCode().toString(),
