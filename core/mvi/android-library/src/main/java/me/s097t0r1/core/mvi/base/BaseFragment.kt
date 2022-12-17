@@ -89,7 +89,7 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
             actionBar.show()
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.setHomeAsUpIndicator(
-                me.s097t0r1.core.ui_components.R.drawable.ic_toolbar_back
+                me.s097t0r1.core.ui_components.res.R.drawable.ic_toolbar_back
             )
             actionBar.setDisplayShowTitleEnabled(false)
         } else {

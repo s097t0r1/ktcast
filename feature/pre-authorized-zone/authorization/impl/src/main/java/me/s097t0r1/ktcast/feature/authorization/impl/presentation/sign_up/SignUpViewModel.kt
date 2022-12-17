@@ -1,12 +1,12 @@
 package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up
 
 import androidx.lifecycle.viewModelScope
+import javax.inject.Inject
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import me.s097t0r1.core.mvi.base.BaseViewModel
-import me.s097t0r1.ktcast.feature.authorization.impl.R
 import me.s097t0r1.ktcast.feature.authorization.impl.domain.SignUpInteractor
 import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation.SignUpNavigationGraph
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.EmailFieldState
@@ -21,7 +21,6 @@ import me.s097t0r1.ktcast.libraries.validator.rule.Standard
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
-import javax.inject.Inject
 
 class SignUpViewModel @Inject constructor(
     private val interactor: SignUpInteractor,
@@ -32,7 +31,7 @@ class SignUpViewModel @Inject constructor(
 
     private val emailValidator = DefaultValidator.Builder<String>()
         .addRule(
-            resourceProvider.getString(R.string.auth_feature_invalid_email_format),
+            resourceProvider.getString(me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_invalid_email_format),
             Standard.RegexRule(
                 Regex(
                     Standard.RegexRule.EMAIL_ADDRESS_REGEX,
@@ -44,7 +43,7 @@ class SignUpViewModel @Inject constructor(
         .build()
 
     private val passwordValidator = DefaultValidator.Builder<String>()
-        .addRule(resourceProvider.getString(R.string.auth_feature_invalid_password_format), Standard.RegexRule(PASSWORD_REGEX))
+        .addRule(resourceProvider.getString(me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_invalid_password_format), Standard.RegexRule(PASSWORD_REGEX))
         .setOperator(AndOperator())
         .build()
 

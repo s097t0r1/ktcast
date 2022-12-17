@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    id("module-configurator")
+    id("ktcast-android-library")
     id("kotlin-kapt")
 }
 

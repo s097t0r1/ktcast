@@ -1,6 +1,11 @@
 plugins {
-    id("com.android.library")
-    id("module-configurator")
+    id("ktcast-android-library")
+}
+
+android {
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {

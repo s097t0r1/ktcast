@@ -1,14 +1,8 @@
 plugins {
-    id("com.android.library")
-    id("module-configurator")
-    id("compose-configurator")
+    id("ktcast-feature-implementation")
+    id("kotlin-parcelize")
     id("kotlin-kapt")
 }
-
-moduleConfiguration {
-    isParcelizeEnable = true
-}
-
 
 dependencies {
 

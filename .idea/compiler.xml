@@ -2,6 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
+      <module name="build-logic" target="11" />
+      <module name="build-logic.main" target="11" />
+      <module name="build-logic.test" target="11" />
       <module name="ktcast.app" target="11" />
       <module name="ktcast.buildSrc" target="11" />
       <module name="ktcast.buildSrc.main" target="11" />
@@ -20,7 +23,7 @@
       <module name="ktcast.common.network.library" target="11" />
       <module name="ktcast.common.network.library.main" target="1.8" />
       <module name="ktcast.common.network.library.test" target="1.8" />
-      <module name="ktcast.common.network.utils" target="1.8" />
+      <module name="ktcast.common.network.utils" target="11" />
       <module name="ktcast.common.network.utils.main" target="1.8" />
       <module name="ktcast.common.network.utils.test" target="1.8" />
       <module name="ktcast.common.persistence.database.android-library" target="11" />
@@ -32,7 +35,7 @@
       <module name="ktcast.core.di.library.main" target="1.8" />
       <module name="ktcast.core.di.library.test" target="1.8" />
       <module name="ktcast.core.dialog.android-library" target="11" />
-      <module name="ktcast.core.exceptions.library" target="1.8" />
+      <module name="ktcast.core.exceptions.library" target="11" />
       <module name="ktcast.core.exceptions.library.main" target="1.8" />
       <module name="ktcast.core.exceptions.library.test" target="1.8" />
       <module name="ktcast.core.mvi.android-library" target="11" />
