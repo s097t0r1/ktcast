@@ -3,7 +3,11 @@ package me.s097t0r1.ktcast.plugins.convention_plugin
 import com.android.build.api.dsl.LibraryExtension
 import me.s097t0r1.ktcast.plugins.implementation
 import me.s097t0r1.ktcast.plugins.kapt
-import me.s097t0r1.ktcast.plugins.module_configuration.ext.*
+import me.s097t0r1.ktcast.plugins.module_configuration.ext.bundle
+import me.s097t0r1.ktcast.plugins.module_configuration.ext.library
+import me.s097t0r1.ktcast.plugins.module_configuration.ext.libraryExtension
+import me.s097t0r1.ktcast.plugins.module_configuration.ext.libs
+import me.s097t0r1.ktcast.plugins.module_configuration.ext.versionOf
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project

@@ -2,6 +2,7 @@ enableFeaturePreview("VERSION_CATALOGS")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         gradlePluginPortal()
         google()
@@ -49,6 +50,7 @@ include(":common:persistence:database:android-library")
 include(":common:persistence:secure-storage:android-library")
 
 include(":common:logout:android-library")
+
 // Libraries
 
 include(":libraries:mapper:library")
