@@ -40,7 +40,7 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
 
     private val router by lazy { (parentFragment as RouterProvider).router }
 
-    protected abstract fun inject()
+    protected abstract fun onInjectDaggerComponent()
 
     @Composable
     protected abstract fun Content()
@@ -48,7 +48,7 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
     open fun onInitViewModel(viewModel: VM) { /* no-op */ }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        inject()
+        onInjectDaggerComponent()
         super.onCreate(savedInstanceState)
         onInitViewModel(viewModel)
     }
@@ -58,6 +58,7 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        onSetupToolbar()
         return inflater.inflate(R.layout.fragment_base, container, false).apply {
             findViewById<ComposeView>(R.id.cvContent).apply {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
@@ -72,16 +73,13 @@ abstract class BaseFragment<VM : BaseViewModel<S, E, N>, S : BaseState, E : Base
         }
     }
 
+    private fun onSetupToolbar() {
+        (requireActivity() as? AppCompatActivity)?.supportActionBar?.let { setupToolbar(it) }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewLifecycleObservers()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.let {
-            setupToolbar(it)
-        }
     }
 
     protected open fun setupToolbar(actionBar: ActionBar) {

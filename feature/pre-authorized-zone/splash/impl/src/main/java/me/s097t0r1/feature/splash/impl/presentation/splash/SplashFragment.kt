@@ -3,6 +3,8 @@ package me.s097t0r1.feature.splash.impl.presentation.splash
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import javax.inject.Inject
+import javax.inject.Provider
 import me.s097t0r1.core.mvi.base.BaseFragment
 import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.feature.splash.impl.di.SplashComponentHolder
@@ -12,8 +14,6 @@ import me.s097t0r1.ktcast.feature.splash.widget.splash.SplashScreen
 import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashSideEffect
 import me.s097t0r1.ktcast.feature.splash.widget.splash.mvi.SplashUIState
 import org.orbitmvi.orbit.compose.collectAsState
-import javax.inject.Inject
-import javax.inject.Provider
 
 internal class SplashFragment(
 
@@ -31,7 +31,7 @@ internal class SplashFragment(
         navigationProviderFactory.get()
     }
 
-    override fun inject() = SplashComponentHolder.getDaggerComponent().inject(this)
+    override fun onInjectDaggerComponent() = SplashComponentHolder.getDaggerComponent().inject(this)
 
     override fun onInitViewModel(viewModel: SplashViewModel) {
         viewModel.onInitViewModel()
