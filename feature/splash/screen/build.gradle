@@ -1,0 +1,15 @@
+plugins {
+    id("ktcast-android-library")
+    id("compose-configurator")
+}
+
+dependencies {
+
+    implementation(projects.feature.splash.res)
+
+    implementation(libs.bundles.androidx.compose)
+    implementation(projects.core.uiComponents.androidLibrary)
+    implementation(projects.core.mvi.androidLibrary)
+    implementation(projects.core.uiComponents.res)
+
+}

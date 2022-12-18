@@ -57,6 +57,11 @@
       <module name="ktcast.core.utils.viewmodel_factory.android_library" target="11" />
       <module name="ktcast.data.authorization.api" target="11" />
       <module name="ktcast.data.authorization.impl" target="11" />
+      <module name="ktcast.feature.authorization.api" target="11" />
+      <module name="ktcast.feature.authorization.impl" target="11" />
+      <module name="ktcast.feature.authorization.res" target="11" />
+      <module name="ktcast.feature.authorization.screen" target="11" />
+      <module name="ktcast.feature.authorization.widget" target="11" />
       <module name="ktcast.feature.pre-authorized-zone.authorization.api" target="11" />
       <module name="ktcast.feature.pre-authorized-zone.authorization.impl" target="11" />
       <module name="ktcast.feature.pre-authorized-zone.authorization.res" target="11" />
@@ -78,6 +83,10 @@
       <module name="ktcast.feature.pre_authorized_zone.splash.impl" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.res" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.widget" target="11" />
+      <module name="ktcast.feature.splash.api" target="11" />
+      <module name="ktcast.feature.splash.impl" target="11" />
+      <module name="ktcast.feature.splash.res" target="11" />
+      <module name="ktcast.feature.splash.screen" target="11" />
       <module name="ktcast.libraries.mapper.library" target="1.8" />
       <module name="ktcast.libraries.mapper.library.main" target="1.8" />
       <module name="ktcast.libraries.mapper.library.test" target="1.8" />

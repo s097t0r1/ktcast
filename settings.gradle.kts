@@ -61,16 +61,16 @@ include(":libraries:validator:android-library")
 
 // Feature
 
-include(":feature:pre-authorized-zone:splash:api")
-include(":feature:pre-authorized-zone:splash:impl")
-include(":feature:pre-authorized-zone:splash:res")
-include(":feature:pre-authorized-zone:splash:screen")
+include(":feature:splash:api")
+include(":feature:splash:impl")
+include(":feature:splash:res")
+include(":feature:splash:screen")
 
-include(":feature:pre-authorized-zone:authorization:api")
-include(":feature:pre-authorized-zone:authorization:impl")
-include(":feature:pre-authorized-zone:authorization:screen")
-include(":feature:pre-authorized-zone:authorization:res")
-include(":feature:pre-authorized-zone:authorization:widget")
+include(":feature:authorization:api")
+include(":feature:authorization:impl")
+include(":feature:authorization:screen")
+include(":feature:authorization:res")
+include(":feature:authorization:widget")
 
 // Data
 
