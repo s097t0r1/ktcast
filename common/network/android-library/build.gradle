@@ -23,7 +23,7 @@ dependencies {
 
     implementation(projects.core.di.library)
     implementation(projects.core.exceptions.library)
-    implementation(projects.libraries.reaction.library)
+    implementation(projects.libraries.either.library)
 
     implementation(projects.common.persistence.secureStorage.androidLibrary)
 }

@@ -54,7 +54,7 @@ include(":common:logout:android-library")
 // Libraries
 
 include(":libraries:mapper:library")
-include(":libraries:reaction:library")
+include(":libraries:either:library")
 include(":libraries:viewmodel-factory:android-library")
 include(":libraries:resource-provider:android-library")
 include(":libraries:validator:android-library")

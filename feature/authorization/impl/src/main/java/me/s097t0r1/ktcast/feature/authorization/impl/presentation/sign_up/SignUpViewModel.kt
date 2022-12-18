@@ -12,7 +12,7 @@ import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.naviga
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.EmailFieldState
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpSideEffect
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpUIState
-import me.s097t0r1.ktcast.libraries.reaction.fold
+import me.s097t0r1.ktcast.libraries.either.fold
 import me.s097t0r1.ktcast.libraries.resource_provider.ResourceProvider
 import me.s097t0r1.ktcast.libraries.validator.DefaultValidator
 import me.s097t0r1.ktcast.libraries.validator.ext.asFlow

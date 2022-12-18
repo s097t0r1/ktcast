@@ -38,7 +38,7 @@ class FeatureImplConventionPlugin : Plugin<Project> {
             implementation(project(":libraries:viewmodel-factory:android-library"))
             implementation(project(":libraries:resource-provider:android-library"))
             implementation(project(":libraries:validator:android-library"))
-            implementation(project(":libraries:reaction:library"))
+            implementation(project(":libraries:either:library"))
             implementation(project(":libraries:mapper:library"))
 
 

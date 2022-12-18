@@ -1,17 +1,16 @@
-package me.s097t0r1.ktcast.libraries.reaction
+package me.s097t0r1.ktcast.libraries.either
 
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-sealed class Reaction<out V, out E> {
+sealed class Either<out V, out E> {
 
     abstract operator fun component1(): V?
     abstract operator fun component2(): E?
-
 }
 
-class Ok<out V> private constructor(val value: V) : Reaction<V, Nothing>() {
+class Ok<out V> private constructor(val value: V) : Either<V, Nothing>() {
 
     override fun component1(): V = value
     override fun component2(): Nothing? = null
@@ -21,7 +20,7 @@ class Ok<out V> private constructor(val value: V) : Reaction<V, Nothing>() {
     }
 }
 
-class Err<out E > private constructor(val err: E) : Reaction<Nothing, E>() {
+class Err<out E > private constructor(val err: E) : Either<Nothing, E>() {
     override fun component1(): Nothing? = null
     override fun component2(): E? = err
 
@@ -31,7 +30,7 @@ class Err<out E > private constructor(val err: E) : Reaction<Nothing, E>() {
 }
 
 @OptIn(ExperimentalContracts::class)
-inline fun <T> catchReaction(block: () -> T): Reaction<T, Throwable> {
+inline fun <T> catchEither(block: () -> T): Either<T, Throwable> {
     contract {
         callsInPlace(block, InvocationKind.EXACTLY_ONCE)
     }
@@ -44,7 +43,7 @@ inline fun <T> catchReaction(block: () -> T): Reaction<T, Throwable> {
     }
 }
 
-inline fun <T, E> Reaction<T, E>.subscribe(
+inline fun <T, E> Either<T, E>.subscribe(
     onSuccess: (value: T) -> Unit,
     onFailure: (exception: E) -> Unit
 ) {
@@ -54,7 +53,7 @@ inline fun <T, E> Reaction<T, E>.subscribe(
     }
 }
 
-inline fun <T, E, R> Reaction<T, E>.fold(
+inline fun <T, E, R> Either<T, E>.fold(
     onSuccess: (value: T) -> R,
     onFailure: (exception: E) -> R
 ): R {
@@ -64,9 +63,9 @@ inline fun <T, E, R> Reaction<T, E>.fold(
     }
 }
 
-inline fun <T1, T2, E1> Reaction<T1, E1>.andThen(
-    block: (T1) -> Reaction<T2, E1>,
-): Reaction<T2, E1> {
+inline fun <T1, T2, E1> Either<T1, E1>.andThen(
+    block: (T1) -> Either<T2, E1>,
+): Either<T2, E1> {
     return when (this) {
         is Ok -> block(this.value)
         is Err -> Err.of(err)

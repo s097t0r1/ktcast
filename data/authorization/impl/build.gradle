@@ -8,7 +8,7 @@ dependencies {
     implementation(projects.data.authorization.api)
 
     implementation(projects.core.di.library)
-    implementation(projects.libraries.reaction.library)
+    implementation(projects.libraries.either.library)
     implementation(projects.libraries.mapper.library)
     implementation(projects.core.exceptions.library)
 
