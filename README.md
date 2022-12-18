@@ -1,10 +1,10 @@
 <div align="center">
 
-<p><img src="https://github.com/ifhmslf/ktcast/metadata/intro.webp" width="200"></p>
+<p><img src="metadata/intro.webp" width="200"></p>
 
 # ktcast
 
-### Lightweight Open-Source Podcast App
+### Open-Source Podcast App
 
 [![Android](https://img.shields.io/badge/Android-grey?logo=android&style=flat)](https://www.android.com/)
 [![AndroidAPI](https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat)](https://www.android.com/)
@@ -14,7 +14,9 @@
 
 ----
 
-Lightweight, fast and open-source podcast app written in Kotlin. In progress...
+Open-source podcast app written in Kotlin. In progress...
+
+</div>
 
 ## Features
 
@@ -23,7 +25,7 @@ Lightweight, fast and open-source podcast app written in Kotlin. In progress...
 <br>
 
 <p float="center">
-  <img src="metadata/intro.webp" width="25%" />
+  <img src="metadata/intro.webp" width="75%" />
 </p>
 
 
@@ -50,7 +52,7 @@ All projects must properly attribute [the original source](https://github.com/if
 and must include an unmodified copy of the license text below in all forks.
 
 ```
-ktcast: lightweight, fast and open-source cryptocurrencies monitor
+ktcast: open-source podcast app
 Copyright (C) 2022  ktcast
 
 This program is free software: you can redistribute it and/or modify
