@@ -10,7 +10,7 @@
 [![AndroidAPI](https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat)](https://www.android.com/)
 [![Kotlin](https://img.shields.io/badge/kotlin-1.7.10-blue.svg?logo=kotlin)](https://kotlinlang.org)
 [![JetpackCompose](https://img.shields.io/badge/Jetpack%20Compose-1.2.0-yellow)](https://developer.android.com/jetpack/compose)
-[![License](https://img.shields.io/github/license/ktcast/ktcast?color=orange)](./LICENSE)
+[![License](https://img.shields.io/github/license/ifhmslf/ktcast?color=orange)](./LICENSE)
 
 ----
 
