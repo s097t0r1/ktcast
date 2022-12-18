@@ -45,26 +45,15 @@ Open-source podcast app written in Kotlin. In progress...
 
 ## License
 
-ktcast released under the [GPL-3.0 License](./LICENSE). Unless explicitly
-stated otherwise all files in this repository are so licensed.
-
-All projects must properly attribute [the original source](https://github.com/ifhmslf/ktcast)
-and must include an unmodified copy of the license text below in all forks.
-
 ```
-ktcast: open-source podcast app
-Copyright (C) 2022  ktcast
+MIT License
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+Copyright (c) 2022 Nikita Zmitrovich
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 ```   
