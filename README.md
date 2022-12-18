@@ -1,6 +1,6 @@
 <div align="center">
 
-<p><img src="metadata/intro.webp" width="200"></p>
+<p><img src="metadata/logo.webp" width="200"></p>
 
 # ktcast
 
@@ -25,7 +25,7 @@ Open-source podcast app written in Kotlin. In progress...
 <br>
 
 <p float="center">
-  <img src="metadata/intro.webp" width="75%" />
+  <img src="metadata/intro.webp" width="100%" />
 </p>
 
 
