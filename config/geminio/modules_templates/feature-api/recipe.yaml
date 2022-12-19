@@ -1,0 +1,53 @@
+requiredParams:
+  name: KtCast API Module
+  description: Create API Module
+
+# optional
+optionalParams:
+  revision: 1
+  category: fragment
+  formFactor: mobile
+  constraints:
+    - kotlin
+  screens:
+    - new_module
+  minApi: 24
+  minBuildApi: 32
+
+# required only for modules templates
+predefinedFeatures:
+  - enableModuleCreationParams:
+      defaultPackageNamePrefix: me.s097t0r1.ktcast.feature
+
+widgets:
+  - booleanParameter:
+      id: includeStarter
+      name: Include starter for feature
+      help: Generate starter interface
+      default: false
+
+recipe:
+  - mkDirs:
+      - ${srcOut}:
+          - api
+  - instantiateAndOpen:
+      from: root/src/main/java/package/FeatureApi.kt.ftl
+      to: ${srcOut}/api/${__formattedModuleName}FeatureAPI.kt
+  - instantiate:
+      from: root/src/main/java/package/FeatureDependencies.kt.ftl
+      to: ${srcOut}/api/${__formattedModuleName}FeatureDependencies.kt
+  - instantiate:
+     from: root/build.gradle.ftl
+     to: ${rootOut}/build.gradle
+  - instantiate:
+      from: root/.gitignore.ftl
+      to: ${rootOut}/.gitignore
+  - instantiate:
+      from: root/src/main/AndroidManifest.xml.ftl
+      to: ${rootOut}/src/main/AndroidManifest.xml
+  - predicate:
+      validIf: ${includeStarter}
+      commands:
+        - instantiate:
+            from: root/src/main/java/package/FeatureStarter.kt.ftl
+            to: ${srcOut}/api/${__formattedModuleName}FeatureStarter.kt

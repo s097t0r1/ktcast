@@ -13,5 +13,4 @@ dependencies {
 
     implementation(projects.core.uiComponents.androidLibrary)
     implementation(projects.core.uiComponents.res)
-
 }

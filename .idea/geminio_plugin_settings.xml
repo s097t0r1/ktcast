@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ru.hh.plugins.geminio.config.editor.GeminioPluginConfig">
+    <option name="config">
+      <GeminioPluginConfig>
+        <option name="configFilePath" value="C:\Users\s097t0r1\StudioProjects\ktcast\geminio.yaml" />
+        <option name="debugEnabled" value="true" />
+        <option name="groupsNames">
+          <GroupsNames>
+            <option name="forNewGroup" value="KtCast Templates" />
+            <option name="forNewModulesGroup" value="KtCast Modules" />
+          </GroupsNames>
+        </option>
+        <option name="modulesTemplatesRootDirPath" value="/config/geminio/modules_templates" />
+        <option name="templatesRootDirPath" value="/config/geminio/templates" />
+      </GeminioPluginConfig>
+    </option>
+  </component>
+</project>
