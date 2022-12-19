@@ -1,6 +1,6 @@
 package me.s097t0r1.ktcast.glue.module.feature
 
-import me.s097t0r1.core.di.base.BaseFeatureDepenendencies
+import me.s097t0r1.core.di.base.BaseFeatureDependencies
 import me.s097t0r1.core.di.base.Provider
 import me.s097t0r1.core.di.base.holder.BaseDependencyHolder
 import me.s097t0r1.core.di.base.holder.BaseDependencyHolder1
@@ -15,7 +15,7 @@ fun glueSplashFeature() {
             a1 = AuthorizationComponentHolder.get()
         ) { authApi, depsHolder ->
             object : SplashFeatureDependencies {
-                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDepenendencies> = depsHolder
+                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDependencies> = depsHolder
                 override val authStarter: AuthorizationFeatureStarter = authApi.starter
             }
         }

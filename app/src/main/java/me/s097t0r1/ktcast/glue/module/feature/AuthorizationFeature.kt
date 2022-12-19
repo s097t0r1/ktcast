@@ -1,6 +1,6 @@
 package me.s097t0r1.ktcast.glue.module.feature
 
-import me.s097t0r1.core.di.base.BaseFeatureDepenendencies
+import me.s097t0r1.core.di.base.BaseFeatureDependencies
 import me.s097t0r1.core.di.base.Provider
 import me.s097t0r1.core.di.base.holder.BaseDependencyHolder
 import me.s097t0r1.core.di.base.holder.BaseDependencyHolder2
@@ -23,7 +23,7 @@ fun glueAuthFeature() {
                 override val resourceProvider: ResourceProvider = KtCastApplication.INSTANCE.component.getResourceProvider()
                 override val authorizationRepository: AuthorizationRepository = authDataAPI.repository
                 override val secureStorage: SecureStorage = secureStorageAPI.storage
-                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDepenendencies> = dependencyHolder
+                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDependencies> = dependencyHolder
             }
         }
     }
