@@ -1,21 +1,21 @@
 package me.s097t0r1.common.network.call_adapter
 
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import me.s097t0r1.core.exceptions.library.AppException
 import me.s097t0r1.ktcast.common.network.utils.deserialize
 import me.s097t0r1.ktcast.common.network.utils.model.ErrorResponse
-import me.s097t0r1.ktcast.libraries.reaction.Err
-import me.s097t0r1.ktcast.libraries.reaction.Ok
-import me.s097t0r1.ktcast.libraries.reaction.Reaction
+import me.s097t0r1.ktcast.libraries.either.Either
+import me.s097t0r1.ktcast.libraries.either.Err
+import me.s097t0r1.ktcast.libraries.either.Ok
 import okhttp3.Request
 import okio.Timeout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.net.ConnectException
-import java.net.SocketTimeoutException
-import java.net.UnknownHostException
 
-internal class ReactionCall<D>(private val delegate: Call<D>) : Call<Reaction<D, AppException.NetworkException>> {
+internal class EitherCall<D>(private val delegate: Call<D>) : Call<Either<D, AppException.NetworkException>> {
 
     override fun isExecuted(): Boolean = delegate.isExecuted
 
@@ -27,12 +27,12 @@ internal class ReactionCall<D>(private val delegate: Call<D>) : Call<Reaction<D,
 
     override fun timeout(): Timeout = delegate.timeout()
 
-    override fun clone(): Call<Reaction<D, AppException.NetworkException>> = ReactionCall(delegate)
+    override fun clone(): Call<Either<D, AppException.NetworkException>> = EitherCall(delegate)
 
-    override fun execute(): Response<Reaction<D, AppException.NetworkException>> =
+    override fun execute(): Response<Either<D, AppException.NetworkException>> =
         error("Only async call supported")
 
-    override fun enqueue(callback: Callback<Reaction<D, AppException.NetworkException>>) {
+    override fun enqueue(callback: Callback<Either<D, AppException.NetworkException>>) {
         delegate.enqueue(object : Callback<D> {
             override fun onResponse(call: Call<D>, response: Response<D>) {
                 if (response.isSuccessful) {
@@ -43,7 +43,7 @@ internal class ReactionCall<D>(private val delegate: Call<D>) : Call<Reaction<D,
                         else -> response.toAppException()
                     }
                     callback.onResponse(
-                        this@ReactionCall,
+                        this@EitherCall,
                         Response.success(Err.of(exception))
                     )
                 }
@@ -51,7 +51,7 @@ internal class ReactionCall<D>(private val delegate: Call<D>) : Call<Reaction<D,
 
             override fun onFailure(call: Call<D>, t: Throwable) {
                 callback.onResponse(
-                    this@ReactionCall,
+                    this@EitherCall,
                     Response.success(Err.of(t.toAppException()))
                 )
             }
@@ -59,17 +59,17 @@ internal class ReactionCall<D>(private val delegate: Call<D>) : Call<Reaction<D,
     }
 
     private fun handleSuccessResponse(
-        callback: Callback<Reaction<D, AppException.NetworkException>>,
+        callback: Callback<Either<D, AppException.NetworkException>>,
         response: Response<D>
     ) {
         if (response.body() != null) {
             callback.onResponse(
-                this@ReactionCall,
+                this@EitherCall,
                 Response.success(Ok.of(response.body()!!))
             )
         } else {
             callback.onResponse(
-                this@ReactionCall,
+                this@EitherCall,
                 Response.success(
                     Err.of(AppException.NetworkException.UnknownException)
                 )

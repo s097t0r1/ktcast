@@ -1,5 +1,6 @@
 package me.s097t0r1.ktcast.data.authorization.impl.repository
 
+import javax.inject.Inject
 import me.s097t0r1.core.exceptions.library.AppException
 import me.s097t0r1.ktcast.data.authorization.api.model.domain.AuthInfo
 import me.s097t0r1.ktcast.data.authorization.api.model.param.SignInParams
@@ -7,17 +8,16 @@ import me.s097t0r1.ktcast.data.authorization.api.repository.AuthorizationReposit
 import me.s097t0r1.ktcast.data.authorization.impl.mapper.AuthInfoMapper
 import me.s097t0r1.ktcast.data.authorization.impl.model.remote.request.TokenRequestDTO
 import me.s097t0r1.ktcast.data.authorization.impl.source.remote.AuthorizationRemoteDataSource
+import me.s097t0r1.ktcast.libraries.either.Either
+import me.s097t0r1.ktcast.libraries.either.Err
+import me.s097t0r1.ktcast.libraries.either.Ok
 import me.s097t0r1.ktcast.libraries.mapper.createMapper
-import me.s097t0r1.ktcast.libraries.reaction.Err
-import me.s097t0r1.ktcast.libraries.reaction.Ok
-import me.s097t0r1.ktcast.libraries.reaction.Reaction
-import javax.inject.Inject
 
 internal class AuthorizationRepositoryImpl @Inject constructor(
     private val remoteDataSource: AuthorizationRemoteDataSource
 ) : AuthorizationRepository {
 
-    override suspend fun signIn(params: SignInParams): Reaction<AuthInfo, AppException> {
+    override suspend fun signIn(params: SignInParams): Either<AuthInfo, AppException> {
         val react = remoteDataSource.signIn(
             TokenRequestDTO(
                 login = params.login,
@@ -30,7 +30,7 @@ internal class AuthorizationRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun signUp(params: SignInParams): Reaction<Unit, AppException> {
+    override suspend fun signUp(params: SignInParams): Either<Unit, AppException> {
         return remoteDataSource.signUp(
             TokenRequestDTO(
                 login = params.login,

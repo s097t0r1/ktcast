@@ -2,6 +2,7 @@ enableFeaturePreview("VERSION_CATALOGS")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         gradlePluginPortal()
         google()
@@ -49,26 +50,27 @@ include(":common:persistence:database:android-library")
 include(":common:persistence:secure-storage:android-library")
 
 include(":common:logout:android-library")
+
 // Libraries
 
 include(":libraries:mapper:library")
-include(":libraries:reaction:library")
+include(":libraries:either:library")
 include(":libraries:viewmodel-factory:android-library")
 include(":libraries:resource-provider:android-library")
 include(":libraries:validator:android-library")
 
 // Feature
 
-include(":feature:pre-authorized-zone:splash:api")
-include(":feature:pre-authorized-zone:splash:impl")
-include(":feature:pre-authorized-zone:splash:res")
-include(":feature:pre-authorized-zone:splash:screen")
+include(":feature:splash:api")
+include(":feature:splash:impl")
+include(":feature:splash:res")
+include(":feature:splash:screen")
 
-include(":feature:pre-authorized-zone:authorization:api")
-include(":feature:pre-authorized-zone:authorization:impl")
-include(":feature:pre-authorized-zone:authorization:screen")
-include(":feature:pre-authorized-zone:authorization:res")
-include(":feature:pre-authorized-zone:authorization:widget")
+include(":feature:authorization:api")
+include(":feature:authorization:impl")
+include(":feature:authorization:screen")
+include(":feature:authorization:res")
+include(":feature:authorization:widget")
 
 // Data
 
