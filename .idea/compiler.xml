@@ -76,6 +76,9 @@
       <module name="ktcast.feature.pre_authorized_zone.splash.impl" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.res" target="11" />
       <module name="ktcast.feature.pre_authorized_zone.splash.widget" target="11" />
+      <module name="ktcast.feature.profile.api" target="11" />
+      <module name="ktcast.feature.profile.impl" target="11" />
+      <module name="ktcast.impl" target="11" />
       <module name="ktcast.libraries.mapper.library" target="1.8" />
       <module name="ktcast.libraries.mapper.library.main" target="1.8" />
       <module name="ktcast.libraries.mapper.library.test" target="1.8" />
@@ -88,6 +91,7 @@
       <module name="ktcast.libraries.viewmodel-factory.android-library" target="11" />
       <module name="ktcast.libraries.viewmodel_factory.android-library" target="11" />
       <module name="ktcast.libraries.viewmodel_factory.android_library" target="11" />
+      <module name="ktcast.profile" target="11" />
       <module name="WeTalk.app" target="11" />
       <module name="WeTalk.buildSrc" target="11" />
       <module name="WeTalk.buildSrc.main" target="11" />
