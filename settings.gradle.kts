@@ -72,6 +72,9 @@ include(":feature:authorization:screen")
 include(":feature:authorization:res")
 include(":feature:authorization:widget")
 
+include(":feature:profile:api")
+include(":feature:profile:impl")
+
 // Data
 
 include(":data:authorization:api")

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile_feat_incorrect_full_name">Incorrect full name</string>
+    <string name="profile_feat_incorrect_nickname">Incorrect nickname</string>
+    <string name="profile_feat_incorrect_email">Incorrect email</string>
+
+    <string name="profile_feat_full_name_placeholder">Full Name</string>
+    <string name="profile_feat_nickname_placeholder">Nickname</string>
+    <string name="profile_feat_birthday_placeholder">Date of Birth</string>
+    <string name="profile_feat_email_placeholder">Email</string>
+</resources>

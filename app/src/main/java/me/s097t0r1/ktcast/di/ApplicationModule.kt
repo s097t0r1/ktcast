@@ -3,9 +3,9 @@ package me.s097t0r1.ktcast.di
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 import me.s097t0r1.ktcast.libraries.resource_provider.AndroidResourceProvider
 import me.s097t0r1.ktcast.libraries.resource_provider.ResourceProvider
-import javax.inject.Singleton
 
 @Module
 abstract class ApplicationModule {
@@ -17,6 +17,5 @@ abstract class ApplicationModule {
         fun provideResourceProvider(
             context: Context
         ): ResourceProvider = AndroidResourceProvider(context)
-
     }
 }

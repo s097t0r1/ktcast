@@ -1,0 +1,10 @@
+plugins {
+    id("ktcast-feature-implementation")
+    id("kotlin-kapt")
+}
+
+dependencies {
+    implementation(projects.feature.profile.api)
+
+    implementation(projects.libraries.validator.androidLibrary)
+}

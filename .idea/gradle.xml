@@ -64,6 +64,9 @@
             <option value="$PROJECT_DIR$/feature/authorization/res" />
             <option value="$PROJECT_DIR$/feature/authorization/screen" />
             <option value="$PROJECT_DIR$/feature/authorization/widget" />
+            <option value="$PROJECT_DIR$/feature/profile" />
+            <option value="$PROJECT_DIR$/feature/profile/api" />
+            <option value="$PROJECT_DIR$/feature/profile/impl" />
             <option value="$PROJECT_DIR$/feature/splash" />
             <option value="$PROJECT_DIR$/feature/splash/api" />
             <option value="$PROJECT_DIR$/feature/splash/impl" />
