@@ -3,6 +3,7 @@ package me.s097t0r1.ktcast.feature.profile.impl.presentation.fill_your_profile.u
 import me.s097t0r1.core.mvi.base.state.BaseState
 
 internal data class FillYourProfileUIState(
+    val avatarUri: String = "",
     val fieldsState: ProfileFields = ProfileFields(),
     val isContinueEnabled: Boolean = false
 ) : BaseState

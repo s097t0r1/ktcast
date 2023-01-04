@@ -9,4 +9,6 @@ object Endpoint {
     const val TOKEN_UPDATE = "Token/Update"
     const val USERS = "Users"
 
+    const val PROFILE = "Profile"
+
 }

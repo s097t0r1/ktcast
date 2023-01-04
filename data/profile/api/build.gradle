@@ -1,0 +1,10 @@
+plugins {
+    id("ktcast-feature-api")
+}
+
+dependencies {
+    implementation(projects.libraries.mapper.library)
+    implementation(projects.libraries.either.library)
+    implementation(projects.common.network.androidLibrary)
+    implementation(projects.core.exceptions.library)
+}

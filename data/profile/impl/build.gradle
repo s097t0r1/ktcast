@@ -1,0 +1,21 @@
+plugins {
+    id("ktcast-feature-implementation")
+    id("kotlin-kapt")
+}
+
+android {
+    compileOptions {
+        coreLibraryDesugaringEnabled = true
+    }
+}
+
+dependencies {
+    implementation(projects.data.profile.api)
+
+    implementation(projects.libraries.shelf)
+    implementation(projects.common.network.androidLibrary)
+
+    implementation(libs.squareup.retrofit)
+
+    implementation(libs.android.desugaring)
+}

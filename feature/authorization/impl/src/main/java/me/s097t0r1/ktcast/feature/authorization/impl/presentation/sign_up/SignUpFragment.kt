@@ -9,6 +9,7 @@ import androidx.compose.ui.unit.dp
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
+import javax.inject.Provider
 import me.s097t0r1.core.mvi.base.BaseFragment
 import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.ktcast.feature.authorization.impl.di.AuthorizationComponentHolder
@@ -19,15 +20,19 @@ import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpSideEffect
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpUIState
 import org.orbitmvi.orbit.compose.collectAsState
 
-internal class SignUpFragment : BaseFragment<SignUpViewModel, SignUpUIState, SignUpSideEffect, SignUpNavigationGraph>() {
+internal class SignUpFragment :
+    BaseFragment<SignUpViewModel, SignUpUIState, SignUpSideEffect, SignUpNavigationGraph>() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
+    @Inject
+    lateinit var navigationProviderFactory: Provider<SignUpNavigationProvider>
+
     override val viewModel: SignUpViewModel by viewModels { viewModelFactory }
 
     override val navigationProvider: NavigationProvider<SignUpNavigationGraph> by lazy {
-        SignUpNavigationProvider()
+        navigationProviderFactory.get()
     }
 
     override fun onInjectDaggerComponent() = AuthorizationComponentHolder.getDaggerComponent().inject(this)

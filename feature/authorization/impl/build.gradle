@@ -10,4 +10,6 @@ dependencies {
     implementation(projects.data.authorization.api)
 
     implementation(projects.common.persistence.secureStorage.androidLibrary)
+
+    implementation(projects.feature.profile.api)
 }

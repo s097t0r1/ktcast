@@ -9,10 +9,11 @@ import kotlinx.coroutines.flow.onEach
 import me.s097t0r1.core.mvi.base.BaseViewModel
 import me.s097t0r1.ktcast.feature.authorization.impl.domain.SignUpInteractor
 import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation.SignUpNavigationGraph
+import me.s097t0r1.ktcast.feature.authorization.res.R
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.EmailFieldState
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpSideEffect
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpUIState
-import me.s097t0r1.ktcast.libraries.either.fold
+import me.s097t0r1.ktcast.libraries.either.subscribe
 import me.s097t0r1.ktcast.libraries.resource_provider.ResourceProvider
 import me.s097t0r1.ktcast.libraries.validator.DefaultValidator
 import me.s097t0r1.ktcast.libraries.validator.ext.asFlow
@@ -31,7 +32,7 @@ class SignUpViewModel @Inject constructor(
 
     private val emailValidator = DefaultValidator.Builder<String>()
         .addRule(
-            resourceProvider.getString(me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_invalid_email_format),
+            resourceProvider.getString(R.string.auth_feature_invalid_email_format),
             Standard.RegexRule(
                 Regex(
                     Standard.RegexRule.EMAIL_ADDRESS_REGEX,
@@ -43,7 +44,10 @@ class SignUpViewModel @Inject constructor(
         .build()
 
     private val passwordValidator = DefaultValidator.Builder<String>()
-        .addRule(resourceProvider.getString(me.s097t0r1.ktcast.feature.authorization.res.R.string.auth_feature_invalid_password_format), Standard.RegexRule(PASSWORD_REGEX))
+        .addRule(
+            resourceProvider.getString(R.string.auth_feature_invalid_password_format),
+            Standard.RegexRule(PASSWORD_REGEX)
+        )
         .setOperator(AndOperator())
         .build()
 
@@ -103,11 +107,13 @@ class SignUpViewModel @Inject constructor(
         interactor.signUp(
             state.emailField.value,
             state.passwordField.value
-        ).fold(
-            onSuccess = { navigateTo(SignUpNavigationGraph.FillProfileScreen) },
+        ).subscribe(
+            onSuccess = { navigateToProfile() },
             onFailure = ::onError
         )
     }
+
+    private fun navigateToProfile() = navigateTo(SignUpNavigationGraph.FillProfileScreen)
 
     fun onSignInClicked() = navigateTo(SignUpNavigationGraph.SignInScreen)
 

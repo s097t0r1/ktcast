@@ -59,7 +59,7 @@ abstract class BaseViewModel<S : BaseState, E : BaseSideEffect, N : NavigationGr
         viewModelScope.launch { _navigation.send(screen) }
     }
 
-    protected fun alert(alertType: AlertSnackBarHost.AlertType, message: String) {
+    fun alert(alertType: AlertSnackBarHost.AlertType, message: String) {
         _hostSideEffect.tryEmit(HostSideEffect.Alert(alertType, message))
     }
 

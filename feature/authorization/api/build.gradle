@@ -13,4 +13,5 @@ dependencies {
 
     implementation(libs.androidx.appcompat)
 
+    implementation(projects.feature.profile.api)
 }

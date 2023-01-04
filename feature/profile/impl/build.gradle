@@ -5,6 +5,10 @@ plugins {
 
 dependencies {
     implementation(projects.feature.profile.api)
+    implementation(projects.data.profile.api)
 
     implementation(projects.libraries.validator.androidLibrary)
+    implementation(projects.libraries.utils.lifecycle)
+
+    implementation(libs.io.coil.compose)
 }

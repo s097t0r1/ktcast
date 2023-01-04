@@ -57,6 +57,9 @@
             <option value="$PROJECT_DIR$/data/authorization" />
             <option value="$PROJECT_DIR$/data/authorization/api" />
             <option value="$PROJECT_DIR$/data/authorization/impl" />
+            <option value="$PROJECT_DIR$/data/profile" />
+            <option value="$PROJECT_DIR$/data/profile/api" />
+            <option value="$PROJECT_DIR$/data/profile/impl" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/authorization" />
             <option value="$PROJECT_DIR$/feature/authorization/api" />
@@ -79,9 +82,11 @@
             <option value="$PROJECT_DIR$/libraries/mapper/library" />
             <option value="$PROJECT_DIR$/libraries/resource-provider" />
             <option value="$PROJECT_DIR$/libraries/resource-provider/android-library" />
+            <option value="$PROJECT_DIR$/libraries/shelf" />
             <option value="$PROJECT_DIR$/libraries/utils" />
             <option value="$PROJECT_DIR$/libraries/utils/core" />
             <option value="$PROJECT_DIR$/libraries/utils/core/android_library" />
+            <option value="$PROJECT_DIR$/libraries/utils/lifecycle" />
             <option value="$PROJECT_DIR$/libraries/validator" />
             <option value="$PROJECT_DIR$/libraries/validator/android-library" />
             <option value="$PROJECT_DIR$/libraries/viewmodel-factory" />

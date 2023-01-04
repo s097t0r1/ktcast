@@ -20,7 +20,7 @@ class Ok<out V> private constructor(val value: V) : Either<V, Nothing>() {
     }
 }
 
-class Err<out E > private constructor(val err: E) : Either<Nothing, E>() {
+class Err<out E> private constructor(val err: E) : Either<Nothing, E>() {
     override fun component1(): Nothing? = null
     override fun component2(): E? = err
 
@@ -69,5 +69,14 @@ inline fun <T1, T2, E1> Either<T1, E1>.andThen(
     return when (this) {
         is Ok -> block(this.value)
         is Err -> Err.of(err)
+    }
+}
+
+inline fun <T1, E1, E2> Either<T1, E1>.mapError(
+    transform: (E1) -> E2
+): Either<T1, E2> {
+    return when(this) {
+        is Ok -> this
+        is Err -> Err.of(transform(err))
     }
 }

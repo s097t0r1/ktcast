@@ -80,4 +80,9 @@ include(":feature:profile:impl")
 include(":data:authorization:api")
 include(":data:authorization:impl")
 
+include(":data:profile:api")
+include(":data:profile:impl")
+
 include(":libraries:utils:core:android_library")
+include(":libraries:utils:lifecycle")
+include(":libraries:shelf")

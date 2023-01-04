@@ -16,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import me.s097t0r1.core.ui_components.components.KtCastOutlinedTextField
 import me.s097t0r1.core.ui_components.theme.KtCastTheme
 import me.s097t0r1.ktcast.feature.profile.impl.R
@@ -100,7 +101,11 @@ internal fun AvatarBlock(
 ) {
     Box(modifier) {
         Image(
-            painter = painterResource(id = R.drawable.ic_profile_feat_avatar_placeholder),
+            painter = if(imagePath.isEmpty()) {
+                painterResource(id = R.drawable.ic_profile_feat_avatar_placeholder)
+            } else {
+                rememberAsyncImagePainter(model = imagePath)
+            },
             contentDescription = null
         )
         IconButton(
