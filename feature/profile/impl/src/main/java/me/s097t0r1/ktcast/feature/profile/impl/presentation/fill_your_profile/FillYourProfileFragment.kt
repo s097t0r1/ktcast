@@ -74,6 +74,6 @@ internal class FillYourProfileFragment() :
     private fun openImagePicker() = imagePickerLauncher.launch(IMAGE_MIME_TYPE)
 
     companion object {
-        const val IMAGE_MIME_TYPE = "image/*"
+        private const val IMAGE_MIME_TYPE = "image/*"
     }
 }

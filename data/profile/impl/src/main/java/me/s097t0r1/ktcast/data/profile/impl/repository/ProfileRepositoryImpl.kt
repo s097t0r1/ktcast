@@ -24,7 +24,7 @@ class ProfileRepositoryImpl @Inject constructor(
     override suspend fun getProfile(): Either<Profile, AppException> {
         return localDataSource.getProfile()
             .fold(
-                onSuccess = { return@fold Ok.of(createMapper<ProfileLToDMapper>().map(it)) },
+                onSuccess = { Ok.of(createMapper<ProfileLToDMapper>().map(it)) },
                 onFailure = {
                     remoteDataSource.getProfile()
                         .andThen { Ok.of(createMapper<ProfileRToDMapper>().map(it)) }

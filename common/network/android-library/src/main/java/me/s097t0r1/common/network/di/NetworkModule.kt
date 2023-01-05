@@ -93,5 +93,5 @@ internal object NetworkModule {
         .build()
 
     const val UNAUTHORIZED = "UNAUTHORIZED_API_FACTORY"
-    const val AUTHORIZED = "AUHTORIZED_API_FACTORY"
+    const val AUTHORIZED = "AUTHORIZED_API_FACTORY"
 }

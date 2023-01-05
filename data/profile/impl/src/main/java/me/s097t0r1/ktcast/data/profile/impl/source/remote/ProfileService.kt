@@ -10,8 +10,8 @@ import retrofit2.http.GET
 interface ProfileService : NetworkService {
 
     @GET(Endpoint.PROFILE)
-    suspend fun getProfile(): Either<RemoteProfile, AppException>
+    suspend fun getProfile(): Either<RemoteProfile, AppException.NetworkException>
 
     @GET(Endpoint.PROFILE)
-    suspend fun updateProfile(): Either<Unit, AppException>
+    suspend fun updateProfile(): Either<Unit, AppException.NetworkException>
 }

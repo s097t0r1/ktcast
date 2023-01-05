@@ -10,9 +10,9 @@ import me.s097t0r1.ktcast.libraries.either.Either
 
 interface ProfileRemoteDataSource {
 
-    suspend fun getProfile(): Either<RemoteProfile, AppException>
+    suspend fun getProfile(): Either<RemoteProfile, AppException.NetworkException>
 
-    suspend fun updateProfile(profile: RemoteProfile): Either<Unit, AppException>
+    suspend fun updateProfile(profile: RemoteProfile): Either<Unit, AppException.NetworkException>
 
     class Base @Inject constructor(
         serviceFactory: NetworkServiceFactory
@@ -20,8 +20,9 @@ interface ProfileRemoteDataSource {
 
         private val service = serviceFactory.create<ProfileService>()
 
-        override suspend fun getProfile(): Either<RemoteProfile, AppException> = service.getProfile()
+        override suspend fun getProfile(): Either<RemoteProfile, AppException.NetworkException> = service.getProfile()
 
-        override suspend fun updateProfile(profile: RemoteProfile): Either<Unit, AppException> = service.updateProfile()
+        override suspend fun updateProfile(profile: RemoteProfile): Either<Unit, AppException.NetworkException> =
+            service.updateProfile()
     }
 }

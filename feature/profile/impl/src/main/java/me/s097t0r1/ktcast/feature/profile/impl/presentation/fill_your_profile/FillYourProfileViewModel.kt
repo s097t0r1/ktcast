@@ -25,7 +25,7 @@ import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 
 internal class FillYourProfileViewModel @Inject constructor(
-    private val resProvider: ResourceProvider,
+    resProvider: ResourceProvider,
     private val interactor: FillYourProfileInteractor
 ) : BaseViewModel<FillYourProfileUIState, FillYourProfileSideEffect, FillYourProfileNavGraph>() {
 
@@ -39,7 +39,7 @@ internal class FillYourProfileViewModel @Inject constructor(
 
     private val nicknameValidator = DefaultValidator.Builder<String>()
         .addRule(
-            resProvider.getString(R.string.profile_feat_incorrect_full_name),
+            resProvider.getString(R.string.profile_feat_incorrect_nickname),
             Standard.RegexRule(Regex(NICKNAME_REGEX))
         )
         .setOperator(AndOperator())
@@ -47,7 +47,7 @@ internal class FillYourProfileViewModel @Inject constructor(
 
     private val emailValidator = DefaultValidator.Builder<String>()
         .addRule(
-            resProvider.getString(R.string.profile_feat_incorrect_full_name),
+            resProvider.getString(R.string.profile_feat_incorrect_email),
             Standard.RegexRule(Regex(Standard.RegexRule.EMAIL_ADDRESS_REGEX))
         )
         .setOperator(AndOperator())
