@@ -10,7 +10,6 @@ import javax.inject.Inject
 
 interface SecureStorage {
 
-    var role: Role?
     var webToken: String?
 
     fun clear()
@@ -37,12 +36,6 @@ internal class AndroidSecureStorage @Inject constructor(context: Context) : Secu
         EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
     )
 
-    override var role: Role?
-        get() = sharedPreferences.getString(ROLE_KEY, null)?.let(Role::valueOf)
-        set(value) = sharedPreferences.edit {
-            putString(ROLE_KEY, value?.name)
-        }
-
     override var webToken: String?
         get() = sharedPreferences.getString(WEB_TOKEN_KEY, null)
         set(value) = sharedPreferences.edit {
@@ -54,13 +47,8 @@ internal class AndroidSecureStorage @Inject constructor(context: Context) : Secu
     }
 
     companion object {
-        private const val SHARED_PREFS_FILE_NAME =
-            "me.s097t0r1.ktcast.common.secure_storage.storage"
-
+        private const val SHARED_PREFS_FILE_NAME = "me.s097t0r1.ktcast.common.secure_storage.storage"
         private const val ROLE_KEY = "me.s097t0r1.ktcast.common.secure_storage.storage.ROLE"
-        private const val WEB_TOKEN_KEY =
-            "me.s097t0r1.ktcast.common.secure_storage.storage.WEB_TOKEN_KEY"
-
+        private const val WEB_TOKEN_KEY = "me.s097t0r1.ktcast.common.secure_storage.storage.WEB_TOKEN_KEY"
     }
-
 }
