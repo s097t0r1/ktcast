@@ -76,8 +76,11 @@
             <option value="$PROJECT_DIR$/feature/splash/res" />
             <option value="$PROJECT_DIR$/feature/splash/screen" />
             <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/deps-holder-proccessor" />
             <option value="$PROJECT_DIR$/libraries/either" />
             <option value="$PROJECT_DIR$/libraries/either/library" />
+            <option value="$PROJECT_DIR$/libraries/deps-holder-proccessor" />
+            <option value="$PROJECT_DIR$/libraries/deps-holder-proccessor/library" />
             <option value="$PROJECT_DIR$/libraries/mapper" />
             <option value="$PROJECT_DIR$/libraries/mapper/library" />
             <option value="$PROJECT_DIR$/libraries/resource-provider" />

@@ -91,7 +91,9 @@
       <module name="ktcast.feature.splash.impl" target="11" />
       <module name="ktcast.feature.splash.res" target="11" />
       <module name="ktcast.feature.splash.screen" target="11" />
-      <module name="ktcast.impl" target="11" />
+      <module name="ktcast.libraries.deps-holder-proccessor.library" target="11" />
+      <module name="ktcast.libraries.deps-holder-proccessor.library.main" target="1.8" />
+      <module name="ktcast.libraries.deps-holder-proccessor.library.test" target="1.8" />
       <module name="ktcast.libraries.mapper.library" target="1.8" />
       <module name="ktcast.libraries.mapper.library.main" target="1.8" />
       <module name="ktcast.libraries.mapper.library.test" target="1.8" />
@@ -104,7 +106,6 @@
       <module name="ktcast.libraries.utils.core.android-library.test" target="1.8" />
       <module name="ktcast.libraries.utils.core.android_library" target="11" />
       <module name="ktcast.libraries.utils.lifecycle" target="11" />
-      <module name="ktcast.libraries.utils.lifecycler" target="11" />
       <module name="ktcast.libraries.validator.android-library" target="11" />
       <module name="ktcast.libraries.viewmodel-factory.android-library" target="11" />
       <module name="ktcast.libraries.viewmodel_factory.android-library" target="11" />

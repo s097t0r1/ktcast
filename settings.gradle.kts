@@ -83,6 +83,8 @@ include(":data:authorization:impl")
 include(":data:profile:api")
 include(":data:profile:impl")
 
+include(":libraries:deps-holder-proccessor:library")
 include(":libraries:utils:core:android_library")
 include(":libraries:utils:lifecycle")
 include(":libraries:shelf")
+include(":libraries:deps-holder-proccessor:library")
