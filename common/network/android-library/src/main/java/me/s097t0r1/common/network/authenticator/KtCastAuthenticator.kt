@@ -55,7 +55,7 @@ internal class KtCastAuthenticator @Inject constructor(
 
     private interface AuthService : NetworkService {
 
-        @POST(Endpoint.TOKEN_UPDATE)
+        @POST(Endpoint.USER_LOGIN)
         suspend fun tokenUpdate(
             @Header(AUTHORIZATION_HEADER_NAME) token: String
         ): Either<TokenUpdateDTO, AppException.NetworkException>

@@ -1,12 +1,9 @@
 package me.s097t0r1.common.network
 
-const val BASE_URL = "https://api-podcasts.ru"
+const val BASE_URL = "http://185.104.115.136/api/v1/"
 
 object Endpoint {
 
-    const val TOKEN = "Token"
-    const val AUTH_TOKEN = "Auth/Token"
-    const val TOKEN_UPDATE = "Token/Update"
-    const val USERS = "Users"
+    const val USER_LOGIN = "user/login/{username}"
 
 }

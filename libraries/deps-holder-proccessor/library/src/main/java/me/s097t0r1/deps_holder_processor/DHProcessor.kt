@@ -16,14 +16,18 @@ internal class DHProcessor(
     private val metaInfo: MetaInfoProccessor
 ) : SymbolProcessor {
 
+    private var isAlreadyProcessed = false
+    private val baseFiles: MutableList<Int> = mutableListOf()
+
     override fun process(resolver: Resolver): List<KSAnnotated> {
+        if (isAlreadyProcessed) return emptyList()
         logger.warn("Processing...")
         val ret = resolver.getSymbolsWithAnnotation(ComponentHolder::class.qualifiedName!!)
-        val baseFiles: MutableList<Int> = mutableListOf()
         ret.forEach {
             it.accept(DependencyHolderVisitor(codeGenerator, logger, metaInfo, baseFiles), Unit)
         }
 
+        isAlreadyProcessed = true
         return ret.toList()
     }
 }
@@ -57,6 +61,7 @@ class DependencyHolderVisitor(
             ).bufferedWriter()
                 .createDependencyHolder(numberOfComponents, codeGeneratorMetaInfo)
                 .close()
+                .also { files.add(numberOfComponents) }
         } catch (e: FileAlreadyExistsException) {
             return
         }
