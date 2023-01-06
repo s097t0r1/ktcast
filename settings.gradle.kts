@@ -78,3 +78,4 @@ include(":data:authorization:api")
 include(":data:authorization:impl")
 
 include(":libraries:utils:core:android_library")
+include(":libraries:deps-holder-proccessor:library")

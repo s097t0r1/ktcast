@@ -62,6 +62,13 @@
       <module name="ktcast.feature.authorization.res" target="11" />
       <module name="ktcast.feature.authorization.screen" target="11" />
       <module name="ktcast.feature.authorization.widget" target="11" />
+      <module name="ktcast.data.profile.api" target="11" />
+      <module name="ktcast.data.profile.impl" target="11" />
+      <module name="ktcast.feature.authorization.api" target="11" />
+      <module name="ktcast.feature.authorization.impl" target="11" />
+      <module name="ktcast.feature.authorization.res" target="11" />
+      <module name="ktcast.feature.authorization.screen" target="11" />
+      <module name="ktcast.feature.authorization.widget" target="11" />
       <module name="ktcast.feature.pre-authorized-zone.authorization.api" target="11" />
       <module name="ktcast.feature.pre-authorized-zone.authorization.impl" target="11" />
       <module name="ktcast.feature.pre-authorized-zone.authorization.res" target="11" />
@@ -90,14 +97,25 @@
       <module name="ktcast.feature.splash.impl" target="11" />
       <module name="ktcast.feature.splash.res" target="11" />
       <module name="ktcast.feature.splash.screen" target="11" />
+      <module name="ktcast.feature.profile.api" target="11" />
+      <module name="ktcast.feature.profile.impl" target="11" />
+      <module name="ktcast.feature.splash.api" target="11" />
+      <module name="ktcast.feature.splash.impl" target="11" />
+      <module name="ktcast.feature.splash.res" target="11" />
+      <module name="ktcast.feature.splash.screen" target="11" />
+      <module name="ktcast.libraries.deps-holder-proccessor.library" target="11" />
+      <module name="ktcast.libraries.deps-holder-proccessor.library.main" target="1.8" />
+      <module name="ktcast.libraries.deps-holder-proccessor.library.test" target="1.8" />
       <module name="ktcast.libraries.mapper.library" target="1.8" />
       <module name="ktcast.libraries.mapper.library.main" target="1.8" />
       <module name="ktcast.libraries.mapper.library.test" target="1.8" />
       <module name="ktcast.libraries.resource-provider.android-library" target="11" />
       <module name="ktcast.libraries.resource-provider.androidLibrary" target="11" />
+      <module name="ktcast.libraries.shelf" target="11" />
       <module name="ktcast.libraries.utils.core.android-library.main" target="1.8" />
       <module name="ktcast.libraries.utils.core.android-library.test" target="1.8" />
       <module name="ktcast.libraries.utils.core.android_library" target="11" />
+      <module name="ktcast.libraries.utils.lifecycle" target="11" />
       <module name="ktcast.libraries.validator.android-library" target="11" />
       <module name="ktcast.libraries.viewmodel-factory.android-library" target="11" />
       <module name="ktcast.libraries.viewmodel_factory.android-library" target="11" />

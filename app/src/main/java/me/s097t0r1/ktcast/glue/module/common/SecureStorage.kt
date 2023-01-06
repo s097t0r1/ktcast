@@ -4,7 +4,7 @@ import android.content.Context
 import me.s097t0r1.core.di.base.BaseFeatureDependencies
 import me.s097t0r1.core.di.base.Provider
 import me.s097t0r1.core.di.base.holder.BaseDependencyHolder
-import me.s097t0r1.core.di.base.holder.BaseDependencyHolder0
+import me.s097t0r1.core.di.base.holders.BaseDependencyHolder0
 import me.s097t0r1.ktcast.common.secure_storage.di.SecureStorageComponentHolder
 import me.s097t0r1.ktcast.common.secure_storage.di.SecureStorageDependencies
 
