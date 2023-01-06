@@ -46,12 +46,9 @@ class DependencyHolderVisitor(
             return
         }
 
-        logger.warn("Number of components: $numberOfComponents", function)
         val fileName = "DependencyHolder$numberOfComponents"
-
         if (files.contains(numberOfComponents)) return
 
-        logger.warn(codeGenerator.generatedFile.toString())
         try {
             codeGenerator.createNewFile(
                 Dependencies(false),
@@ -64,9 +61,6 @@ class DependencyHolderVisitor(
             return
         }
     }
-
-    private fun isDuplicatedFile(fileName: String): Boolean =
-        codeGenerator.generatedFile.any { it.nameWithoutExtension == fileName }
 
     private fun BufferedWriter.createDependencyHolder(
         numberOfComponents: Int,
@@ -104,7 +98,7 @@ class DependencyHolderVisitor(
 
     private fun BufferedWriter.addFactoryMethod(numberOfComponents: Int) {
         appendLine("companion object {")
-        appendLine("fun <D : BaseFeatureDepenendencies,")
+        appendLine("fun <D : BaseFeatureDependencies,")
         for (i in 0 until numberOfComponents) {
             appendLine("A$i : BaseFeatureAPI,")
         }
@@ -141,7 +135,7 @@ class DependencyHolderVisitor(
         for (i in 0 until numberOfComponents) {
             appendLine("A$i : BaseFeatureAPI,")
         }
-        appendLine("D : BaseFeatureDepenendencies>(")
+        appendLine("D : BaseFeatureDependencies>(")
         for (i in 0 until numberOfComponents) {
             appendLine("private val a$i: A$i,")
         }

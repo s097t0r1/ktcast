@@ -5,9 +5,11 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
+import javax.inject.Singleton
 import me.s097t0r1.common.network.BASE_URL
 import me.s097t0r1.common.network.authenticator.KtCastAuthenticator
-import me.s097t0r1.common.network.call_adapter.ReactionCallAdapterFactory
+import me.s097t0r1.common.network.call_adapter.EitherCallAdapterFactory
 import me.s097t0r1.common.network.factory.NetworkServiceFactory
 import me.s097t0r1.common.network.interceptors.ApplicationInterceptor
 import okhttp3.Interceptor
@@ -15,8 +17,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Named
-import javax.inject.Singleton
 
 @Module
 internal object NetworkModule {
@@ -47,7 +47,7 @@ internal object NetworkModule {
     ): Retrofit = Retrofit.Builder().apply {
         baseUrl(BASE_URL)
         addConverterFactory(MoshiConverterFactory.create(moshi))
-        addCallAdapterFactory(ReactionCallAdapterFactory())
+        addCallAdapterFactory(EitherCallAdapterFactory())
         client(okHttpClient)
     }.build()
 
@@ -61,7 +61,7 @@ internal object NetworkModule {
     ): Retrofit = Retrofit.Builder().apply {
         baseUrl(BASE_URL)
         addConverterFactory(MoshiConverterFactory.create(moshi))
-        addCallAdapterFactory(ReactionCallAdapterFactory())
+        addCallAdapterFactory(EitherCallAdapterFactory())
         client(okHttpClient)
     }.build()
 

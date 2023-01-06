@@ -1,0 +1,6 @@
+{
+  "package_location": "me.s097t0r1.core.di.base.holders",
+  "feature_api_package": "me.s097t0r1.core.di.base.BaseFeatureAPI",
+  "feature_dependency_package": "me.s097t0r1.core.di.base.BaseFeatureDependencies",
+  "dependency_holder_package": "me.s097t0r1.core.di.base.holder.BaseDependencyHolder"
+}

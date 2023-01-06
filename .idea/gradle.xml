@@ -4,6 +4,17 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/build-logic" name="build-logic">
+                <projects>
+                  <project path="$PROJECT_DIR$/build-logic" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -12,7 +23,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/logout" />
             <option value="$PROJECT_DIR$/common/logout/android-library" />
@@ -47,25 +58,24 @@
             <option value="$PROJECT_DIR$/data/authorization/api" />
             <option value="$PROJECT_DIR$/data/authorization/impl" />
             <option value="$PROJECT_DIR$/feature" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/authorization" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/authorization/api" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/authorization/impl" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/authorization/res" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/authorization/screen" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/authorization/widget" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/splash" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/splash/api" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/splash/impl" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/splash/res" />
-            <option value="$PROJECT_DIR$/feature/pre-authorized-zone/splash/screen" />
+            <option value="$PROJECT_DIR$/feature/authorization" />
+            <option value="$PROJECT_DIR$/feature/authorization/api" />
+            <option value="$PROJECT_DIR$/feature/authorization/impl" />
+            <option value="$PROJECT_DIR$/feature/authorization/res" />
+            <option value="$PROJECT_DIR$/feature/authorization/screen" />
+            <option value="$PROJECT_DIR$/feature/authorization/widget" />
+            <option value="$PROJECT_DIR$/feature/splash" />
+            <option value="$PROJECT_DIR$/feature/splash/api" />
+            <option value="$PROJECT_DIR$/feature/splash/impl" />
+            <option value="$PROJECT_DIR$/feature/splash/res" />
+            <option value="$PROJECT_DIR$/feature/splash/screen" />
             <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/either" />
+            <option value="$PROJECT_DIR$/libraries/either/library" />
             <option value="$PROJECT_DIR$/libraries/deps-holder-proccessor" />
             <option value="$PROJECT_DIR$/libraries/deps-holder-proccessor/library" />
             <option value="$PROJECT_DIR$/libraries/mapper" />
             <option value="$PROJECT_DIR$/libraries/mapper/library" />
-            <option value="$PROJECT_DIR$/libraries/reaction" />
-            <option value="$PROJECT_DIR$/libraries/reaction/library" />
             <option value="$PROJECT_DIR$/libraries/resource-provider" />
             <option value="$PROJECT_DIR$/libraries/resource-provider/android-library" />
             <option value="$PROJECT_DIR$/libraries/utils" />

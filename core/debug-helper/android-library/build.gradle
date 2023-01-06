@@ -1,0 +1,23 @@
+plugins {
+    id("ktcast-android-library")
+}
+
+android {
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+    debugImplementation(libs.pandulapetor.beagle)
+    releaseImplementation(libs.pandulapetor.beagle.noop)
+
+    debugImplementation(libs.pandulapetor.beagle.okhttp)
+    releaseImplementation(libs.pandulapetor.beagle.okhttp.noop)
+
+    debugImplementation(libs.pandulapetor.beagle.logger)
+    releaseImplementation(libs.pandulapetor.beagle.logger.noop)
+
+    implementation(libs.jakewharton.timber)
+}

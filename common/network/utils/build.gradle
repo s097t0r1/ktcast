@@ -1,0 +1,9 @@
+plugins {
+    id("ktcast-java-library")
+}
+
+dependencies {
+
+    implementation(libs.squareup.moshi)
+
+}

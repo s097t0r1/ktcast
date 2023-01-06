@@ -1,0 +1,29 @@
+plugins {
+    id("com.android.library")
+    id("ktcast-android-library")
+    id("kotlin-kapt")
+}
+
+dependencies {
+
+    implementation(projects.common.network.utils)
+
+    implementation(libs.google.dagger)
+    kapt(libs.google.dagger.compiler)
+
+    implementation(libs.squareup.retrofit)
+    implementation(libs.squareup.okhttp)
+    implementation(libs.squareup.okhttp.logger)
+    implementation(libs.squareup.moshi)
+    implementation(libs.squareup.moshi.converter)
+    implementation(libs.jetbrains.coroutines.android)
+
+    debugImplementation(libs.pandulapetor.beagle.okhttp)
+    releaseImplementation(libs.pandulapetor.beagle.okhttp.noop)
+
+    implementation(projects.core.di.library)
+    implementation(projects.core.exceptions.library)
+    implementation(projects.libraries.either.library)
+
+    implementation(projects.common.persistence.secureStorage.androidLibrary)
+}

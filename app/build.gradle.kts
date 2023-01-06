@@ -26,5 +26,5 @@ dependencies {
 }
 
 ksp {
-    arg("jsonConfigurationFilePath", "$rootDir/app/appDepsConfiguration.json")
+    arg("jsonConfigurationFilePath", "$rootDir/app/dhconfig.json")
 }

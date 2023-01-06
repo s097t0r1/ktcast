@@ -2,7 +2,7 @@ package me.s097t0r1.ktcast.glue.module.common
 
 import me.s097t0r1.common.network.di.NetworkComponentHolder
 import me.s097t0r1.common.network.di.NetworkDependencies
-import me.s097t0r1.core.di.base.BaseFeatureDepenendencies
+import me.s097t0r1.core.di.base.BaseFeatureDependencies
 import me.s097t0r1.core.di.base.Provider
 import me.s097t0r1.core.di.base.holder.BaseDependencyHolder
 import me.s097t0r1.core.di.base.holders.BaseDependencyHolder1
@@ -18,7 +18,7 @@ internal fun glueNetworkModule() {
         ) { secureStorageAPI, dh ->
             object : NetworkDependencies {
                 override val secureStorage: SecureStorage = secureStorageAPI.storage
-                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDepenendencies> = dh
+                override val dependencyProvider: BaseDependencyHolder<out BaseFeatureDependencies> = dh
             }
         }
     }

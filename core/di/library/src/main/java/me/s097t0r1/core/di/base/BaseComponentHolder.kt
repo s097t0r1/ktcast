@@ -2,7 +2,7 @@ package me.s097t0r1.core.di.base
 
 import java.lang.ref.WeakReference
 
-abstract class BaseComponentHolder<A : BaseFeatureAPI, D : BaseFeatureDepenendencies> {
+abstract class BaseComponentHolder<A : BaseFeatureAPI, D : BaseFeatureDependencies> {
 
     private var weakRef: WeakReference<A>? = null
 
