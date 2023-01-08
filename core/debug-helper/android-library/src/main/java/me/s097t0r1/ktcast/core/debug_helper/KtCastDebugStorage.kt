@@ -1,11 +1,12 @@
 package me.s097t0r1.ktcast.core.debug_helper
 
-import android.app.Activity
 import android.content.Context
+import androidx.core.content.edit
+import me.s097t0r1.ktcast.core.debug_helper.modules.stand_module.Stand
 
-class NetworkModule(private val hostActivity: Activity) {
+class KtCastDebugStorage(context: Context) {
 
-    private val storage = hostActivity.applicationContext.getSharedPreferences(
+    private val storage = context.getSharedPreferences(
         STORAGE_NAME,
         Context.MODE_PRIVATE,
     )
@@ -16,14 +17,11 @@ class NetworkModule(private val hostActivity: Activity) {
                 ?: Stand.MOCKER.name
         )
         set(value) {
-            storage.edit().putString(STAND_KEY, value.name).apply()
-            hostActivity.recreate()
+            storage.edit {
+                putString(STAND_KEY, value.name)
+            }
         }
 
-    enum class Stand(val baseUrl: String) {
-        MOCKER("https://virtserver.swaggerhub.com/S097T0R1_1/ktcast/1.0.0/"),
-        TEST("http://185.104.115.136/api/v1/")
-    }
 
     companion object {
         private const val STORAGE_NAME = "me.s097t0r1.ktcast.core.debug_helper"
