@@ -1,14 +1,31 @@
 package me.s097t0r1.ktcast.core.debug_helper
 
 import android.app.Application
+import android.content.Context
 import com.pandulapeter.beagle.Beagle
 import com.pandulapeter.beagle.common.configuration.Behavior
 import com.pandulapeter.beagle.log.BeagleLogger
 import com.pandulapeter.beagle.logOkHttp.BeagleOkHttpLogger
-import com.pandulapeter.beagle.modules.*
+import com.pandulapeter.beagle.modules.AnimationDurationSwitchModule
+import com.pandulapeter.beagle.modules.AppInfoButtonModule
+import com.pandulapeter.beagle.modules.BugReportButtonModule
+import com.pandulapeter.beagle.modules.DeveloperOptionsButtonModule
+import com.pandulapeter.beagle.modules.DeviceInfoModule
+import com.pandulapeter.beagle.modules.DividerModule
+import com.pandulapeter.beagle.modules.HeaderModule
+import com.pandulapeter.beagle.modules.KeylineOverlaySwitchModule
+import com.pandulapeter.beagle.modules.LifecycleLogListModule
+import com.pandulapeter.beagle.modules.LogListModule
+import com.pandulapeter.beagle.modules.NetworkLogListModule
+import com.pandulapeter.beagle.modules.PaddingModule
+import com.pandulapeter.beagle.modules.ScreenCaptureToolboxModule
+import com.pandulapeter.beagle.modules.TextModule
+import me.s097t0r1.ktcast.core.debug_helper.modules.stand_module.NetworkStandModule
 import timber.log.Timber
 
 object KtCastDebugHelper {
+
+    lateinit var storage: KtCastDebugStorage
 
     fun initialize(application: Application) {
         Beagle.initialize(
@@ -22,7 +39,12 @@ object KtCastDebugHelper {
                 ),
             )
         )
+        initStorage(application)
         initModules()
+    }
+
+    private fun initStorage(context: Context) {
+        storage = KtCastDebugStorage(context)
     }
 
     private fun initModules() {
@@ -38,6 +60,7 @@ object KtCastDebugHelper {
             KeylineOverlaySwitchModule(),
             AnimationDurationSwitchModule(),
             ScreenCaptureToolboxModule(),
+            NetworkStandModule(),
             DividerModule(),
             TextModule("Logs", TextModule.Type.SECTION_HEADER),
             NetworkLogListModule(), // Might require additional setup, see below
