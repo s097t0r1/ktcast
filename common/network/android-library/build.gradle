@@ -18,6 +18,8 @@ dependencies {
     implementation(libs.squareup.moshi.converter)
     implementation(libs.jetbrains.coroutines.android)
 
+    implementation(projects.core.debugHelper.androidLibrary)
+
     debugImplementation(libs.pandulapetor.beagle.okhttp)
     releaseImplementation(libs.pandulapetor.beagle.okhttp.noop)
 

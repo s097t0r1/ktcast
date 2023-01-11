@@ -16,11 +16,11 @@ internal class DHProcessor(
     private val metaInfo: MetaInfoProccessor
 ) : SymbolProcessor {
 
-
-    val baseFiles: MutableList<Int> = mutableListOf()
     private var isAlreadyProcessed = false
+    private val baseFiles: MutableList<Int> = mutableListOf()
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
+        if (isAlreadyProcessed) return emptyList()
         logger.warn("Processing...")
         if (isAlreadyProcessed) return emptyList()
         val ret = resolver.getSymbolsWithAnnotation(ComponentHolder::class.qualifiedName!!)

@@ -9,7 +9,6 @@ import javax.inject.Inject
 
 interface SecureStorage {
 
-    var role: Role?
     var webToken: String?
 
     fun clear()
@@ -34,12 +33,6 @@ internal class AndroidSecureStorage @Inject constructor(context: Context) : Secu
         EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
         EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
     )
-
-    override var role: Role?
-        get() = sharedPreferences.getString(ROLE_KEY, null)?.let(Role::valueOf)
-        set(value) = sharedPreferences.edit {
-            putString(ROLE_KEY, value?.name)
-        }
 
     override var webToken: String?
         get() = sharedPreferences.getString(WEB_TOKEN_KEY, null)
