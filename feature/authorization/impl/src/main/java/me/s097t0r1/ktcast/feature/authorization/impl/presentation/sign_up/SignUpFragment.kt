@@ -13,8 +13,8 @@ import javax.inject.Provider
 import me.s097t0r1.core.mvi.base.BaseFragment
 import me.s097t0r1.core.navigation.base.NavigationProvider
 import me.s097t0r1.ktcast.feature.authorization.impl.di.AuthorizationComponentHolder
+import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation.SignUpNavProvider
 import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation.SignUpNavigationGraph
-import me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation.SignUpNavigationProvider
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpScreen
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpSideEffect
 import me.s097t0r1.ktcast.feature.authorization.screens.sign_up.SignUpUIState
@@ -27,7 +27,7 @@ internal class SignUpFragment :
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
-    lateinit var navigationProviderFactory: Provider<SignUpNavigationProvider>
+    lateinit var navigationProviderFactory: Provider<SignUpNavProvider>
 
     override val viewModel: SignUpViewModel by viewModels { viewModelFactory }
 

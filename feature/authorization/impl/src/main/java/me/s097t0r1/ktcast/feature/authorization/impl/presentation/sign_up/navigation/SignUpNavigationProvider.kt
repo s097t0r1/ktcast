@@ -1,30 +1,21 @@
 package me.s097t0r1.ktcast.feature.authorization.impl.presentation.sign_up.navigation
 
+import android.os.Bundle
 import javax.inject.Inject
-import me.s097t0r1.core.navigation.base.NavigationProvider
-import me.s097t0r1.core.navigation.message.ReplaceMessage
-import me.s097t0r1.core.navigation.message.StartFlowMessage
+import kotlin.reflect.KClass
+import me.s097t0r1.core.navigation.base.NavProvider
 import me.s097t0r1.core.navigation.router.Router
-import me.s097t0r1.ktcast.feature.authorization.impl.navigation.SignInScreen
-import me.s097t0r1.ktcast.feature.profile.api.ProfileFeatureStarter
 
-class SignUpNavigationProvider @Inject constructor(
-    private val profileStarter: ProfileFeatureStarter
-) : NavigationProvider<SignUpNavigationGraph> {
+class SignUpNavProvider @Inject constructor(
+    private val signUpNavigationGraph: SignUpNavigationGraph
+) : NavProvider<SignUpNavigationGraph.SignUpNavigationNode> {
 
-    override fun navigate(router: Router, screen: SignUpNavigationGraph) {
-        when (screen) {
-            is SignUpNavigationGraph.FillProfileScreen -> showFillProfile(router, screen)
-            is SignUpNavigationGraph.SignInScreen -> showSignIn(router, screen)
-        }
-    }
-
-    private fun showSignIn(router: Router, screen: SignUpNavigationGraph.SignInScreen) {
-        router.navigate(ReplaceMessage(SignInScreen()))
-    }
-
-    private fun showFillProfile(
+    override fun route(
         router: Router,
-        screen: SignUpNavigationGraph.FillProfileScreen
-    ) = router.navigate(StartFlowMessage(profileStarter.start()))
+        nodeClazz: KClass<SignUpNavigationGraph.SignUpNavigationNode>,
+        params: Bundle
+    ) {
+        signUpNavigationGraph.navigate(router, nodeClazz, params)
+    }
+
 }
